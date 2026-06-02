@@ -1,0 +1,353 @@
+[gd_scene format=3 uid="uid://ddw1rm1po6bc4"]
+
+[ext_resource type="Script" uid="uid://5my12u71qs1x" path="res://Scripts/Menus/MainMenu/MainMenu.gd" id="1_xib3m"]
+[ext_resource type="Texture2D" uid="uid://dfmg8misquwjt" path="res://Art/Wallpapers/EldenRingWallpaper.jpg" id="2_4t8jm"]
+[ext_resource type="Script" uid="uid://br5nxxm86d6ox" path="res://Scripts/Menus/MainMenu/HomePanel.gd" id="3_1gh2g"]
+[ext_resource type="Script" uid="uid://bm3lbnlpfarxf" path="res://Scripts/Menus/MainMenu/NewPanel.gd" id="4_4t8jm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ewjn6"]
+
+[sub_resource type="Theme" id="Theme_2fpc5"]
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_4t8jm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ie5gr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sri54"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rox5g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oypmr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fpc5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwsnr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wc7cq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qycna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gfix8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7kvy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4uw1g"]
+
+[node name="MainMenu" type="Control" unique_id=511701726]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xib3m")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1201554795]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4t8jm")
+expand_mode = 2
+
+[node name="HomePanel" type="Panel" parent="." unique_id=1394822665]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ewjn6")
+script = ExtResource("3_1gh2g")
+
+[node name="Menu" type="Control" parent="HomePanel" unique_id=1079506092]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -262.0
+offset_right = 259.0
+offset_bottom = -15.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HomePanel/Menu" unique_id=246558164]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.875
+offset_right = 37.874878
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2fpc5")
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="New" type="Button" parent="HomePanel/Menu/VBoxContainer" unique_id=230245570]
+custom_minimum_size = Vector2(0, 51.97)
+layout_mode = 2
+theme = SubResource("Theme_4t8jm")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92156863, 0.75686276, 0.36862746, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie5gr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sri54")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rox5g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oypmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fpc5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_iwsnr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wc7cq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qycna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gfix8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i7kvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4uw1g")
+text = "New"
+alignment = 0
+
+[node name="Load" type="Button" parent="HomePanel/Menu/VBoxContainer" unique_id=205785875]
+custom_minimum_size = Vector2(0, 51.97)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92156863, 0.75686276, 0.36862746, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie5gr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sri54")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rox5g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oypmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fpc5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_iwsnr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wc7cq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qycna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gfix8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i7kvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4uw1g")
+text = "Load"
+alignment = 0
+
+[node name="Settings" type="Button" parent="HomePanel/Menu/VBoxContainer" unique_id=1677554538]
+custom_minimum_size = Vector2(0, 51.97)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92156863, 0.75686276, 0.36862746, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie5gr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sri54")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rox5g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oypmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fpc5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_iwsnr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wc7cq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qycna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gfix8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i7kvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4uw1g")
+text = "Settings"
+alignment = 0
+
+[node name="Quit" type="Button" parent="HomePanel/Menu/VBoxContainer" unique_id=998096948]
+custom_minimum_size = Vector2(0, 51.97)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92156863, 0.75686276, 0.36862746, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie5gr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sri54")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rox5g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oypmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fpc5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_iwsnr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wc7cq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qycna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gfix8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i7kvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4uw1g")
+text = "Quit"
+alignment = 0
+
+[node name="NewPanel" type="Panel" parent="." unique_id=400034906]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ewjn6")
+script = ExtResource("4_4t8jm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NewPanel" unique_id=214070937]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.875
+offset_top = -262.0
+offset_right = 271.87488
+offset_bottom = -15.0
+grow_vertical = 0
+theme = SubResource("Theme_2fpc5")
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="StartGame" type="Button" parent="NewPanel/VBoxContainer" unique_id=776921100]
+custom_minimum_size = Vector2(0, 51.97)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92156863, 0.75686276, 0.36862746, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie5gr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sri54")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rox5g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oypmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fpc5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_iwsnr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wc7cq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qycna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gfix8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i7kvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4uw1g")
+text = "Start New Game"
+alignment = 0
+
+[node name="Back" type="Button" parent="NewPanel/VBoxContainer" unique_id=1796950543]
+custom_minimum_size = Vector2(0, 51.97)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92156863, 0.75686276, 0.36862746, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie5gr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sri54")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rox5g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oypmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fpc5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_iwsnr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wc7cq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qycna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gfix8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i7kvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4uw1g")
+text = "Back"
+alignment = 0
+
+[node name="LoadPanel" type="Panel" parent="." unique_id=173374123]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ewjn6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadPanel" unique_id=1987378691]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.875
+offset_top = -262.0
+offset_right = 271.87488
+offset_bottom = -15.0
+grow_vertical = 0
+theme = SubResource("Theme_2fpc5")
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="StartGame" type="Button" parent="LoadPanel/VBoxContainer" unique_id=1022735952]
+custom_minimum_size = Vector2(0, 51.97)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92156863, 0.75686276, 0.36862746, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie5gr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sri54")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rox5g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oypmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fpc5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_iwsnr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wc7cq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qycna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gfix8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i7kvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4uw1g")
+text = "Start New Game"
+alignment = 0
+
+[node name="Back" type="Button" parent="LoadPanel/VBoxContainer" unique_id=1273224905]
+custom_minimum_size = Vector2(0, 51.97)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92156863, 0.75686276, 0.36862746, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie5gr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sri54")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rox5g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oypmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fpc5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_iwsnr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wc7cq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qycna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gfix8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i7kvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4uw1g")
+text = "Back"
+alignment = 0
+
+[node name="SettingsPanel" type="Panel" parent="." unique_id=831837593]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ewjn6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel" unique_id=1702490562]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.875
+offset_top = -262.0
+offset_right = 271.87488
+offset_bottom = -15.0
+grow_vertical = 0
+theme = SubResource("Theme_2fpc5")
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="StartGame" type="Button" parent="SettingsPanel/VBoxContainer" unique_id=728340045]
+custom_minimum_size = Vector2(0, 51.97)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92156863, 0.75686276, 0.36862746, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie5gr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sri54")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rox5g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oypmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fpc5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_iwsnr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wc7cq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qycna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gfix8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i7kvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4uw1g")
+text = "Start New Game"
+alignment = 0
+
+[node name="Back" type="Button" parent="SettingsPanel/VBoxContainer" unique_id=1132303069]
+custom_minimum_size = Vector2(0, 51.97)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92156863, 0.75686276, 0.36862746, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie5gr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sri54")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rox5g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oypmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fpc5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_iwsnr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wc7cq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qycna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gfix8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i7kvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4uw1g")
+text = "Back"
+alignment = 0

@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://dbo0lavac3y6c"]
+
+[ext_resource type="FontFile" uid="uid://bq6yko03u0vg" path="res://Art/Fonts/medieval_sharp/MedievalSharp-Bold.ttf" id="1_60v6t"]
+
+[resource]
+default_font = ExtResource("1_60v6t")

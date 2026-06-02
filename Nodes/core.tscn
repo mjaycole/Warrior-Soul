@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ewu4rmlyoqgg"]
+
+[ext_resource type="Script" uid="uid://ku3da652toyf" path="res://Scripts/Core.gd" id="1_1ub5j"]
+[ext_resource type="Script" uid="uid://m8kt1otdmbwg" path="res://Scripts/Items/Item.gd" id="2_ewjn6"]
+[ext_resource type="Resource" uid="uid://c8cp5yd4v3ofo" path="res://Scripts/Items/AllItems/BrokenSword.tres" id="3_sri54"]
+[ext_resource type="Script" uid="uid://uqj38tt6wavw" path="res://Scripts/Player/PlayerInventory.gd" id="4_rox5g"]
+[ext_resource type="Script" uid="uid://do74wl5jse4a3" path="res://Scripts/Player/PlayerData.gd" id="5_oypmr"]
+
+[sub_resource type="Resource" id="Resource_iwsnr"]
+script = ExtResource("4_rox5g")
+items = Array[ExtResource("2_ewjn6")]([ExtResource("3_sri54")])
+metadata/_custom_type_script = "uid://uqj38tt6wavw"
+
+[sub_resource type="Resource" id="Resource_wc7cq"]
+script = ExtResource("5_oypmr")
+inventory = SubResource("Resource_iwsnr")
+metadata/_custom_type_script = "uid://do74wl5jse4a3"
+
+[node name="Core" type="Node" unique_id=121841864]
+script = ExtResource("1_1ub5j")
+player_data = SubResource("Resource_wc7cq")

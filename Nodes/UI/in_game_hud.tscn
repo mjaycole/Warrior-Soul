@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://c1hdytt4gspd"]
+
+[ext_resource type="Texture2D" uid="uid://dvjf0dq8vbngl" path="res://Art/Misc/blanksquare.jpg" id="1_7unfx"]
+[ext_resource type="Script" uid="uid://bxda8c1pasfr1" path="res://Scripts/Menus/HUD/HUDManager.gd" id="1_ui5pr"]
+
+[node name="InGameHUD" type="Control" unique_id=1046953760]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ui5pr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=322393616]
+
+[node name="ActiveItems" type="Control" parent="CanvasLayer" unique_id=948074379]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -170.0
+offset_right = 220.0
+offset_bottom = -20.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/ActiveItems" unique_id=1103167400]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="RightHand" type="Control" parent="CanvasLayer/ActiveItems" unique_id=574200171]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -30.0
+offset_right = -20.000046
+offset_bottom = 30.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/ActiveItems/RightHand" unique_id=708865073]
+modulate = Color(0, 0, 0, 0.84313726)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7unfx")
+expand_mode = 1
+
+[node name="ItemIcon" type="TextureRect" parent="CanvasLayer/ActiveItems/RightHand" unique_id=1394569336]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 5.0000076
+offset_right = -5.7249985
+offset_bottom = -4.9999924
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+stretch_mode = 5
+
+[node name="LeftHand" type="Control" parent="CanvasLayer/ActiveItems" unique_id=597348114]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -30.0
+offset_right = 70.00001
+offset_bottom = 30.0
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/ActiveItems/LeftHand" unique_id=1747286163]
+modulate = Color(0, 0, 0, 0.84313726)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7unfx")
+expand_mode = 1
+
+[node name="ItemIcon" type="TextureRect" parent="CanvasLayer/ActiveItems/LeftHand" unique_id=559632381]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 5.0000076
+offset_right = -5.7249985
+offset_bottom = -4.9999924
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ItemNorth" type="Control" parent="CanvasLayer/ActiveItems" unique_id=484932348]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 70.0
+grow_horizontal = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/ActiveItems/ItemNorth" unique_id=1229495369]
+modulate = Color(0, 0, 0, 0.84313726)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7unfx")
+expand_mode = 1
+
+[node name="ItemIcon" type="TextureRect" parent="CanvasLayer/ActiveItems/ItemNorth" unique_id=723288813]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 5.0000076
+offset_right = -5.7249985
+offset_bottom = -4.9999924
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ItemSouth" type="Control" parent="CanvasLayer/ActiveItems" unique_id=50746944]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -70.0
+offset_right = 25.0
+offset_bottom = -10.000015
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/ActiveItems/ItemSouth" unique_id=1534038373]
+modulate = Color(0, 0, 0, 0.84313726)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7unfx")
+expand_mode = 1
+
+[node name="ItemIcon" type="TextureRect" parent="CanvasLayer/ActiveItems/ItemSouth" unique_id=575184093]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 5.0000076
+offset_right = -5.7249985
+offset_bottom = -4.9999924
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+stretch_mode = 5

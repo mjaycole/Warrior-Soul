@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c483flcsuclnv"]
+
+[ext_resource type="Script" uid="uid://d3d5xm5jv0unf" path="res://Scripts/Bootstrap.gd" id="1_oi1yf"]
+[ext_resource type="Script" uid="uid://bycjcef4fh3m7" path="res://Scripts/CoreSystems/UIManager.gd" id="2_ynogd"]
+[ext_resource type="Script" uid="uid://bqtinaft0xjs3" path="res://Scripts/CoreSystems/GameWorldManager.gd" id="3_ynogd"]
+
+[node name="Bootstrap" type="Node" unique_id=1468824876]
+script = ExtResource("1_oi1yf")
+metadata/SkipMenu = false
+
+[node name="UIManager" type="Control" parent="." unique_id=1772483262]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ynogd")
+
+[node name="GameWorld" type="Node" parent="." unique_id=151203894]
+script = ExtResource("3_ynogd")

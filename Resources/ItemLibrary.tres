@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemLibrary" format=3 uid="uid://d024pt0ekeyuc"]
+
+[ext_resource type="Script" uid="uid://m8kt1otdmbwg" path="res://Scripts/Items/Item.gd" id="1_qtb7u"]
+[ext_resource type="Resource" uid="uid://c8cp5yd4v3ofo" path="res://Scripts/Items/AllItems/BrokenSword.tres" id="2_e35x6"]
+[ext_resource type="Script" uid="uid://ccw1d305kdvhs" path="res://Scripts/Items/ItemLibrary.gd" id="2_iadmr"]
+
+[resource]
+script = ExtResource("2_iadmr")
+items = Array[ExtResource("1_qtb7u")]([ExtResource("2_e35x6")])
+metadata/_custom_type_script = "uid://ccw1d305kdvhs"
