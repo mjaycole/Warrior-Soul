@@ -1,0 +1,15 @@
+AudioStreamPlayer
+Node
+Node2D
+CanvasLayer
+TextureRect
+Control
+CollisionShape2D
+Area2D
+AnimationPlayer
+Sprite2D
+RayCast2D
+Camera2D
+AnimatedSprite2D
+CharacterBody2D
+TileMapLayer
