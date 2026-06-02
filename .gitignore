@@ -1,0 +1,15 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific optional to uncomment
+#import/
+
+# Exported projects
+export/
+*.apk
+*.aab
+*.ipa
+
+# OS generated
+.DS_Store
+Thumbs.db
