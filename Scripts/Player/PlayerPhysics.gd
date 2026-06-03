@@ -89,7 +89,7 @@ func handle_state_change(new_state: player_controller.State):
 func calculated_physics(delta):
 	direction = Input.get_axis("MoveLeft", "MoveRight")
 	
-	if player_state == player_controller.State.ATTACKING:
+	if player_state == player_controller.State.USING_ITEM:
 		apply_gravity(delta)
 
 		character_body.move_and_slide()

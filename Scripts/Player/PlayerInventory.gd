@@ -12,10 +12,12 @@ signal active_items_changed
 @export var items: Array[Item] = []
 @export var max_slots: int = 10
 
-@export var right_hand: Item = null
-@export var left_hand: Item = null
-@export var item_north: Item = null
-@export var item_south: Item = null
+@export var active_items: Dictionary = {
+    "right_hand": null,
+    "left_hand": null,
+    "item_north": null,
+    "item_south": null
+}
 
 
 #Core Item Lookup
@@ -47,22 +49,7 @@ func has_item_name(item_name: String) -> bool:
 
 
 #Active Items
-func set_right_hand(item: Item):
-	right_hand = item
-	
-	active_items_changed.emit()
-	
-func set_left_hand(item: Item):
-	left_hand = item
-	
-	active_items_changed.emit()
+func set_active_item(slot: String, item: Item):
+	active_items[slot] = item
 
-func set_item_north(item: Item):
-	item_north = item
-	
-	active_items_changed.emit()
-	
-func set_item_south(item: Item):
-	item_south = item
-	
 	active_items_changed.emit()

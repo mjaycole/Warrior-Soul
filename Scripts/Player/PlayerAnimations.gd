@@ -41,9 +41,6 @@ func handle_animations():
 		player_controller.State.PUSHING: handle_push()
 		player_controller.State.CLIMBING: handle_climb()
 
-func handle_right_hand_attack():
-	handle_right_attack()
-
 func handle_direction():
 	if character_controller.velocity.x < 0:
 		player_sprite.flip_h = false
@@ -92,12 +89,12 @@ func handle_climb():
 	if current_animation != "dash":
 		play("dash")
 
-func handle_right_attack():
+func handle_item_use():
 	speed_scale = 1
 	var animation
 	
-	if Core.player_data.inventory.right_hand:
-		var weapon = Core.player_data.inventory.right_hand as Weapon
+	if Core.player_data.inventory.active_items["right_hand"]:
+		var weapon = Core.player_data.inventory.active_items["right_hand"] as Weapon
 		
 		if weapon.weapon_type == Weapon.WeaponType.MELEE:
 			animation = "melee_attack"
@@ -105,7 +102,6 @@ func handle_right_attack():
 
 	if current_animation != animation:
 		play(animation)
-		
 		
 		
 		

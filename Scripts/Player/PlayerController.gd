@@ -11,9 +11,10 @@ signal player_use_item(item_compass)
 @onready var player_animations = $AnimationPlayer
 @onready var player_physics = $Physics
 @onready var player_item_use = $"PlayerItemUsage"
+@onready var player_attack = $"PlayerAttack"
 
 #State Machine
-enum State { IDLE, WALKING, SPRINTING, PUSHING, JUMPING, FALLING, DASHING, GRABBING_LEDGE, CLIMBING, ATTACKING, DEAD }
+enum State { IDLE, WALKING, SPRINTING, PUSHING, JUMPING, FALLING, DASHING, GRABBING_LEDGE, CLIMBING, USING_ITEM, DEAD }
 var current_state = State.IDLE
 
 
@@ -21,7 +22,7 @@ var current_state = State.IDLE
 func _ready():
 	print("Player Inventory Exists: ", Core.player_data.inventory.has_item_name("Broken Sword"))
 	
-	Core.player_data.inventory.set_right_hand(Core.player_data.inventory.items[0])
+	Core.player_data.inventory.set_active_item("right_hand", Core.player_data.inventory.items[0])
 	
 	player_state_changed.emit(current_state)
 	player_physics.walk_input.connect(handle_walk_input)
@@ -36,6 +37,8 @@ func _ready():
 	player_physics.climbing_finished.connect(handle_climb_finished)
 	
 	player_item_use.item_use.connect(handle_item_use)
+
+	player_attack.attack_finished.connect(handle_attack_finished)
 
 func _physics_process(delta: float):
 	player_animations.handle_animations()
@@ -53,10 +56,12 @@ func reset_state():
 	else: 
 		switch_state(State.IDLE)
 
+func can_process_movement() -> bool:
+	return current_state != State.USING_ITEM && current_state != State.DEAD
 
 #Movement Listeners
 func handle_walk_input(is_sprinting: bool):
-	if current_state == State.ATTACKING:
+	if not can_process_movement():
 		return
 		
 	if is_sprinting:
@@ -65,13 +70,13 @@ func handle_walk_input(is_sprinting: bool):
 		switch_state(State.WALKING)
 
 func handle_idle_input():
-	if current_state == State.ATTACKING:
+	if not can_process_movement():
 		return
 		
 	switch_state(State.IDLE)
 	
 func handle_jump_input(jumping: bool):
-	if current_state == State.ATTACKING:
+	if not can_process_movement():
 		return
 		
 	if jumping:
@@ -80,25 +85,25 @@ func handle_jump_input(jumping: bool):
 		switch_state(State.FALLING)
 
 func handle_jump_finish():
-	if current_state == State.ATTACKING:
+	if not can_process_movement():
 		return
 		
 	reset_state()
 
 func handle_dash_input():
-	if current_state == State.ATTACKING:
+	if not can_process_movement():
 		return
 		
 	switch_state(State.DASHING)
 
 func handle_dash_finish():
-	if current_state == State.ATTACKING:
+	if not can_process_movement():
 		return
 		
 	reset_state()
 
 func handle_push(pushing: bool):
-	if current_state == State.ATTACKING:
+	if not can_process_movement():
 		return
 		
 	if pushing:
@@ -107,46 +112,49 @@ func handle_push(pushing: bool):
 		reset_state()
 
 func handle_ledge_grab(on_ledge: bool):
-	if current_state == State.ATTACKING:
+	if not can_process_movement():
 		return
 		
 	if on_ledge:
 		switch_state(State.GRABBING_LEDGE)
 
 func handle_climb():
-	if current_state == State.ATTACKING:
+	if not can_process_movement():
 		return
 		
 	switch_state(State.CLIMBING)
 
 func handle_climb_finished():
-	if current_state == State.ATTACKING:
+	if not can_process_movement():
 		return
 		
 	reset_state()
 
 #Item Usage Listeners
 func handle_item_use(item_compass: String):
-	match item_compass:
-		"right_hand": handle_right_hand_item()
-			
-func handle_right_hand_item():
 	if current_state == State.DEAD:
 		return
-	
-	if Core.player_data.inventory.right_hand == null:
-		return
-		
-	if current_state == State.DASHING or current_state == State.ATTACKING or current_state == State.GRABBING_LEDGE or current_state == State.CLIMBING:
+
+	var item: Item = Core.player_data.inventory.active_items[item_compass]
+
+	if item == null:
 		return
 
-	var weapon = Core.player_data.inventory.right_hand as Weapon
+	if current_state == State.DASHING or current_state == State.USING_ITEM or current_state == State.GRABBING_LEDGE or current_state == State.CLIMBING:
+		return
 
-	switch_state(State.ATTACKING)
+	match item.item_type:
+		Item.ItemType.WEAPON: handle_attack(item as Weapon)
+
+
+func handle_attack(weapon: Weapon):
+	var mouse_pos = get_global_mouse_position()
 
 	player_use_item.emit(weapon.id)
-	player_animations.handle_right_hand_attack()
+	player_animations.handle_item_use()
+	player_attack.handle_attack(weapon, global_position, mouse_pos)
 	
-	await get_tree().create_timer(weapon.attack_time).timeout
+	switch_state(State.USING_ITEM)
 	
+func handle_attack_finished():
 	reset_state()

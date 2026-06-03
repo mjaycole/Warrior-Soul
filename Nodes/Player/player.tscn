@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cjipreb2udmdu" path="res://Scripts/Player/PlayerAnimations.gd" id="3_lkjqq"]
 [ext_resource type="Script" uid="uid://7affc6kaebr" path="res://Scripts/Player/PlayerPhysics.gd" id="4_q1ymb"]
 [ext_resource type="Script" uid="uid://l8ha44y3vbhc" path="res://Scripts/Player/PlayerItemUsage.gd" id="5_sldgk"]
+[ext_resource type="Script" uid="uid://crgu2q5fy3iak" path="res://Scripts/Player/PlayerAttack.gd" id="6_tdvti"]
 
 [sub_resource type="Animation" id="Animation_q1ymb"]
 length = 0.001
@@ -280,8 +281,9 @@ scale = Vector2(0.045, 0.045)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Raycasts/LedgeDetection" unique_id=831554184]
 shape = SubResource("CircleShape2D_q1ymb")
 
-[node name="Collisions" type="Node2D" parent="." unique_id=1110309381]
-position = Vector2(0, -12)
-
 [node name="PlayerItemUsage" type="Node2D" parent="." unique_id=1939753630]
 script = ExtResource("5_sldgk")
+
+[node name="PlayerAttack" type="Node2D" parent="." unique_id=355605825]
+position = Vector2(0, -7)
+script = ExtResource("6_tdvti")

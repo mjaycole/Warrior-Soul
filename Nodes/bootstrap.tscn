@@ -6,7 +6,7 @@
 
 [node name="Bootstrap" type="Node" unique_id=1468824876]
 script = ExtResource("1_oi1yf")
-metadata/SkipMenu = false
+metadata/SkipMenu = true
 
 [node name="UIManager" type="Control" parent="." unique_id=1772483262]
 layout_mode = 3

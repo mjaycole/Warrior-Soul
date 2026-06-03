@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ccidi0elom3x" path="res://Scripts/Sandbox.gd" id="1_g4cgc"]
 [ext_resource type="TileSet" uid="uid://ciuekcbannfk4" path="res://Art/Packs/Itch Sam/TileSet.tres" id="1_tlfbf"]
 [ext_resource type="Script" uid="uid://b0l04d8gnvvar" path="res://Scripts/Player/PlayerCamera.gd" id="3_a532h"]
+[ext_resource type="PackedScene" uid="uid://cx0vs0pwg3ues" path="res://Nodes/Destructible Enviro/dummy_crate.tscn" id="4_pha0y"]
 
 [node name="Sandbox" type="Node2D" unique_id=236937934]
 script = ExtResource("1_g4cgc")
@@ -25,3 +26,8 @@ process_callback = 0
 limit_enabled = false
 position_smoothing_enabled = true
 script = ExtResource("3_a532h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=982819908]
+
+[node name="DummyCrate" parent="StaticBody2D" unique_id=1284497722 instance=ExtResource("4_pha0y")]
+position = Vector2(350, 122)
