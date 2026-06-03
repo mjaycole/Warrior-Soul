@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cx0vs0pwg3ues"]
+
+[ext_resource type="Texture2D" uid="uid://dncqjblxqtum7" path="res://icon.svg" id="1_73k0b"]
+[ext_resource type="Script" uid="uid://bwj8y3a7pxen" path="res://Scripts/Environment/DummyCrate.gd" id="1_a1w6g"]
+[ext_resource type="PackedScene" uid="uid://fem4nbjc64l" path="res://Assets/CompositionPieces/damageable.tscn" id="3_80ngq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uospi"]
+
+[node name="DummyCrate" type="Node2D" unique_id=1284497722]
+script = ExtResource("1_a1w6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=975917347]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_73k0b")
+
+[node name="Damageable" parent="." unique_id=11218394 instance=ExtResource("3_80ngq")]
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable" unique_id=1159216227]
+shape = SubResource("RectangleShape2D_uospi")

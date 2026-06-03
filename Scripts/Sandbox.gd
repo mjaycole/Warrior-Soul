@@ -12,7 +12,7 @@ func _ready():
 	connect_camera()
 
 func spawn_player():
-	player = preload("res://Nodes/Player/player.tscn").instantiate()
+	player = preload("res://Assets/Player/player.tscn").instantiate()
 	player_spawn.add_child(player)
 
 func connect_camera():

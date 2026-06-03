@@ -2,6 +2,7 @@
 
 extends Node2D
 
+# Signals
 signal walk_input(is_sprinting)
 signal idle_input
 signal jump_input(is_jumping)
@@ -13,14 +14,16 @@ signal ledge_grabbed(grabbed)
 signal climbing_input
 signal climbing_finished
 
-var SPEED = 100.0
-var JUMP_VELOCITY = -300.0
-var SPRINT_MODIFIER = 1.5
-var COYOTE_TIME = 1.0
-var DASH_VELOCITY = -200.0
-var DASH_TIME = .5
-var PUSH_SPEED = 100.0
-var CLIMB_TIME = .25
+# Base Variables
+@export var SPEED = 100.0
+@export var JUMP_VELOCITY = -300.0
+@export var SPRINT_MODIFIER = 1.5
+@export var COYOTE_TIME = 1.0
+@export var DASH_VELOCITY = -200.0
+@export var DASH_TIME = .5
+@export var PUSH_SPEED = 100.0
+@export var CLIMB_TIME = .25
+@export var IN_AIR_LOSE_SPEED = 15
 
 var current_sprint_modifier = 1
 
@@ -36,7 +39,6 @@ var last_direction: int = -1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumping: bool = false
 var was_on_floor: bool = true
-var in_air_lose_speed: float = 10
 var time_off_platform = 0
 var sprinting: bool = false
 var dashing: bool = false
@@ -48,15 +50,6 @@ var climb_timer: float = 0.0
 var climb_position
 
 func _ready():
-	SPEED = get_meta("Speed")
-	SPRINT_MODIFIER = get_meta("SprintModifier")
-	JUMP_VELOCITY = get_meta("Jump")
-	COYOTE_TIME = get_meta("CoyoteTime")
-	DASH_VELOCITY = get_meta("DashModifier")
-	DASH_TIME = get_meta("DashTime")
-	PUSH_SPEED = get_meta("PushSpeed")
-	CLIMB_TIME = get_meta("ClimbTime")
-	
 	character_body = get_parent()
 	character_body.player_state_changed.connect(handle_state_change)
 	character_body.player_use_item.connect(handle_item_used)
@@ -132,11 +125,13 @@ func handle_movement():
 		
 	if on_ledge:
 		return
-			
+
+	# If we are pushing against something
 	if against_wall && direction != 0:
 		push_input.emit(true)		
 		character_body.velocity.x = direction * PUSH_SPEED
 		
+		# If we are pushing against something while in the air, make sure to grab the ledge if possible
 		if character_body.velocity.y > 0 && grabbable_ledge && not on_ledge && not climbing:
 			on_ledge = true
 			
@@ -144,16 +139,19 @@ func handle_movement():
 			character_body.velocity = Vector2.ZERO
 		return
 	
+	# If we are against a wall but not moving towards it
 	if against_wall && direction == 0:
 		push_input.emit(false)
 
+		# If we are in the air, grab the ledge if possible
 		if character_body.velocity.y > 0 && grabbable_ledge && not on_ledge && not climbing:
 			on_ledge = true
 			
 			ledge_grabbed.emit(on_ledge)
 			character_body.velocity = Vector2.ZERO
 		return
-		
+	
+	# Apply velocity for normal movement
 	character_body.velocity.x = direction * SPEED * current_sprint_modifier
 
 	if character_body.is_on_floor() and not jumping:
@@ -223,7 +221,7 @@ func handle_fall_state(delta: float):
 		if character_body.velocity.y > 0:
 			jump_input.emit(false)
 			if character_body.velocity.x != 0:
-				character_body.velocity.x = lerpf(character_body.velocity.x, 0.0, delta * in_air_lose_speed)
+				character_body.velocity.x = lerpf(character_body.velocity.x, 0.0, delta * IN_AIR_LOSE_SPEED)
 	elif jumping and not was_on_floor:
 		jumping = false
 		jump_finish.emit()

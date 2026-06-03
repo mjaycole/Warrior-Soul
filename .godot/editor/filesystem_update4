@@ -1,20 +1,20 @@
-res://Scripts/Interfaces/IDamageTaker.gd
-res://Nodes/Player/player.tscn
+res://Nodes/sandbox.tscn
 res://Resources/starting_data.tres
 res://Art/Packs/Itch Sam/TileSet.tres
-res://Scripts/Items/Item.gd
-res://Scripts/Environment/DummyCrate.gd
-res://Nodes/Destructible Enviro/dummy_crate.tscn
-res://Nodes/sandbox.tscn
-res://Nodes/bootstrap.tscn
-res://Scripts/Interfaces/Damageable.gd
-res://Scripts/Interfaces/DamageDealer.gd
-res://Scripts/Player/PlayerController.gd
-res://Scripts/Items/AllItems/BrokenSword.tres
-res://Scripts/Items/Weapon.gd
+res://Nodes/Player/player.tscn
+res://Art/Textures/player_light.tres
+res://Assets/Environment/lantern.tscn
+res://Assets/Environment/dummy_crate.tscn
+res://Assets/Hurtboxes/basic_hurt_box.tscn
+res://read_me.txt
+res://Assets/CompositionPieces/hurtbox.tscn
+res://Scripts/Compositions/Hurtbox.gd
 res://Scripts/Player/PlayerAttack.gd
-res://Nodes/DamageDealers/basic_damage_dealer.tscn
-res://Scripts/Player/PlayerAnimations.gd
-res://Scripts/Player/PlayerInventory.gd
-res://Scripts/Player/PlayerPhysics.gd
+res://Assets/Player/player.tscn
+res://Scripts/Sandbox.gd
+res://Nodes/bootstrap.tscn
+res://Scripts/Player/PlayerController.gd
 res://Scripts/Menus/HUD/HUDManager.gd
+res://Scripts/Player/PlayerStats.gd
+res://Scripts/Player/PlayerCamera.gd
+res://Scripts/Player/PlayerPhysics.gd

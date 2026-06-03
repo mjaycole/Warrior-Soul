@@ -27,6 +27,17 @@ Core="*uid://ku3da652toyf"
 window/size/viewport_width=960
 window/size/viewport_height=540
 
+[file_customization]
+
+folder_colors={
+"res://Art/": "red",
+"res://Assets/": "orange",
+"res://Audio/": "yellow",
+"res://Nodes/": "green",
+"res://Resources/": "blue",
+"res://Scripts/": "purple"
+}
+
 [gui]
 
 theme/custom_font="uid://bq6yko03u0vg"
@@ -75,6 +86,7 @@ RightHandItem={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+2d/default_gravity=750.0
 
 [rendering]
 

@@ -3,5 +3,8 @@
 extends Resource
 class_name  PlayerStat
 
-#Handles player physical stats
+# Signals
+signal player_stats_changed
+
+# Handles player physical stats
 @export var max_health: float = 100

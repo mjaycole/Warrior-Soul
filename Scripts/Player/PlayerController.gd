@@ -14,14 +14,17 @@ signal player_use_item(item_compass)
 @onready var player_attack = $"PlayerAttack"
 
 #State Machine
-enum State { IDLE, WALKING, SPRINTING, PUSHING, JUMPING, FALLING, DASHING, GRABBING_LEDGE, CLIMBING, USING_ITEM, DEAD }
+enum State { 
+	IDLE, WALKING, SPRINTING, PUSHING, JUMPING, FALLING, 
+	DASHING, GRABBING_LEDGE, CLIMBING, USING_ITEM, DEAD }
+
 var current_state = State.IDLE
 
 
+#region Godot Functions
 #Godot Functions
 func _ready():
-	print("Player Inventory Exists: ", Core.player_data.inventory.has_item_name("Broken Sword"))
-	
+	#TODO - Move this over to game initialization logic	
 	Core.player_data.inventory.set_active_item("right_hand", Core.player_data.inventory.items[0])
 	
 	player_state_changed.emit(current_state)
@@ -44,95 +47,136 @@ func _physics_process(delta: float):
 	player_animations.handle_animations()
 	player_physics.calculated_physics(delta)
 
+#endregion
 
+#region State Changing
 #State Changing
 func switch_state(new_state: State):
+	if not can_go_to_state(new_state):
+		return
+
 	current_state = new_state
 	player_state_changed.emit(current_state)
 
+func can_go_to_state(state: State) -> bool:
+	# Dead is a terminal state - can't leave it
+	if current_state == State.DEAD:
+		return false
+
+	match state:
+		State.IDLE, State.WALKING, State.SPRINTING, State.PUSHING, State.FALLING: 
+			return current_state != State.USING_ITEM
+
+		State.JUMPING:
+			return current_state not in [
+				State.USING_ITEM,
+				State.DASHING,
+				State.CLIMBING
+			]
+
+		State.DASHING: 
+			return current_state not in [
+				State.USING_ITEM,
+				State.DASHING,
+				State.GRABBING_LEDGE,
+				State.CLIMBING
+			]
+
+		State.GRABBING_LEDGE:
+			return current_state not in [
+				State.USING_ITEM,
+				State.GRABBING_LEDGE,
+				State.CLIMBING
+			]
+
+		State.CLIMBING:
+			return current_state in [
+				State.GRABBING_LEDGE
+			]
+
+		State.USING_ITEM:
+			return current_state not in [
+				State.USING_ITEM,
+				State.DASHING,
+				State.GRABBING_LEDGE,
+				State.CLIMBING
+			]
+
+		State.DEAD: 
+			return true
+	
+	# Any unhandled state is blocked - add new states explicitly above
+	return false
+
 func reset_state():
-	if velocity.x != 0:
-		switch_state(State.WALKING)
-	else: 
-		switch_state(State.IDLE)
+	# Override can_go_to_state by setting directly since we're resetting
+	if is_on_floor():
+		if velocity.x != 0:
+			if player_physics.sprinting:
+				current_state = State.SPRINTING
+			else:
+				current_state = State.WALKING
+		else: 
+			switch_state(State.IDLE)
+	else:
+		if velocity.y < 0:
+			current_state = State.JUMPING
+		else:
+			current_state = State.FALLING
 
-func can_process_movement() -> bool:
-	return current_state != State.USING_ITEM && current_state != State.DEAD
+	player_state_changed.emit(current_state)
 
+
+#endregion
+
+#region Movement Listeners
 #Movement Listeners
 func handle_walk_input(is_sprinting: bool):
-	if not can_process_movement():
-		return
-		
 	if is_sprinting:
 		switch_state(State.SPRINTING)
 	else:
 		switch_state(State.WALKING)
 
 func handle_idle_input():
-	if not can_process_movement():
-		return
-		
 	switch_state(State.IDLE)
 	
 func handle_jump_input(jumping: bool):
-	if not can_process_movement():
-		return
-		
 	if jumping:
 		switch_state(State.JUMPING)
 	else:
 		switch_state(State.FALLING)
 
 func handle_jump_finish():
-	if not can_process_movement():
-		return
-		
 	reset_state()
 
 func handle_dash_input():
-	if not can_process_movement():
-		return
-		
 	switch_state(State.DASHING)
 
 func handle_dash_finish():
-	if not can_process_movement():
-		return
-		
 	reset_state()
 
 func handle_push(pushing: bool):
-	if not can_process_movement():
-		return
-		
 	if pushing:
 		switch_state(State.PUSHING)
 	else:
 		reset_state()
 
 func handle_ledge_grab(on_ledge: bool):
-	if not can_process_movement():
-		return
-		
 	if on_ledge:
 		switch_state(State.GRABBING_LEDGE)
 
 func handle_climb():
-	if not can_process_movement():
-		return
-		
 	switch_state(State.CLIMBING)
 
 func handle_climb_finished():
-	if not can_process_movement():
-		return
-		
 	reset_state()
 
+#endregion
+
+#region Item Usage Listeners
 #Item Usage Listeners
 func handle_item_use(item_compass: String):
-	if current_state == State.DEAD:
+	if not can_go_to_state(State.USING_ITEM):
 		return
 
 	var item: Item = Core.player_data.inventory.active_items[item_compass]
@@ -140,12 +184,8 @@ func handle_item_use(item_compass: String):
 	if item == null:
 		return
 
-	if current_state == State.DASHING or current_state == State.USING_ITEM or current_state == State.GRABBING_LEDGE or current_state == State.CLIMBING:
-		return
-
 	match item.item_type:
 		Item.ItemType.WEAPON: handle_attack(item as Weapon)
-
 
 func handle_attack(weapon: Weapon):
 	var mouse_pos = get_global_mouse_position()
@@ -158,3 +198,5 @@ func handle_attack(weapon: Weapon):
 	
 func handle_attack_finished():
 	reset_state()
+
+#endregion

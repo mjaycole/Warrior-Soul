@@ -1,6 +1,9 @@
-res://Nodes/DamageDealers/
-res://Nodes/Destructible Enviro/
-C:/Users/michaelc/AppData/Local/Programs/Microsoft VS Code/
+res://Assets/CompositionPieces/
+C:/Users/Michael/AppData/Local/Programs/Microsoft VS Code/
+C:/Users/Michael/Desktop/Godot Projects/project-sky/
+C:/Users/Michael/Desktop/Godot Projects/project-sky/Assets/
+res://Assets/Environment/
+res://Art/Textures/
 res://Art/UI/Themes/
 res://Resources/
 res://Scripts/CoreSystems/
@@ -9,7 +12,6 @@ res://Nodes/UI/
 res://Scripts/Player/
 res://Scripts/
 res://Scripts/Items/
-res://Scripts/Items/AllItems/
 res://Art/Packs/Itch Sam/
 res://Nodes/Player/
 res://Nodes/Menus/
