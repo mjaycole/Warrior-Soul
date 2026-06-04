@@ -50,7 +50,7 @@ func handle_paused():
 #Game state change requests
 func start_game():
 	if not player_data:
-		player_data = preload("res://Resources/starting_data.tres")
+		player_data = load("res://Resources/Data/starting_data.tres")
 		player_data.initialize()
 	
 	change_game_state(GameState.PLAYING)

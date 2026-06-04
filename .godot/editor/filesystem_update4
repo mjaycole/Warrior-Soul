@@ -1,20 +1,14 @@
-res://Nodes/sandbox.tscn
-res://Resources/starting_data.tres
-res://Art/Packs/Itch Sam/TileSet.tres
-res://Nodes/Player/player.tscn
+res://Assets/ItemBehaviors/broken_sword_behavior.tscn
+res://Assets/Items/Weapons/BrokenSword.tres
+res://Resources/Data/starting_data.tres
 res://Art/Textures/player_light.tres
-res://Assets/Environment/lantern.tscn
-res://Assets/Environment/dummy_crate.tscn
-res://Assets/Hurtboxes/basic_hurt_box.tscn
-res://read_me.txt
-res://Assets/CompositionPieces/hurtbox.tscn
-res://Scripts/Compositions/Hurtbox.gd
-res://Scripts/Player/PlayerAttack.gd
-res://Assets/Player/player.tscn
-res://Scripts/Sandbox.gd
-res://Nodes/bootstrap.tscn
+res://Art/Packs/Itch Sam/TileSet.tres
+res://Scripts/Core.gd
+res://Assets/Items/Weapons/broken_sword.tres
+res://Nodes/core.tscn
+res://Resources/Data/ItemLibrary.tres
+res://Scripts/Player/PlayerItemUsage.gd
 res://Scripts/Player/PlayerController.gd
-res://Scripts/Menus/HUD/HUDManager.gd
-res://Scripts/Player/PlayerStats.gd
-res://Scripts/Player/PlayerCamera.gd
-res://Scripts/Player/PlayerPhysics.gd
+res://Scripts/Items/ItemBehavior.gd
+res://Scripts/Items/ItemBehaviors/BrokenSwordBehavior.gd
+res://Assets/Player/player.tscn

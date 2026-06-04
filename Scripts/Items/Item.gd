@@ -13,5 +13,6 @@ enum ItemType { WEAPON }
 @export var value: int
 
 #Item use data
+@export var item_behavior: PackedScene
 @export var use_time: float
 @export var use_move_speed: float

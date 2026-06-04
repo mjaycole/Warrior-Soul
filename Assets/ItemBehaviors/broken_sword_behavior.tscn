@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dgatuf4sb8d2r"]
+
+[ext_resource type="Script" uid="uid://cok6av8rj2cn2" path="res://Scripts/Items/ItemBehaviors/BrokenSwordBehavior.gd" id="1_876me"]
+
+[node name="BrokenSwordBehavior" type="Node2D" unique_id=239102818]
+script = ExtResource("1_876me")

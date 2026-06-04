@@ -11,7 +11,6 @@ signal player_use_item(item_compass)
 @onready var player_animations = $AnimationPlayer
 @onready var player_physics = $Physics
 @onready var player_item_use = $"PlayerItemUsage"
-@onready var player_attack = $"PlayerAttack"
 
 #State Machine
 enum State { 
@@ -28,21 +27,42 @@ func _ready():
 	Core.player_data.inventory.set_active_item("right_hand", Core.player_data.inventory.items[0])
 	
 	player_state_changed.emit(current_state)
-	player_physics.walk_input.connect(handle_walk_input)
-	player_physics.idle_input.connect(handle_idle_input)
-	player_physics.jump_input.connect(handle_jump_input)
-	player_physics.jump_finish.connect(handle_jump_finish)
-	player_physics.dash_input.connect(handle_dash_input)
-	player_physics.dash_finish.connect(handle_dash_finish)
-	player_physics.push_input.connect(handle_push)
-	player_physics.ledge_grabbed.connect(handle_ledge_grab)
-	player_physics.climbing_input.connect(handle_climb)
-	player_physics.climbing_finished.connect(handle_climb_finished)
+
+	player_physics.started_walking.connect(handle_started_walking)
+	player_physics.stopped_walking.connect(handle_stopped_walking)
+	player_physics.left_ground.connect(handle_left_ground)
+	player_physics.landed.connect(handle_landed)
+	player_physics.hit_wall.connect(handle_hit_wall)
+	player_physics.left_wall.connect(handle_left_wall)
+	player_physics.ledge_detected.connect(handle_ledge_detected)
+	player_physics.jump_started.connect(handle_jump_started)
+	player_physics.jump_peaked.connect(handle_jump_peaked)
+	player_physics.jump_landed.connect(handle_jump_landed)
+	player_physics.dash_started.connect(handle_dash_started)
+	player_physics.dash_completed.connect(handle_dash_completed)
+	player_physics.climb_started.connect(handle_climb_started)
+	player_physics.climb_completed.connect(handle_climb_completed)
 	
+	player_item_use.command_refresh_items()
 	player_item_use.item_use.connect(handle_item_use)
+	player_item_use.item_use_completed.connect(handle_item_use_completed)
 
-	player_attack.attack_finished.connect(handle_attack_finished)
 
+func _input(event: InputEvent):
+	if event.is_action_pressed("Jump"):
+		if can_go_to_state(State.JUMPING):
+			player_physics.command_jump()
+	if event.is_action_pressed("Dash"):
+		if can_go_to_state(State.DASHING):
+			player_physics.command_dash()		
+	if event.is_action_pressed("Sprint"):
+		player_physics.command_sprint(true)
+	if event.is_action_released("Sprint"):
+		player_physics.command_sprint(false)
+	if event.is_action_pressed("RightHandItem"):
+		if can_go_to_state(State.USING_ITEM):
+			player_item_use.command_use("right_hand", self)
+	
 func _physics_process(delta: float):
 	player_animations.handle_animations()
 	player_physics.calculated_physics(delta)
@@ -51,12 +71,21 @@ func _physics_process(delta: float):
 
 #region State Changing
 #State Changing
-func switch_state(new_state: State):
-	if not can_go_to_state(new_state):
-		return
+func switch_state(new_state: State, ignore_state_check: bool = false):
+	if not ignore_state_check:
+		if not can_go_to_state(new_state):
+			return
 
 	current_state = new_state
 	player_state_changed.emit(current_state)
+
+	match current_state:
+		State.USING_ITEM:
+			player_physics.command_freeze()
+		_: 
+			player_physics.command_unfreeze()
+
+	print("Current State: ", current_state)
 
 func can_go_to_state(state: State) -> bool:
 	# Dead is a terminal state - can't leave it
@@ -110,65 +139,78 @@ func can_go_to_state(state: State) -> bool:
 
 func reset_state():
 	# Override can_go_to_state by setting directly since we're resetting
+	var new_state: State
+
 	if is_on_floor():
 		if velocity.x != 0:
 			if player_physics.sprinting:
-				current_state = State.SPRINTING
+				new_state = State.SPRINTING
 			else:
-				current_state = State.WALKING
+				new_state = State.WALKING
 		else: 
-			switch_state(State.IDLE)
+			new_state = State.IDLE
 	else:
 		if velocity.y < 0:
-			current_state = State.JUMPING
+			new_state = State.JUMPING
 		else:
-			current_state = State.FALLING
+			new_state = State.FALLING
 
-	player_state_changed.emit(current_state)
+	switch_state(new_state, true)
 
 
 #endregion
 
 #region Movement Listeners
-#Movement Listeners
-func handle_walk_input(is_sprinting: bool):
+func handle_started_walking(is_sprinting: bool):
 	if is_sprinting:
 		switch_state(State.SPRINTING)
 	else:
 		switch_state(State.WALKING)
 
-func handle_idle_input():
+func handle_stopped_walking():
 	switch_state(State.IDLE)
-	
-func handle_jump_input(jumping: bool):
-	if jumping:
-		switch_state(State.JUMPING)
-	else:
-		switch_state(State.FALLING)
 
-func handle_jump_finish():
+func handle_left_ground():
+	switch_state(State.FALLING)
+
+func handle_landed():
 	reset_state()
 
-func handle_dash_input():
+func handle_jump_started():
+	switch_state(State.JUMPING)
+
+func handle_jump_peaked():
+	switch_state(State.FALLING)
+
+func handle_jump_landed():
+	reset_state()
+
+func handle_hit_wall():
+	switch_state(State.PUSHING)
+
+func handle_left_wall():
+	reset_state()
+
+func handle_ledge_detected():
+	switch_state(State.GRABBING_LEDGE)
+
+func handle_dash_started():
 	switch_state(State.DASHING)
 
-func handle_dash_finish():
+func handle_dash_completed():
 	reset_state()
 
-func handle_push(pushing: bool):
-	if pushing:
-		switch_state(State.PUSHING)
-	else:
-		reset_state()
-
-func handle_ledge_grab(on_ledge: bool):
-	if on_ledge:
-		switch_state(State.GRABBING_LEDGE)
-
-func handle_climb():
+func handle_climb_started():
 	switch_state(State.CLIMBING)
 
-func handle_climb_finished():
+func handle_climb_completed(): 
+	reset_state()
+
+func handle_item_use_completed():
+	reset_state()
+
+func handle_attack_finished():
+	print("Called finished")
 	reset_state()
 
 #endregion
@@ -184,19 +226,9 @@ func handle_item_use(item_compass: String):
 	if item == null:
 		return
 
-	match item.item_type:
-		Item.ItemType.WEAPON: handle_attack(item as Weapon)
-
-func handle_attack(weapon: Weapon):
-	var mouse_pos = get_global_mouse_position()
-
-	player_use_item.emit(weapon.id)
 	player_animations.handle_item_use()
-	player_attack.handle_attack(weapon, global_position, mouse_pos)
-	
+	player_use_item.emit(item.id)
+
 	switch_state(State.USING_ITEM)
-	
-func handle_attack_finished():
-	reset_state()
 
 #endregion

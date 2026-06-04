@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://4ob1bbpdasgu"]
+
+[ext_resource type="PackedScene" uid="uid://dgatuf4sb8d2r" path="res://Assets/ItemBehaviors/broken_sword_behavior.tscn" id="1_2kg3m"]
+[ext_resource type="PackedScene" uid="uid://b6uh355xkm0vh" path="res://Assets/Hurtboxes/basic_hurt_box.tscn" id="1_7sasf"]
+[ext_resource type="Script" uid="uid://c73h08s1g8v3j" path="res://Scripts/Items/Weapon.gd" id="1_8psb3"]
+
+[resource]
+script = ExtResource("1_8psb3")
+damage_dealer_node = ExtResource("1_7sasf")
+id = "broken_sword"
+item_name = "Broken Sword"
+item_behavior = ExtResource("1_2kg3m")
+use_time = 0.25
+metadata/_custom_type_script = "uid://c73h08s1g8v3j"

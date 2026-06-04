@@ -1,20 +1,24 @@
-#Handles the player's physics
+# Handles the player's physics - reports physical events, executes movement commands
 
 extends Node2D
 
-# Signals
-signal walk_input(is_sprinting)
-signal idle_input
-signal jump_input(is_jumping)
-signal jump_finish
-signal dash_input
-signal dash_finish
-signal push_input(pushing)
-signal ledge_grabbed(grabbed)
-signal climbing_input
-signal climbing_finished
+# Physical events - PlayerController listens and decides state
+signal started_walking(is_sprinting: bool)
+signal stopped_walking
+signal left_ground
+signal landed
+signal hit_wall
+signal left_wall
+signal ledge_detected
+signal jump_started
+signal jump_peaked
+signal jump_landed
+signal dash_started
+signal dash_completed
+signal climb_started
+signal climb_completed
 
-# Base Variables
+# Physics constants
 @export var SPEED = 100.0
 @export var JUMP_VELOCITY = -300.0
 @export var SPRINT_MODIFIER = 1.5
@@ -25,227 +29,231 @@ signal climbing_finished
 @export var CLIMB_TIME = .25
 @export var IN_AIR_LOSE_SPEED = 15
 
-var current_sprint_modifier = 1
+# Internal state - physics only, no game state awareness
+var character_body: CharacterBody2D
+var direction: float = 0.0
+var last_direction: int = -1
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var current_sprint_modifier: float = 1.0
+var sprinting: bool = false
+var jumping: bool = false
+var jump_has_peaked: bool = false
+var dashing: bool = false
+var frozen: bool = false
+var on_ledge: bool = false
+var climbing: bool = false
+var against_wall: bool = false
+var was_against_wall: bool = false
+var grabbable_ledge: bool = false
+var was_on_floor: bool = true
+var time_off_platform: float = 0.0
+var climb_timer: float = 0.0
+var climb_position: Vector2
 
-var character_body
-var player_state
 @onready var raycasts_parent = $"../Raycasts"
 @onready var wall_check_ray = $"../Raycasts/WallCheck"
 @onready var ledge_grab_check_ray = $"../Raycasts/LedgeGrabCheck"
 @onready var ledge_grab_collision = $"../Raycasts/LedgeDetection"
 
-var direction: float = -1
-var last_direction: int = -1
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var jumping: bool = false
-var was_on_floor: bool = true
-var time_off_platform = 0
-var sprinting: bool = false
-var dashing: bool = false
-var against_wall: bool = false
-var grabbable_ledge: bool = false
-var on_ledge: bool = false
-var climbing: bool = false
-var climb_timer: float = 0.0
-var climb_position
 
-func _ready():
+#region Godot Functions
+
+func _ready() -> void:
 	character_body = get_parent()
-	character_body.player_state_changed.connect(handle_state_change)
-	character_body.player_use_item.connect(handle_item_used)
-
+	character_body.player_use_item.connect(_on_item_used)
 	ledge_grab_collision.body_entered.connect(_on_ledge_area_entered)
 	ledge_grab_collision.body_exited.connect(_on_ledge_area_exited)
-	
 
+func _process(delta: float) -> void:
+	_handle_coyote_time(delta)
 
-func _process(delta: float):		
-	handle_coyote_time(delta)
+#endregion
 
-func _input(event: InputEvent):	
-	if event.is_action_pressed("Jump"):
-		jump()
-	
-	if event.is_action_pressed("Dash"):
-		dash()
-		
-	if event.is_action_pressed("Sprint"):
-		sprinting = true
-		current_sprint_modifier = SPRINT_MODIFIER
-	elif event.is_action_released("Sprint"):
-		sprinting = false
-		current_sprint_modifier = 1
+#region Commands - Called by PlayerController
 
-func handle_state_change(new_state: player_controller.State):
-	player_state = new_state
-
-func calculated_physics(delta):
-	direction = Input.get_axis("MoveLeft", "MoveRight")
-	
-	if player_state == player_controller.State.USING_ITEM:
-		apply_gravity(delta)
-
+func calculated_physics(delta: float) -> void:
+	if frozen:
+		_apply_gravity(delta)
 		character_body.move_and_slide()
 		return
-		
-	if direction != 0 && not on_ledge && not climbing:
+
+	direction = Input.get_axis("MoveLeft", "MoveRight")
+
+	if direction != 0 and not on_ledge and not climbing:
 		last_direction = direction
-	
-	apply_gravity(delta)
-	wall_check()
-	handle_movement()
-	handle_climbing(delta)
-	handle_fall_state(delta)
-	
+
+	_apply_gravity(delta)
+	_wall_check()
+	_handle_movement()
+	_handle_climbing(delta)
+	_handle_fall_state(delta)
+
 	character_body.move_and_slide()
 
-func apply_gravity(delta):
+func command_jump() -> void:
+	if dashing or climbing:
+		return
+
+	if on_ledge:
+		if last_direction == direction:
+			_jump_on_ledge()
+		else:
+			_apply_jump()
+		return
+
+	_apply_jump()
+
+func command_dash() -> void:
+	if character_body.is_on_floor() and not dashing:
+		character_body.velocity.x = DASH_VELOCITY * -last_direction
+		dashing = true
+		dash_started.emit()
+		_dash_timer()
+
+func command_sprint(active: bool) -> void:
+	sprinting = active
+	current_sprint_modifier = SPRINT_MODIFIER if active else 1.0
+
+func command_freeze() -> void:
+	frozen = true
+
+func command_unfreeze() -> void:
+	frozen = false
+
+func command_apply_momentum(force: float) -> void:
+	character_body.velocity.x = force * last_direction
+
+#endregion
+
+
+#region Internal Physics - Private
+
+func _apply_gravity(delta: float) -> void:
 	if on_ledge or climbing:
 		return
-		
 	if not character_body.is_on_floor():
 		character_body.velocity.y += gravity * delta
 
-func wall_check():
+func _wall_check() -> void:
 	if on_ledge or climbing:
 		return
-	
-	raycasts_parent.scale.x = -last_direction	
+	raycasts_parent.scale.x = -last_direction
 	against_wall = wall_check_ray.is_colliding()
 
-func _on_ledge_area_entered(body):
-	grabbable_ledge = not ledge_grab_check_ray.is_colliding()
-
-func _on_ledge_area_exited(body):
-	grabbable_ledge = false
-
-func handle_movement():
-	if dashing or climbing:
+func _handle_movement() -> void:
+	if dashing or climbing or on_ledge:
 		return
+
+	if against_wall and direction != 0:
+		if not was_against_wall:
+			hit_wall.emit()
+			was_against_wall = true
 		
-	if on_ledge:
-		return
-
-	# If we are pushing against something
-	if against_wall && direction != 0:
-		push_input.emit(true)		
 		character_body.velocity.x = direction * PUSH_SPEED
-		
-		# If we are pushing against something while in the air, make sure to grab the ledge if possible
-		if character_body.velocity.y > 0 && grabbable_ledge && not on_ledge && not climbing:
-			on_ledge = true
-			
-			ledge_grabbed.emit(on_ledge)
-			character_body.velocity = Vector2.ZERO
-		return
-	
-	# If we are against a wall but not moving towards it
-	if against_wall && direction == 0:
-		push_input.emit(false)
 
-		# If we are in the air, grab the ledge if possible
-		if character_body.velocity.y > 0 && grabbable_ledge && not on_ledge && not climbing:
-			on_ledge = true
-			
-			ledge_grabbed.emit(on_ledge)
-			character_body.velocity = Vector2.ZERO
+		if character_body.velocity.y > 0 and grabbable_ledge and not on_ledge and not climbing:
+			_grab_ledge()
 		return
-	
-	# Apply velocity for normal movement
+
+	if against_wall and direction == 0:
+		if was_against_wall:
+			left_wall.emit()
+			was_against_wall = false
+
+		if character_body.velocity.y > 0 and grabbable_ledge and not on_ledge and not climbing:
+			_grab_ledge()
+		return
+
 	character_body.velocity.x = direction * SPEED * current_sprint_modifier
 
 	if character_body.is_on_floor() and not jumping:
 		if direction != 0:
-			walk_input.emit(sprinting)
+			started_walking.emit(sprinting)
 		else:
-			idle_input.emit()
+			stopped_walking.emit()
 
-func jump():	
-	if dashing or climbing:
-		return
-	
-	if on_ledge:
-		if last_direction == direction:
-			jump_on_ledge()
-		else:
-			apply_jump()
-		return
-	
-	apply_jump()
+func _grab_ledge() -> void:
+	on_ledge = true
+	ledge_detected.emit()
+	character_body.velocity = Vector2.ZERO
 
-func apply_jump():
+func _apply_jump() -> void:
 	if character_body.is_on_floor() or time_off_platform < COYOTE_TIME or on_ledge:
 		character_body.velocity.y = JUMP_VELOCITY
-		
 		on_ledge = false
 		jumping = true
-		jump_input.emit(jumping)
+		jump_started.emit()
 
-func handle_item_used(item_id: String):
-	var item_used = ItemLibraryFetcher.get_item(item_id)
-	
-	var weapon = item_used as Weapon
-	
-	if weapon:
-		character_body.velocity.x = weapon.momentum_force * last_direction
-
-func jump_on_ledge():	
+func _jump_on_ledge() -> void:
 	on_ledge = false
-	ledge_grabbed.emit(false)	
+	climb_started.emit()
 	climbing = true
 	climb_timer = 0.0
-	climbing_input.emit()
-	
 	climb_position = character_body.global_position + Vector2(last_direction * 7, -11)
 
-func handle_climbing(delta: float):
+func _handle_climbing(delta: float) -> void:
 	if not climbing:
 		return
-	
+
 	climb_timer += delta
-	character_body.global_position = lerp(character_body.global_position, climb_position, delta * 7)
-	
+	character_body.global_position = lerp(
+		character_body.global_position,
+		climb_position,
+		delta * 7
+	)
+
 	if climb_timer >= CLIMB_TIME:
 		character_body.velocity = Vector2.ZERO
 		climbing = false
-		climbing_finished.emit()
-		idle_input.emit()
+		climb_completed.emit()
 
-func handle_fall_state(delta: float):
+func _handle_fall_state(delta: float) -> void:
 	if climbing or on_ledge:
 		return
-		
+
 	var on_floor = character_body.is_on_floor()
-	
+
 	if not on_floor:
 		if character_body.velocity.y > 0:
-			jump_input.emit(false)
+			if not jump_has_peaked:
+				jump_peaked.emit()
+				jump_has_peaked = true
 			if character_body.velocity.x != 0:
-				character_body.velocity.x = lerpf(character_body.velocity.x, 0.0, delta * IN_AIR_LOSE_SPEED)
+				character_body.velocity.x = lerpf(
+					character_body.velocity.x, 
+					0.0, 
+					delta * IN_AIR_LOSE_SPEED
+				)
 	elif jumping and not was_on_floor:
 		jumping = false
-		jump_finish.emit()
-	
+		jump_has_peaked = false
+		jump_landed.emit()
+
 	var changed = was_on_floor != on_floor
-	
 	was_on_floor = on_floor
-	
+
 	if changed and not on_floor and not jumping:
 		time_off_platform = 0
 
-func handle_coyote_time(delta: float):
+func _handle_coyote_time(delta: float) -> void:
 	if time_off_platform < COYOTE_TIME:
 		time_off_platform += delta
 
-func dash():
-	if character_body.is_on_floor() and not dashing:
-		character_body.velocity.x = DASH_VELOCITY * -last_direction
-		
-		dashing = true
-		dash_input.emit()
-		dash_time()
-
-func dash_time():
+func _dash_timer() -> void:
 	await get_tree().create_timer(DASH_TIME).timeout
 	dashing = false
-	dash_finish.emit()	
+	dash_completed.emit()
+
+func _on_ledge_area_entered(_body) -> void:
+	grabbable_ledge = not ledge_grab_check_ray.is_colliding()
+
+func _on_ledge_area_exited(_body) -> void:
+	grabbable_ledge = false
+
+func _on_item_used(item_id: String) -> void:
+	var item = ItemLibraryFetcher.get_item(item_id)
+	var weapon = item as Weapon
+	if weapon:
+		command_apply_momentum(weapon.momentum_force)
+
+#endregion

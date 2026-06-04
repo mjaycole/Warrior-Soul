@@ -6,7 +6,7 @@ var _items_array: Array = []
 var _items: Dictionary = {}
 
 func _ready():
-	var library: ItemLibrary = preload("res://Resources/ItemLibrary.tres")
+	var library: ItemLibrary = preload("res://Resources/Data/ItemLibrary.tres")
 	
 	for item in library.items:
 		_items[item.id] = item

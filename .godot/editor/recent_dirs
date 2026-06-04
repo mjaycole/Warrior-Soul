@@ -1,3 +1,5 @@
+res://Assets/Items/Weapons/
+res://Assets/ItemBehaviors/
 res://Assets/CompositionPieces/
 C:/Users/Michael/AppData/Local/Programs/Microsoft VS Code/
 C:/Users/Michael/Desktop/Godot Projects/project-sky/
@@ -13,6 +15,5 @@ res://Scripts/Player/
 res://Scripts/
 res://Scripts/Items/
 res://Art/Packs/Itch Sam/
-res://Nodes/Player/
 res://Nodes/Menus/
 res://Art/Fonts/medieval_sharp/
