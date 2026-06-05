@@ -21,7 +21,7 @@ var game_world_manager: GameWorldManager
 #endregion
 
 #region Signals
-
+signal input_availability_changed(available: bool)
 #endregion
 
 #region Variables
@@ -83,7 +83,7 @@ func start_game():
 func handle_terminal_toggled(on: bool):
 	input_enabled = !on
 
-	print("Turning input on for player: ", input_enabled)
+	input_availability_changed.emit(input_enabled)
 
 func handle_terminal_input(input: String):	
 	var parts = input.split("_")

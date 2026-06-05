@@ -58,8 +58,8 @@ weight_override = 0.75
 [node name="DummyCrate_Light" parent="Environment" unique_id=477334730 instance=ExtResource("5_2ea3q")]
 position = Vector2(350, 122)
 
-[node name="Dummy" parent="Environment" unique_id=894341590 instance=ExtResource("6_wmvqn")]
-position = Vector2(208, 120)
-
 [node name="Lantern" parent="Environment" unique_id=955374447 instance=ExtResource("7_gu86r")]
 position = Vector2(166, 120)
+
+[node name="Dummy" parent="Environment" unique_id=1586090591 instance=ExtResource("6_wmvqn")]
+position = Vector2(192, 120)

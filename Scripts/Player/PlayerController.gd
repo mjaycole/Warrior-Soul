@@ -25,6 +25,7 @@ var current_state = State.IDLE
 func _ready():
 	#TODO - Move this over to game initialization logic	
 	Core.player_data.inventory.set_active_item("right_hand", Core.player_data.inventory.items[0])
+	Core.input_availability_changed.connect(handle_input_availability_changed)
 	
 	player_state_changed.emit(current_state)
 
@@ -164,6 +165,12 @@ func reset_state():
 #endregion
 
 #region Movement Listeners
+func handle_input_availability_changed(available: bool):
+	if available:
+		player_physics.command_unfreeze()
+	else:
+		player_physics.command_freeze()
+
 func handle_started_walking(is_sprinting: bool):
 	if is_sprinting:
 		switch_state(State.SPRINTING)
