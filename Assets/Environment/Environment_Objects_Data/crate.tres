@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Environment_Object" format=3 uid="uid://cup47d6ieuu2h"]
+
+[ext_resource type="PackedScene" uid="uid://cx0vs0pwg3ues" path="res://Assets/Environment/dummy_crate.tscn" id="1_ditdj"]
+[ext_resource type="Script" uid="uid://cl5eexodexogs" path="res://Scripts/Environment/EnvironmentObjects/EnvironmentObject.gd" id="1_pt2q2"]
+
+[resource]
+script = ExtResource("1_pt2q2")
+id = "crate"
+name = "Crate"
+prefab = ExtResource("1_ditdj")
+metadata/_custom_type_script = "uid://cl5eexodexogs"

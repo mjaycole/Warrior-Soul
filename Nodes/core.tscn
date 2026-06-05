@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ewu4rmlyoqgg"]
 
-[ext_resource type="Script" uid="uid://ku3da652toyf" path="res://Scripts/Core.gd" id="1_1ub5j"]
+[ext_resource type="Script" uid="uid://ku3da652toyf" path="res://Scripts/CoreSystems/Core.gd" id="1_1ub5j"]
 [ext_resource type="Resource" uid="uid://ecko6bg2ytim" path="res://Resources/Data/starting_data.tres" id="2_700to"]
 
 [node name="Core" type="Node" unique_id=121841864]

@@ -1,9 +1,0 @@
-res://Art/Textures/player_light.tres
-res://Art/Packs/Itch Sam/TileSet.tres
-res://Resources/Data/starting_data.tres
-res://Scripts/Environment/Dummy.gd
-res://Assets/Environment/dummy.tscn
-res://Nodes/sandbox.tscn
-res://Assets/Player/player.tscn
-res://Assets/Environment/dummy_crate.tscn
-res://Scripts/Bootstrap.gd

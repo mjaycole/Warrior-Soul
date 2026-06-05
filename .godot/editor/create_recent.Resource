@@ -1,3 +1,5 @@
+Environment_Object
+Environment_Object_Library
 Weapon
 Item
 GradientTexture2D

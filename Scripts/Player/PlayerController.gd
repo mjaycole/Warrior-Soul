@@ -49,6 +49,9 @@ func _ready():
 
 
 func _input(event: InputEvent):
+	if not Core.input_enabled:
+		return
+	
 	if event.is_action_pressed("Jump"):
 		if can_go_to_state(State.JUMPING):
 			player_physics.command_jump()

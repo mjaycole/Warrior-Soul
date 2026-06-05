@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Environment_Object_Library" format=3 uid="uid://drjwbs7koyp74"]
+
+[ext_resource type="Script" uid="uid://cl5eexodexogs" path="res://Scripts/Environment/EnvironmentObjects/EnvironmentObject.gd" id="1_q1la3"]
+[ext_resource type="Script" uid="uid://b0e74i7i738kk" path="res://Scripts/Environment/EnvironmentObjects/EnvironmentObjectLibrary.gd" id="2_7hq1e"]
+[ext_resource type="Resource" uid="uid://drqdumc5s660b" path="res://Assets/Environment/Environment_Objects_Data/dummy.tres" id="2_m2ebg"]
+[ext_resource type="Resource" uid="uid://cup47d6ieuu2h" path="res://Assets/Environment/Environment_Objects_Data/crate.tres" id="3_m2ebg"]
+
+[resource]
+script = ExtResource("2_7hq1e")
+objects = Array[ExtResource("1_q1la3")]([ExtResource("2_m2ebg"), ExtResource("3_m2ebg")])
+metadata/_custom_type_script = "uid://b0e74i7i738kk"

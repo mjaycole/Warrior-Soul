@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://58br1u4d3lnx"]
+
+[ext_resource type="Script" uid="uid://dmnobqt5bepeh" path="res://Scripts/Utilities/DebugTerminal.gd" id="1_h7h4a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7h4a"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urcvp"]
+bg_color = Color(0, 0, 0, 0.45882353)
+
+[node name="DebugTerminal" type="Control" unique_id=241087065]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h7h4a")
+
+[node name="Entry" type="Panel" parent="." unique_id=1305466591]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -66.350006
+offset_right = -24.0
+offset_bottom = -16.349731
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h7h4a")
+
+[node name="LineEdit" type="LineEdit" parent="Entry" unique_id=2146168431]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Output" type="Panel" parent="." unique_id=426001825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 13.0
+offset_right = -24.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_urcvp")
+
+[node name="Label" type="Label" parent="Output" unique_id=565192613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_alignment = 2

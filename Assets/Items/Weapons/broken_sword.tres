@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_8psb3")
+damage = 12.0
 damage_dealer_node = ExtResource("1_7sasf")
 id = "broken_sword"
 item_name = "Broken Sword"

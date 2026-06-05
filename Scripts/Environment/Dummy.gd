@@ -1,4 +1,4 @@
-
+# Dummy object to hit
 
 extends Node2D
 
@@ -10,8 +10,8 @@ extends Node2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _ready() -> void:
-	anim.play("box_idle")
+func _ready() -> void: 
+	anim.play("idle")
 	anim.animation_finished.connect(on_anim_complete)
 	damageable.damage_taken.connect(on_take_damage)
 	damageable.died.connect(on_die)

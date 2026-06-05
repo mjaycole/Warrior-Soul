@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c483flcsuclnv"]
 
-[ext_resource type="Script" uid="uid://d3d5xm5jv0unf" path="res://Scripts/Bootstrap.gd" id="1_oi1yf"]
+[ext_resource type="Script" uid="uid://d3d5xm5jv0unf" path="res://Scripts/CoreSystems/Bootstrap.gd" id="1_oi1yf"]
 [ext_resource type="Script" uid="uid://bycjcef4fh3m7" path="res://Scripts/CoreSystems/UIManager.gd" id="2_ynogd"]
 [ext_resource type="Script" uid="uid://bqtinaft0xjs3" path="res://Scripts/CoreSystems/GameWorldManager.gd" id="3_ynogd"]
 
@@ -8,14 +8,19 @@
 script = ExtResource("1_oi1yf")
 metadata/SkipMenu = true
 
-[node name="UIManager" type="Control" parent="." unique_id=1772483262]
+[node name="UIManager" type="CanvasLayer" parent="." unique_id=1261386954]
+script = ExtResource("2_ynogd")
+
+[node name="MainUI" type="Control" parent="UIManager" unique_id=577936635]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_ynogd")
+
+[node name="DebugTerminal" type="CanvasLayer" parent="UIManager" unique_id=857528975]
+layer = 50
 
 [node name="GameWorld" type="Node" parent="." unique_id=151203894]
 script = ExtResource("3_ynogd")
