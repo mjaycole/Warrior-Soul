@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://7al32fl5mia"]
+
+[ext_resource type="Script" uid="uid://2gmd7aljtlv5" path="res://Scripts/Compositions/Pushable.gd" id="1_axl08"]
+
+[node name="Pushable" type="Area2D" unique_id=1888484507]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_axl08")

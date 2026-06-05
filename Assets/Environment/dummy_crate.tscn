@@ -1,20 +1,118 @@
 [gd_scene format=3 uid="uid://cx0vs0pwg3ues"]
 
-[ext_resource type="Texture2D" uid="uid://dncqjblxqtum7" path="res://icon.svg" id="1_73k0b"]
 [ext_resource type="Script" uid="uid://bwj8y3a7pxen" path="res://Scripts/Environment/DummyCrate.gd" id="1_a1w6g"]
+[ext_resource type="Texture2D" uid="uid://b7pbh5n6femip" path="res://Art/Packs/Pixel Art Platformer - Village Props (itch)/TX Crate.png" id="2_80ngq"]
 [ext_resource type="PackedScene" uid="uid://fem4nbjc64l" path="res://Assets/CompositionPieces/damageable.tscn" id="3_80ngq"]
+[ext_resource type="PackedScene" uid="uid://7al32fl5mia" path="res://Assets/CompositionPieces/pushable.tscn" id="4_uospi"]
+
+[sub_resource type="Animation" id="Animation_uospi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_80ngq"]
+resource_name = "box_hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.17453292519943295, 0.0, -0.17453292519943295, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_074su"]
+resource_name = "box_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0h8wt"]
+_data = {
+&"RESET": SubResource("Animation_uospi"),
+&"box_hit": SubResource("Animation_80ngq"),
+&"box_idle": SubResource("Animation_074su")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80ngq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uospi"]
 
-[node name="DummyCrate" type="Node2D" unique_id=1284497722]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_074su"]
+
+[node name="DummyCrate" type="CharacterBody2D" unique_id=49406552]
+z_index = 1
 script = ExtResource("1_a1w6g")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1102544044]
+libraries/ = SubResource("AnimationLibrary_0h8wt")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=975917347]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_73k0b")
+scale = Vector2(0.265, 0.265)
+texture = ExtResource("2_80ngq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929031241]
+scale = Vector2(0.59, 0.59)
+shape = SubResource("RectangleShape2D_80ngq")
 
 [node name="Damageable" parent="." unique_id=11218394 instance=ExtResource("3_80ngq")]
 scale = Vector2(0.6, 0.6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable" unique_id=1159216227]
 shape = SubResource("RectangleShape2D_uospi")
+
+[node name="Pushable" parent="." unique_id=1888484507 instance=ExtResource("4_uospi")]
+weight = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pushable" unique_id=1990560378]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_074su")

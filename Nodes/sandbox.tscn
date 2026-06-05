@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cfseh1taul1ii" path="res://Art/Wallpapers/JumpKing.jpg" id="2_d6vm4"]
 [ext_resource type="Script" uid="uid://b0l04d8gnvvar" path="res://Scripts/Player/PlayerCamera.gd" id="3_a532h"]
 [ext_resource type="PackedScene" uid="uid://cx0vs0pwg3ues" path="res://Assets/Environment/dummy_crate.tscn" id="4_pha0y"]
+[ext_resource type="PackedScene" uid="uid://bjjd534pvenpe" path="res://Assets/Environment/dummy.tscn" id="6_8oiow"]
 [ext_resource type="PackedScene" uid="uid://blwf0q31fnugx" path="res://Assets/Environment/lantern.tscn" id="6_e143d"]
 
 [node name="Sandbox" type="Node2D" unique_id=236937934]
@@ -44,12 +45,24 @@ energy = 0.4
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.65882355)
 
+[node name="DummyCrate_Heavy" parent="." unique_id=49406552 instance=ExtResource("4_pha0y")]
+position = Vector2(410, 122)
+weight_override = 0.1
+
+[node name="DummyCrate_Med" parent="." unique_id=1284497722 instance=ExtResource("4_pha0y")]
+position = Vector2(378, 122)
+weight_override = 0.75
+
+[node name="DummyCrate_Light" parent="." unique_id=477334730 instance=ExtResource("4_pha0y")]
+position = Vector2(350, 122)
+
+[node name="Dummy" parent="." unique_id=894341590 instance=ExtResource("6_8oiow")]
+z_index = 1
+position = Vector2(208, 120)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1167283082]
 
 [node name="Environment" type="Node2D" parent="StaticBody2D" unique_id=597908247]
-
-[node name="DummyCrate" parent="StaticBody2D/Environment" unique_id=1284497722 instance=ExtResource("4_pha0y")]
-position = Vector2(350, 122)
 
 [node name="Lantern" parent="StaticBody2D/Environment" unique_id=955374447 instance=ExtResource("6_e143d")]
 position = Vector2(166, 120)

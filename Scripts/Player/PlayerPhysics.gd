@@ -44,16 +44,17 @@ var on_ledge: bool = false
 var climbing: bool = false
 var against_wall: bool = false
 var was_against_wall: bool = false
-var grabbable_ledge: bool = false
 var was_on_floor: bool = true
 var time_off_platform: float = 0.0
 var climb_timer: float = 0.0
 var climb_position: Vector2
+var pushable_detected: bool = false
+var current_pushable: Pushable
 
 @onready var raycasts_parent = $"../Raycasts"
 @onready var wall_check_ray = $"../Raycasts/WallCheck"
-@onready var ledge_grab_check_ray = $"../Raycasts/LedgeGrabCheck"
-@onready var ledge_grab_collision = $"../Raycasts/LedgeDetection"
+@onready var ledge_top_ray: RayCast2D = $"../Raycasts/LedgeTopRay"
+@onready var pushable_check_ray = $"../Raycasts/PushableCheck"
 
 
 #region Godot Functions
@@ -61,8 +62,6 @@ var climb_position: Vector2
 func _ready() -> void:
 	character_body = get_parent()
 	character_body.player_use_item.connect(_on_item_used)
-	ledge_grab_collision.body_entered.connect(_on_ledge_area_entered)
-	ledge_grab_collision.body_exited.connect(_on_ledge_area_exited)
 
 func _process(delta: float) -> void:
 	_handle_coyote_time(delta)
@@ -83,8 +82,9 @@ func calculated_physics(delta: float) -> void:
 		last_direction = direction
 
 	_apply_gravity(delta)
+	_pushable_check()
 	_wall_check()
-	_handle_movement()
+	_handle_movement(delta)
 	_handle_climbing(delta)
 	_handle_fall_state(delta)
 
@@ -140,32 +140,36 @@ func _wall_check() -> void:
 	raycasts_parent.scale.x = -last_direction
 	against_wall = wall_check_ray.is_colliding()
 
-func _handle_movement() -> void:
+func _pushable_check():
+	pushable_detected = pushable_check_ray.is_colliding()
+
+func _handle_movement(delta: float) -> void:
 	if dashing or climbing or on_ledge:
+		return
+
+	if character_body.velocity.y > 0 and ledge_top_ray.is_colliding() and not on_ledge and not climbing:
+		_grab_ledge()
 		return
 
 	if against_wall and direction != 0:
 		if not was_against_wall:
-			hit_wall.emit()
 			was_against_wall = true
-		
+			hit_wall.emit()
+	
+	if was_against_wall and (not against_wall or direction == 0):
+		was_against_wall = false
+		left_wall.emit()
+		if current_pushable:
+			current_pushable.on_pushed(Vector2.ZERO, 0)
+			current_pushable = null
+	
+	if against_wall and direction != 0:
 		character_body.velocity.x = direction * PUSH_SPEED
-
-		if character_body.velocity.y > 0 and grabbable_ledge and not on_ledge and not climbing:
-			_grab_ledge()
-		return
-
-	if against_wall and direction == 0:
-		if was_against_wall:
-			left_wall.emit()
-			was_against_wall = false
-
-		if character_body.velocity.y > 0 and grabbable_ledge and not on_ledge and not climbing:
-			_grab_ledge()
+		_handle_push_pushable_object(delta)
 		return
 
 	character_body.velocity.x = direction * SPEED * current_sprint_modifier
-
+	
 	if character_body.is_on_floor() and not jumping:
 		if direction != 0:
 			started_walking.emit(sprinting)
@@ -174,8 +178,17 @@ func _handle_movement() -> void:
 
 func _grab_ledge() -> void:
 	on_ledge = true
-	ledge_detected.emit()
 	character_body.velocity = Vector2.ZERO
+
+	if ledge_top_ray.is_colliding():
+		var ledge_top = ledge_top_ray.get_collision_point()
+		climb_position = Vector2(
+			ledge_top.x - (last_direction * 4),
+			ledge_top.y + 8
+		)
+		character_body.global_position = climb_position
+
+	ledge_detected.emit()
 
 func _apply_jump() -> void:
 	if character_body.is_on_floor() or time_off_platform < COYOTE_TIME or on_ledge:
@@ -244,16 +257,16 @@ func _dash_timer() -> void:
 	dashing = false
 	dash_completed.emit()
 
-func _on_ledge_area_entered(_body) -> void:
-	grabbable_ledge = not ledge_grab_check_ray.is_colliding()
-
-func _on_ledge_area_exited(_body) -> void:
-	grabbable_ledge = false
-
 func _on_item_used(item_id: String) -> void:
 	var item = ItemLibraryFetcher.get_item(item_id)
 	var weapon = item as Weapon
 	if weapon:
 		command_apply_momentum(weapon.momentum_force)
 
+func _handle_push_pushable_object(delta: float):
+	if current_pushable == null:
+		current_pushable = pushable_check_ray.get_collider() as Pushable
+
+	if current_pushable != null:
+		current_pushable.on_pushed(Vector2(direction, 0), PUSH_SPEED)
 #endregion

@@ -1,14 +1,9 @@
-res://Assets/ItemBehaviors/broken_sword_behavior.tscn
-res://Assets/Items/Weapons/BrokenSword.tres
-res://Resources/Data/starting_data.tres
 res://Art/Textures/player_light.tres
 res://Art/Packs/Itch Sam/TileSet.tres
-res://Scripts/Core.gd
-res://Assets/Items/Weapons/broken_sword.tres
-res://Nodes/core.tscn
-res://Resources/Data/ItemLibrary.tres
-res://Scripts/Player/PlayerItemUsage.gd
-res://Scripts/Player/PlayerController.gd
-res://Scripts/Items/ItemBehavior.gd
-res://Scripts/Items/ItemBehaviors/BrokenSwordBehavior.gd
+res://Resources/Data/starting_data.tres
+res://Scripts/Environment/Dummy.gd
+res://Assets/Environment/dummy.tscn
+res://Nodes/sandbox.tscn
 res://Assets/Player/player.tscn
+res://Assets/Environment/dummy_crate.tscn
+res://Scripts/Bootstrap.gd

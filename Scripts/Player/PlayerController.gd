@@ -85,7 +85,7 @@ func switch_state(new_state: State, ignore_state_check: bool = false):
 		_: 
 			player_physics.command_unfreeze()
 
-	print("Current State: ", current_state)
+	# print("Current State: ", current_state)
 
 func can_go_to_state(state: State) -> bool:
 	# Dead is a terminal state - can't leave it
