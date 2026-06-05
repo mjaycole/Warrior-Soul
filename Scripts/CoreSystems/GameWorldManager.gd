@@ -7,9 +7,12 @@ var current_world: GameWorld
 
 func _ready():
 	Core.register_game_world_manager(self)
+	Core.terminal_object_spawned.connect(_handle_terminal_object_spawned)
 
 func load_sandbox():
 	if current_world:
+		current_world.command_unload_world()
+		await current_world.unload_completed
 		current_world.queue_free()
 		
 	current_world = preload("res://Nodes/GameWorlds/sandbox.tscn").instantiate()

@@ -22,6 +22,7 @@ var game_world_manager: GameWorldManager
 
 #region Signals
 signal input_availability_changed(available: bool)
+signal terminal_object_spawned(object: PackedScene)
 #endregion
 
 #region Variables
@@ -104,11 +105,11 @@ func spawn_enviro_object(object_name: String, count: String):
 			var enviro_obj = EnviroObjFetcher.get_object(object_name)
 
 			if enviro_obj:
-				game_world_manager._handle_terminal_object_spawned(enviro_obj.prefab)
+				terminal_object_spawned.emit(enviro_obj.prefab)
 			else:
 				print("No object exists")
 		else:
-			var quantity = int(str_to_var(count))
+			var quantity = int(count)
 
 			if quantity:
 				return
