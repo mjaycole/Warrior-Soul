@@ -1,189 +1,24 @@
 [gd_scene format=3 uid="uid://blwf0q31fnugx"]
 
-[ext_resource type="Texture2D" uid="uid://brwuv64scke5k" path="res://Art/Packs/Itch Karsiori/Lamp Post 2 SHORT.png" id="1_718x7"]
-[ext_resource type="Texture2D" uid="uid://bw6aiech2hwr5" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_000.png" id="2_56ipr"]
-[ext_resource type="Texture2D" uid="uid://cy0ea0sdcnnn3" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_001.png" id="3_nu8jn"]
-[ext_resource type="Texture2D" uid="uid://bnmkol1jr7027" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_002.png" id="4_2qg4v"]
-[ext_resource type="Texture2D" uid="uid://c15cyyc4pe3r7" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_003.png" id="5_f3qdl"]
-[ext_resource type="Texture2D" uid="uid://bp1t4lvu7qki3" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_004.png" id="6_42frg"]
-[ext_resource type="Texture2D" uid="uid://psbcmhxcemwj" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_005.png" id="7_ien4g"]
-[ext_resource type="Texture2D" uid="uid://dpngxq4lpaqn2" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_006.png" id="8_b3dg0"]
-[ext_resource type="Texture2D" uid="uid://disl7pd4cui6r" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_007.png" id="9_ufto2"]
-[ext_resource type="Texture2D" uid="uid://2xge302bmixj" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_008.png" id="10_4bkd7"]
-[ext_resource type="Texture2D" uid="uid://bt1dys4i42rmd" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_009.png" id="11_bswpt"]
-[ext_resource type="Texture2D" uid="uid://denfn761l00bu" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_010.png" id="12_jyb0p"]
-[ext_resource type="Texture2D" uid="uid://dq3mamtkqcesh" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_011.png" id="13_nakk4"]
-[ext_resource type="Texture2D" uid="uid://b40r3gfuq4e82" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_012.png" id="14_qcnk2"]
-[ext_resource type="Texture2D" uid="uid://bkdlq6tqdsj8t" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_013.png" id="15_i7iie"]
-[ext_resource type="Texture2D" uid="uid://b4xwsetw1i1h8" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_014.png" id="16_ib3b1"]
-[ext_resource type="Texture2D" uid="uid://bcwdkpptpluyq" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_015.png" id="17_wo41f"]
-[ext_resource type="Texture2D" uid="uid://d2n3nyvig0ub4" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_016.png" id="18_g8rpo"]
-[ext_resource type="Texture2D" uid="uid://ckku3f0kbo8j4" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_017.png" id="19_omwcy"]
-[ext_resource type="Texture2D" uid="uid://ccg74wfiguwqg" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_018.png" id="20_heqb0"]
-[ext_resource type="Texture2D" uid="uid://glrha7i3da6g" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_019.png" id="21_t7bia"]
-[ext_resource type="Texture2D" uid="uid://bnb26lp01ujob" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_020.png" id="22_v3l2f"]
-[ext_resource type="Texture2D" uid="uid://v60r0ilfxvo4" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_021.png" id="23_w76cl"]
-[ext_resource type="Texture2D" uid="uid://bcuuj04tlrhsc" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_022.png" id="24_o4rih"]
-[ext_resource type="Texture2D" uid="uid://cvxx77173y445" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_023.png" id="25_wovii"]
-[ext_resource type="Texture2D" uid="uid://dnoh7drv065px" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_024.png" id="26_i5b2o"]
-[ext_resource type="Texture2D" uid="uid://d2ol5iqwvg71s" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_025.png" id="27_kdfla"]
-[ext_resource type="Texture2D" uid="uid://do3c1ki1dmwgd" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_026.png" id="28_umbki"]
-[ext_resource type="Texture2D" uid="uid://bndp23hhd7bkr" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_027.png" id="29_12hk6"]
-[ext_resource type="Texture2D" uid="uid://c78uvu7iywt6x" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_028.png" id="30_8vjww"]
-[ext_resource type="Texture2D" uid="uid://ylm1u8btfjs" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_029.png" id="31_ufc3q"]
-[ext_resource type="Texture2D" uid="uid://kd1tm20loadh" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_030.png" id="32_8odrk"]
-[ext_resource type="Texture2D" uid="uid://cp10wfig0nv7d" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_031.png" id="33_7jmx2"]
-[ext_resource type="Texture2D" uid="uid://cku0ldys6efsn" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_032.png" id="34_laixh"]
-[ext_resource type="Texture2D" uid="uid://dltur24gxgb42" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_033.png" id="35_5pclg"]
-[ext_resource type="Texture2D" uid="uid://cvnu7d2hpfy1c" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_034.png" id="36_35ubg"]
-[ext_resource type="Texture2D" uid="uid://bfq0m86udyndm" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_035.png" id="37_71ers"]
-[ext_resource type="Texture2D" uid="uid://dikk8ci7e1fvf" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_036.png" id="38_jl81f"]
-[ext_resource type="Texture2D" uid="uid://d3ormoaiib52x" path="res://Art/Packs/Itch Karsiori/Yellow Light/Lantern 1 - Silver and Yellow_037.png" id="39_8g152"]
+[ext_resource type="Texture2D" uid="uid://cxv1dodl2ms3o" path="res://Art/Packs/Itch Sam/lamp post.png" id="1_aghs8"]
 [ext_resource type="Texture2D" uid="uid://coxuklfoq1am5" path="res://Art/Textures/player_light.tres" id="40_gfad7"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0s7ux"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_56ipr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_nu8jn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_2qg4v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_f3qdl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_42frg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_ien4g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_b3dg0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_ufto2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_4bkd7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_bswpt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_jyb0p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_nakk4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_qcnk2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_i7iie")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_ib3b1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_wo41f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_g8rpo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_omwcy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_heqb0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_t7bia")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_v3l2f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_w76cl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_o4rih")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_wovii")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_i5b2o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_kdfla")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_umbki")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_12hk6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_8vjww")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_ufc3q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_8odrk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_7jmx2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_laixh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_5pclg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_35ubg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_71ers")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_jl81f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_8g152")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Lantern" type="Node2D" unique_id=955374447]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(1.215, 1.215)
 
 [node name="Post" type="Sprite2D" parent="." unique_id=1547404992]
-position = Vector2(0, -88)
-texture = ExtResource("1_718x7")
-
-[node name="Lamp" type="AnimatedSprite2D" parent="." unique_id=968288456]
-position = Vector2(0, -204)
-sprite_frames = SubResource("SpriteFrames_0s7ux")
-frame_progress = 0.56294805
+position = Vector2(0, -18.93004)
+texture = ExtResource("1_aghs8")
 
 [node name="Center" type="PointLight2D" parent="." unique_id=1066162883]
-position = Vector2(0, -192)
+position = Vector2(0, -29.629627)
 color = Color(1, 0.78039217, 0.5921569, 1)
 energy = 2.3
 texture = ExtResource("40_gfad7")
 texture_scale = 0.17
 
 [node name="Glow" type="PointLight2D" parent="." unique_id=868261999]
-position = Vector2(0, -191)
+position = Vector2(0.38057804, -30.072113)
 color = Color(1, 0.73333335, 0.4862745, 1)
 texture = ExtResource("40_gfad7")
-texture_scale = 10.48
+texture_scale = 1.87

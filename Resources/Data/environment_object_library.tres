@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://b0e74i7i738kk" path="res://Scripts/Environment/EnvironmentObjects/EnvironmentObjectLibrary.gd" id="2_7hq1e"]
 [ext_resource type="Resource" uid="uid://drqdumc5s660b" path="res://Assets/Environment/Environment_Objects_Data/dummy.tres" id="2_m2ebg"]
 [ext_resource type="Resource" uid="uid://cup47d6ieuu2h" path="res://Assets/Environment/Environment_Objects_Data/crate.tres" id="3_m2ebg"]
+[ext_resource type="Resource" uid="uid://bl8d3vh84rieq" path="res://Assets/Environment/Environment_Objects_Data/dummy_hurt.tres" id="4_o1plf"]
 
 [resource]
 script = ExtResource("2_7hq1e")
-objects = Array[ExtResource("1_q1la3")]([ExtResource("2_m2ebg"), ExtResource("3_m2ebg")])
+objects = Array[ExtResource("1_q1la3")]([ExtResource("2_m2ebg"), ExtResource("3_m2ebg"), ExtResource("4_o1plf")])
 metadata/_custom_type_script = "uid://b0e74i7i738kk"

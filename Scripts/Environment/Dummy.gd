@@ -1,6 +1,6 @@
 # Dummy object to hit
-
-extends Node2D
+ 
+extends EnvironmentNode
 
 @onready var damageable = $"Damageable"
 @onready var anim: AnimationPlayer = $"AnimationPlayer"
@@ -21,7 +21,6 @@ func on_anim_complete(anim_name: String):
 	anim.play("idle")
 
 func on_take_damage(source: Node, amount: float):
-	print("Took damage from: ", source.name, " for ", amount, " damage")
 	damageable.command_freeze()
 	damage_text.text = "-" + str(int(amount))
 	anim.play("hit")

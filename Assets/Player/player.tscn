@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://7affc6kaebr" path="res://Scripts/Player/PlayerPhysics.gd" id="4_csact"]
 [ext_resource type="Script" uid="uid://l8ha44y3vbhc" path="res://Scripts/Player/PlayerItemUsage.gd" id="5_e6xfg"]
 [ext_resource type="Texture2D" uid="uid://coxuklfoq1am5" path="res://Art/Textures/player_light.tres" id="7_cdil5"]
+[ext_resource type="PackedScene" uid="uid://fem4nbjc64l" path="res://Assets/CompositionPieces/damageable.tscn" id="7_rul8u"]
 
 [sub_resource type="Animation" id="Animation_q1ymb"]
 length = 0.001
@@ -230,6 +231,10 @@ height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1ymb"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kg0wl"]
+radius = 3.0
+height = 12.0
+
 [node name="Player" type="CharacterBody2D" unique_id=498693783]
 physics_interpolation_mode = 1
 z_index = 10
@@ -305,3 +310,9 @@ script = ExtResource("5_e6xfg")
 position = Vector2(0, -7)
 texture = ExtResource("7_cdil5")
 texture_scale = 2.08
+
+[node name="Damageable" parent="." unique_id=11218394 instance=ExtResource("7_rul8u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable" unique_id=814203125]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_kg0wl")

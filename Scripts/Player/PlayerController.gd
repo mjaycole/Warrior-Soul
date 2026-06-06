@@ -11,6 +11,7 @@ signal player_use_item(item_compass)
 @onready var player_animations = $AnimationPlayer
 @onready var player_physics = $Physics
 @onready var player_item_use = $"PlayerItemUsage"
+@onready var player_damageable: Damageable = $Damageable
 
 #State Machine
 enum State { 
@@ -47,6 +48,8 @@ func _ready():
 	player_item_use.command_refresh_items()
 	player_item_use.item_use.connect(handle_item_use)
 	player_item_use.item_use_completed.connect(handle_item_use_completed)
+
+	player_damageable.damage_taken.connect(_on_damage_taken)
 
 
 func _input(event: InputEvent):
@@ -241,4 +244,9 @@ func handle_item_use(item_compass: String):
 
 	switch_state(State.USING_ITEM)
 
+#endregion
+
+#region Health Listeners
+func _on_damage_taken(source: Node, amount: float):
+	return
 #endregion

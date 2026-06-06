@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://d2moxjpuhljv4"]
+
+[ext_resource type="Script" uid="uid://50gvhbxgl3cx" path="res://Scripts/Environment/DummyHurt.gd" id="1_bajci"]
+[ext_resource type="Texture2D" uid="uid://cs0qnx4wr6g7x" path="res://Art/Packs/Pixel Art Platformer - Village Props (itch)/Dummy.png" id="2_bajci"]
+[ext_resource type="PackedScene" uid="uid://fem4nbjc64l" path="res://Assets/CompositionPieces/damageable.tscn" id="3_o1b0b"]
+[ext_resource type="PackedScene" uid="uid://lrw5sx30psw6" path="res://Assets/CompositionPieces/hurtbox.tscn" id="4_bajci"]
+
+[sub_resource type="Animation" id="Animation_30p5r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.000004, -27)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["+10"]
+}
+
+[sub_resource type="Animation" id="Animation_i7pb3"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666668, 0.099999994, 0.25),
+"transitions": PackedFloat32Array(1, 0.030185526, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.06981317007977318, -0.03490658503988659, 0.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-10, -25), Vector2(-10, -45), Vector2(-10, -36.92)]
+}
+
+[sub_resource type="Animation" id="Animation_k753n"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["
+"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6iq5h"]
+_data = {
+&"RESET": SubResource("Animation_30p5r"),
+&"hit": SubResource("Animation_i7pb3"),
+&"idle": SubResource("Animation_k753n")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7pb3"]
+size = Vector2(6, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bajci"]
+size = Vector2(6, 17)
+
+[node name="DummyHurt" type="Node2D" unique_id=1586090591]
+z_index = 1
+script = ExtResource("1_bajci")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1075632590]
+libraries/ = SubResource("AnimationLibrary_6iq5h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=544523987]
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("2_bajci")
+offset = Vector2(0, -33.515)
+
+[node name="ColorModulate" type="Sprite2D" parent="Sprite2D" unique_id=74631272]
+modulate = Color(0.69245994, 1.8410012e-06, 7.70092e-07, 0.36078432)
+position = Vector2(9.536743e-07, 0.009749451)
+texture = ExtResource("2_bajci")
+offset = Vector2(0, -33.515)
+
+[node name="Damageable" parent="." unique_id=11218394 instance=ExtResource("3_o1b0b")]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable" unique_id=368409564]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_i7pb3")
+
+[node name="Label" type="Label" parent="." unique_id=502613055]
+modulate = Color(0.77254903, 0, 0.011764706, 1)
+offset_left = -4.000004
+offset_top = -27.0
+offset_right = 35.999996
+offset_bottom = 16.0
+scale = Vector2(0.445, 0.445)
+text = "+10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hurtbox" parent="." unique_id=1685783419 instance=ExtResource("4_bajci")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1913088111]
+position = Vector2(0, -14.5)
+shape = SubResource("RectangleShape2D_bajci")

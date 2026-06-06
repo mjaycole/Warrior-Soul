@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Environment_Object" format=3 uid="uid://bl8d3vh84rieq"]
+
+[ext_resource type="Script" uid="uid://cl5eexodexogs" path="res://Scripts/Environment/EnvironmentObjects/EnvironmentObject.gd" id="1_7lvjp"]
+[ext_resource type="PackedScene" uid="uid://d2moxjpuhljv4" path="res://Assets/Environment/dummy_hurt.tscn" id="1_t7087"]
+
+[resource]
+script = ExtResource("1_7lvjp")
+id = "dummyhurt"
+name = "Dummy Hurt"
+prefab = ExtResource("1_t7087")
+metadata/_custom_type_script = "uid://cl5eexodexogs"

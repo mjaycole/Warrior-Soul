@@ -18,9 +18,14 @@ func command_unfreeze():
 	frozen = false
 
 func take_damage(source: Node, amount: float):
+	if source == get_parent():
+		return
+
 	if frozen:
 		hit_while_frozen.emit(source, amount)
 		return
+
+	print(get_parent().name, " took ", amount, " damage from ", source)
 
 	health -= amount
 	damage_taken.emit(source, amount)
