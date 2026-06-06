@@ -23,6 +23,7 @@ var game_world_manager: GameWorldManager
 #region Signals
 signal input_availability_changed(available: bool)
 signal terminal_object_spawned(object: PackedScene)
+signal terminal_response(response: String)
 #endregion
 
 #region Variables
@@ -90,6 +91,7 @@ func handle_terminal_input(input: String):
 	var parts = input.split("_")
 
 	if parts.size() < 1:
+		terminal_response.emit("No _ added, could not parse")
 		return
 
 	var command = parts[0]
@@ -98,6 +100,7 @@ func handle_terminal_input(input: String):
 
 	match command:
 		"enviro": spawn_enviro_object(value, quantity)
+		_: terminal_response.emit("Unknown command")
 
 func spawn_enviro_object(object_name: String, count: String):
 	if object_name != "" and current_player_object != null:
@@ -106,15 +109,16 @@ func spawn_enviro_object(object_name: String, count: String):
 
 			if enviro_obj:
 				terminal_object_spawned.emit(enviro_obj.prefab)
+				terminal_response.emit("Attempting to spawn object")
 			else:
-				print("No object exists")
+				terminal_response.emit("No object exists")
 		else:
 			var quantity = int(count)
 
 			if quantity:
 				return
-	
-	print("Failed to find object name")
+	else:
+		terminal_response.emit("Failed to find object name")
 
 # List of commands for the debug terminal
 # "giveitem" - gives a value [item name] item to player quantity [x] times

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cx0vs0pwg3ues" path="res://Assets/Environment/dummy_crate.tscn" id="5_2ea3q"]
 [ext_resource type="PackedScene" uid="uid://bjjd534pvenpe" path="res://Assets/Environment/dummy.tscn" id="6_wmvqn"]
 [ext_resource type="PackedScene" uid="uid://blwf0q31fnugx" path="res://Assets/Environment/lantern.tscn" id="7_gu86r"]
+[ext_resource type="PackedScene" uid="uid://d2moxjpuhljv4" path="res://Assets/Environment/dummy_hurt.tscn" id="8_fw5cf"]
 
 [node name="Sandbox" type="Node2D" unique_id=236937934]
 script = ExtResource("1_4ka60")
@@ -63,3 +64,6 @@ position = Vector2(166, 120)
 
 [node name="Dummy" parent="Environment" unique_id=1586090591 instance=ExtResource("6_wmvqn")]
 position = Vector2(192, 120)
+
+[node name="DummyHurt" parent="." unique_id=328244305 instance=ExtResource("8_fw5cf")]
+position = Vector2(312, 168)

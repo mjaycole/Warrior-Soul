@@ -70,8 +70,6 @@ func toggle_terminal():
 func handle_terminal_enter_pressed(input: String):
 	terminal_enter_pressed.emit(input)
 
-	toggle_terminal()
-
 #endregion
 
 #region Signal Handling
