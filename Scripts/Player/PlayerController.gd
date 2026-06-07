@@ -3,20 +3,23 @@
 extends CharacterBody2D
 class_name player_controller
 
-#Signals
+# Signals
 signal player_state_changed(new_state)
 signal player_use_item(item_compass)
 
-#Sub-Node References
+# Sub-Node References
 @onready var player_animations = $AnimationPlayer
 @onready var player_physics = $Physics
 @onready var player_item_use = $"PlayerItemUsage"
 @onready var player_damageable: Damageable = $Damageable
 
-#State Machine
+# Variables
+@export var hurt_time: float = 3
+
+# State Machine
 enum State { 
 	IDLE, WALKING, SPRINTING, PUSHING, JUMPING, FALLING, 
-	DASHING, GRABBING_LEDGE, CLIMBING, USING_ITEM, DEAD }
+	DASHING, GRABBING_LEDGE, CLIMBING, USING_ITEM, HURT, DEAD }
 
 var current_state = State.IDLE
 
@@ -89,6 +92,12 @@ func switch_state(new_state: State, ignore_state_check: bool = false):
 	match current_state:
 		State.USING_ITEM:
 			player_physics.command_freeze()
+		State.HURT:
+			player_physics.command_freeze()
+
+			await get_tree().create_timer(hurt_time).timeout
+
+			reset_state()
 		_: 
 			player_physics.command_unfreeze()
 
@@ -107,7 +116,8 @@ func can_go_to_state(state: State) -> bool:
 			return current_state not in [
 				State.USING_ITEM,
 				State.DASHING,
-				State.CLIMBING
+				State.CLIMBING,
+				State.HURT
 			]
 
 		State.DASHING: 
@@ -115,14 +125,16 @@ func can_go_to_state(state: State) -> bool:
 				State.USING_ITEM,
 				State.DASHING,
 				State.GRABBING_LEDGE,
-				State.CLIMBING
+				State.CLIMBING,
+				State.HURT
 			]
 
 		State.GRABBING_LEDGE:
 			return current_state not in [
 				State.USING_ITEM,
 				State.GRABBING_LEDGE,
-				State.CLIMBING
+				State.CLIMBING,
+				State.HURT
 			]
 
 		State.CLIMBING:
@@ -135,7 +147,13 @@ func can_go_to_state(state: State) -> bool:
 				State.USING_ITEM,
 				State.DASHING,
 				State.GRABBING_LEDGE,
-				State.CLIMBING
+				State.CLIMBING,
+				State.HURT
+			]
+		
+		State.HURT:
+			return current_state not in [
+				State.HURT
 			]
 
 		State.DEAD: 
@@ -248,5 +266,5 @@ func handle_item_use(item_compass: String):
 
 #region Health Listeners
 func _on_damage_taken(source: Node, amount: float):
-	return
+	switch_state(State.HURT)
 #endregion

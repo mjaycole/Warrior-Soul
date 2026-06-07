@@ -34,6 +34,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [-12.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_rn3hg"]
 resource_name = "climb"
@@ -83,6 +95,35 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [11]
+}
+
+[sub_resource type="Animation" id="Animation_rul8u"]
+resource_name = "hurt"
+length = 0.35
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [41]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0.05882353, 0.5411765), Color(1, 1, 1, 1), Color(1, 0, 0.05882353, 0.5411765), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_sldgk"]
@@ -217,6 +258,7 @@ _data = {
 &"climb": SubResource("Animation_rn3hg"),
 &"dash": SubResource("Animation_7hu6s"),
 &"fall": SubResource("Animation_tdvti"),
+&"hurt": SubResource("Animation_rul8u"),
 &"idle": SubResource("Animation_sldgk"),
 &"jump": SubResource("Animation_ripo5"),
 &"melee_attack": SubResource("Animation_dqufp"),
@@ -239,6 +281,7 @@ height = 12.0
 physics_interpolation_mode = 1
 z_index = 10
 script = ExtResource("1_rul8u")
+hurt_time = 0.35
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1211162356]
 libraries/ = SubResource("AnimationLibrary_tdvti")

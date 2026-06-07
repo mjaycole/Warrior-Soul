@@ -40,6 +40,7 @@ func handle_animations():
 		player_controller.State.DASHING: handle_dash()
 		player_controller.State.PUSHING: handle_push()
 		player_controller.State.CLIMBING: handle_climb()
+		player_controller.State.HURT: handle_hurt()
 
 func handle_direction():
 	if character_controller.velocity.x < 0:
@@ -103,7 +104,10 @@ func handle_item_use():
 	if current_animation != animation:
 		play(animation)
 		
-		
+func handle_hurt():
+	speed_scale = 1
+	if current_animation != "hurt":
+		play("hurt")
 		
 		
 		
