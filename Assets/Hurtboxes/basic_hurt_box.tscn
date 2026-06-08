@@ -1,13 +1,65 @@
 [gd_scene format=3 uid="uid://b6uh355xkm0vh"]
 
 [ext_resource type="Script" uid="uid://c265qd8cwc1f5" path="res://Scripts/Compositions/Hurtbox.gd" id="1_vwmkk"]
+[ext_resource type="Texture2D" uid="uid://cw4rm0lab4kpx" path="res://Art/Packs/kiddolink Itch/vfx_slash-Sheet.png" id="2_5n501"]
+
+[sub_resource type="Animation" id="Animation_gn3t4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_c2f5c"]
+resource_name = "sword_slash"
+length = 0.23
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.1667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7iswg"]
+_data = {
+&"RESET": SubResource("Animation_gn3t4"),
+&"init": SubResource("Animation_c2f5c")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sldgk"]
-size = Vector2(24.169714, 19.499245)
+size = Vector2(24.169714, 28.497734)
 
-[node name="BasicHurtBox" type="Area2D" unique_id=1685783419]
+[node name="BasicHurtBox" type="Area2D" unique_id=1685783419 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_vwmkk")
+animation_player = NodePath("AnimationPlayer")
 live_duration = 0.25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1292824499]
+libraries/ = SubResource("AnimationLibrary_7iswg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1751313255]
+z_index = 1
+position = Vector2(9.000001, -2.0861626e-07)
+scale = Vector2(0.18749994, 0.083333336)
+texture = ExtResource("2_5n501")
+hframes = 9
+vframes = 12
+frame = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1246426005]
 position = Vector2(9, 0)

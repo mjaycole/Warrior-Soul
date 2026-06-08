@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemLibrary" format=3 uid="uid://d024pt0ekeyuc"]
 
 [ext_resource type="Script" uid="uid://m8kt1otdmbwg" path="res://Scripts/Items/Item.gd" id="1_qtb7u"]
-[ext_resource type="Resource" uid="uid://4ob1bbpdasgu" path="res://Assets/Items/Weapons/broken_sword.tres" id="2_313kh"]
+[ext_resource type="Resource" uid="uid://4ob1bbpdasgu" path="res://Assets/Data/Items/Weapons/broken_sword.tres" id="2_313kh"]
 [ext_resource type="Script" uid="uid://ccw1d305kdvhs" path="res://Scripts/Items/ItemLibrary.gd" id="2_iadmr"]
 
 [resource]

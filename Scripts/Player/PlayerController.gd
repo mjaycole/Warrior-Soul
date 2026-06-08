@@ -74,7 +74,7 @@ func _input(event: InputEvent):
 			player_item_use.command_use("right_hand", self)
 	
 func _physics_process(delta: float):
-	player_animations.handle_animations()
+	player_animations.handle_animations(player_physics.last_direction)
 	player_physics.calculated_physics(delta)
 
 #endregion

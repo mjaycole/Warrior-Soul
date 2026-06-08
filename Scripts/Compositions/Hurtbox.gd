@@ -5,6 +5,7 @@ extends Area2D
 
 signal dealt_damage(receiving_object)
 
+@export var animation_player: AnimationPlayer
 @export var live_duration: float = 1.0
 
 var source: Node
@@ -36,6 +37,10 @@ func set_source_and_damage(_source: Node, _damage: float):
 func initialize(owner_global_position: Vector2, mouse_pos: Vector2):
 	var direction = (mouse_pos - owner_global_position).normalized()
 	rotation = direction.angle()
+
+	if animation_player:
+		print("Playing animation")
+		animation_player.play("init")
 
 	await get_tree().create_timer(live_duration).timeout
 

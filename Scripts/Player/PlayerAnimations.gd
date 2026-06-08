@@ -28,8 +28,8 @@ func idle_time(delta: float):
 				play("rest")
 
 #Handles the animations for the current state
-func handle_animations():
-	handle_direction()
+func handle_animations(last_direction: float):
+	handle_direction(last_direction)
 	
 	match player_state:
 		player_controller.State.IDLE:	 handle_idle()
@@ -42,10 +42,10 @@ func handle_animations():
 		player_controller.State.CLIMBING: handle_climb()
 		player_controller.State.HURT: handle_hurt()
 
-func handle_direction():
-	if character_controller.velocity.x < 0:
+func handle_direction(last_direction: float):
+	if last_direction < 0:
 		player_sprite.flip_h = false
-	elif character_controller.velocity.x > 0:
+	elif last_direction > 0:
 		player_sprite.flip_h = true
 
 func handle_idle():

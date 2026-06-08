@@ -120,8 +120,8 @@ func command_freeze() -> void:
 func command_unfreeze() -> void:
 	frozen = false
 
-func command_apply_momentum(force: float) -> void:
-	character_body.velocity.x = force * last_direction
+func command_apply_momentum(force: float, direction: float) -> void:
+	character_body.velocity.x = force * direction
 
 #endregion
 
@@ -261,7 +261,13 @@ func _on_item_used(item_id: String) -> void:
 	var item = ItemLibraryFetcher.get_item(item_id)
 	var weapon = item as Weapon
 	if weapon:
-		command_apply_momentum(weapon.momentum_force)
+		var mouseDirection = character_body.get_global_mouse_position()
+		if mouseDirection.x > global_position.x:
+			mouseDirection = 1
+		else:
+			mouseDirection = -1
+
+		command_apply_momentum(weapon.momentum_force, mouseDirection)
 
 func _handle_push_pushable_object(delta: float):
 	if current_pushable == null:

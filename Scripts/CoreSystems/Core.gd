@@ -95,33 +95,35 @@ func handle_terminal_input(input: String):
 		return
 
 	var command = parts[0]
-	var value = parts[1] if parts.size() > 1 else ""
-	var quantity = parts[2] if parts.size() > 2 else ""
+	var args: Array
+	for part in parts:
+		if part != command:
+			args.append(part)
 
 	match command:
-		"enviro": spawn_enviro_object(value, quantity)
+		"spawn": spawn_object(args)
 		_: terminal_response.emit("Unknown command")
 
-func spawn_enviro_object(object_name: String, count: String):
-	if object_name != "" and current_player_object != null:
-		if count == null or count == "":
-			var enviro_obj = EnviroObjFetcher.get_object(object_name)
+func spawn_object(args: Array):
+	if args.size() <= 0:
+		terminal_response.emit("No arguments given to spawn command")
+		return
+	
+	# TO DO: Add other spawnable object type commands, such as items and enemies
+	var enviro_obj = EnviroObjFetcher.get_object(args[0])
 
-			if enviro_obj:
-				terminal_object_spawned.emit(enviro_obj.prefab)
-				terminal_response.emit("Attempting to spawn object")
-			else:
-				terminal_response.emit("No object exists")
-		else:
-			var quantity = int(count)
-
-			if quantity:
-				return
+	if enviro_obj:
+		terminal_object_spawned.emit(enviro_obj.prefab)
+		terminal_response.emit("Attempting to spawn object")
+		return
 	else:
 		terminal_response.emit("Failed to find object name")
 
+
 # List of commands for the debug terminal
-# "giveitem" - gives a value [item name] item to player quantity [x] times
-# "enviro" - spawns a value [environment object name] in front of the player quantity [x] times
+# "spawn" - spawns something in the game world
+# "equip" - adds item to player inventory and equips it
+# "giveitem" - gives an item to player
+# 
 
 #endregion
