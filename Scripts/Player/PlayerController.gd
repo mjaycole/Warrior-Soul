@@ -222,6 +222,7 @@ func handle_left_ground():
 	switch_state(State.FALLING)
 
 func handle_landed():
+	player_audio.handle_landed()
 	reset_state()
 
 func handle_jump_started():

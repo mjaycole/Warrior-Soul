@@ -248,6 +248,9 @@ func _handle_fall_state(delta: float) -> void:
 		jump_has_peaked = false
 		jump_landed.emit()
 
+	if on_floor && not was_on_floor:
+		landed.emit()
+	
 	var changed = was_on_floor != on_floor
 	was_on_floor = on_floor
 

@@ -56,6 +56,9 @@ func handle_footstep_time(time: float):
 func handle_dash():
 	AudioManagerNode.play_effect(dash, dash_volume)
 
+func handle_landed():
+	return
+
 func handle_item_use():
 	if character_controller.current_item_use != null && character_controller.current_item_use.use_sound != null:
 		AudioManagerNode.play_effect(character_controller.current_item_use.use_sound, character_controller.current_item_use.use_volume)
