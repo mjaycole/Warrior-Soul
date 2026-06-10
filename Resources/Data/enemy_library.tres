@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Enemy_Data_Library" format=3 uid="uid://exe2ce8ds0c0"]
+
+[ext_resource type="Script" uid="uid://dq1mioiuurs2n" path="res://Scripts/Enemies/EnemyData/EnemyData.gd" id="1_pr607"]
+[ext_resource type="Script" uid="uid://3ed1kvc15acq" path="res://Scripts/Enemies/EnemyData/EnemyLibrary.gd" id="2_lgebj"]
+[ext_resource type="Resource" uid="uid://cvro1unupgtub" path="res://Assets/Data/Enemies/goblin_one.tres" id="2_ru0kg"]
+
+[resource]
+script = ExtResource("2_lgebj")
+enemies = Array[ExtResource("1_pr607")]([ExtResource("2_ru0kg")])
+metadata/_custom_type_script = "uid://3ed1kvc15acq"

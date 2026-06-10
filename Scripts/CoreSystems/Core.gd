@@ -22,7 +22,7 @@ var game_world_manager: GameWorldManager
 
 #region Signals
 signal input_availability_changed(available: bool)
-signal terminal_object_spawned(object: PackedScene)
+signal terminal_object_spawned(object: PackedScene, type: String)
 signal terminal_response(response: String)
 #endregion
 
@@ -111,9 +111,14 @@ func spawn_object(args: Array):
 	
 	# TO DO: Add other spawnable object type commands, such as items and enemies
 	var enviro_obj = EnviroObjFetcher.get_object(args[0])
+	var enemy = EnemyFetcher.get_enemy(args[0])
 
 	if enviro_obj:
-		terminal_object_spawned.emit(enviro_obj.prefab)
+		terminal_object_spawned.emit(enviro_obj.prefab, "enviro")
+		terminal_response.emit("Attempting to spawn object")
+		return
+	elif enemy:
+		terminal_object_spawned.emit(enemy.prefab, "enemy")
 		terminal_response.emit("Attempting to spawn object")
 		return
 	else:

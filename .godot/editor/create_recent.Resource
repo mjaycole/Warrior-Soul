@@ -1,3 +1,5 @@
+EnemyData
+Enemy_Data_Library
 TileSet
 Environment_Object
 Environment_Object_Library

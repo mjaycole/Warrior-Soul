@@ -28,5 +28,5 @@ func _handle_world_ready():
 func _handle_player_spawned(player: Node):
 	Core.current_player_object = player
 
-func _handle_terminal_object_spawned(object: PackedScene):
-	current_world.spawn_object(object)
+func _handle_terminal_object_spawned(object: PackedScene, type: String):
+	current_world.spawn_object(object, type)

@@ -10,6 +10,7 @@ signal unload_completed
 
 # Universal onready vars
 @onready var player_spawn = $PlayerSpawn
+@onready var enemy_spawn = $EnemySpawn
 @onready var environment = $Environment
 @onready var camera = $Camera2D
 
@@ -31,5 +32,5 @@ func command_unload_world():
     unload_completed.emit()
 
 # Called by the GameWorldManager whenever there needs to be a forced object spawn, such as from the debug terminal
-func spawn_object(object: PackedScene):
+func spawn_object(object: PackedScene, type: String):
     pass

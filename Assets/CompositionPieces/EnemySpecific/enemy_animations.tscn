@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://hyyvaerp5w57"]
+
+[ext_resource type="Script" uid="uid://brj6twacjefst" path="res://Scripts/Enemies/EnemyComposition/EnemyAnimations.gd" id="1_okmd4"]
+
+[node name="EnemyAnimations" type="AnimationPlayer" unique_id=1904414714]
+script = ExtResource("1_okmd4")

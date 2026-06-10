@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 ItemLibraryFetcher="*uid://cbcpabr5ut1yx"
 EnvironmentObjectFetcher="*uid://dk46telahnj5l"
+EnemyLibraryFetcher="*uid://cqmkyx3giis84"
 AudioManagerNode="*uid://r1twlb6pjc3y"
 Core="*uid://ku3da652toyf"
 
