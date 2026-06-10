@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1780951143
+::res://::1780956388
 icon.svg::CompressedTexture2D::8076833388494616384::1780413393::1780413393::1::::<><><>0<>0<>1cac51f039d8cf534622e5efd0c52603<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 read_me.txt::TextFile::-1::1780584963::0::1::::<><><>0<>0<><>::
 ::res://Art/::1780584963
@@ -16,7 +16,7 @@ SIL - Open Font License.txt::TextFile::-1::1780413393::0::1::::<><><>0<>0<><>::
 ::res://Art/Fonts/medieval_sharp/demo/::1780413393
 ::res://Art/Misc/::1780413393
 blanksquare.jpg::CompressedTexture2D::8652155580890383619::1780413393::1780413393::1::::<><><>0<>0<>b46079b962c0a0c819aaef9f17a4c7e7<>res://.godot/imported/blanksquare.jpg-47335b3ce582c59841fd26be0506aed0.ctex::
-::res://Art/Packs/::1780949868
+::res://Art/Packs/::1781024690
 ::res://Art/Packs/7soulsrpggraphics/::1780413393
 ::res://Art/Packs/7soulsrpggraphics/Items/::1780413393
 weapon_sword_07.png::CompressedTexture2D::378245700075270741::1780413393::1780413393::1::::<><><>0<>0<>e39f51263d5ad985c9f61088ab1eee03<>res://.godot/imported/weapon_sword_07.png-987fe7d33c775de0b9ab6982ef73e2c9.ctex::
@@ -80,6 +80,16 @@ TX Crate.png::CompressedTexture2D::4663504161169447647::1780590900::1780590900::
 TX FX Flame.png::CompressedTexture2D::6287793288720052432::1780590460::1780590460::1::::<><><>0<>0<>0a203a68d9c10961b4d02acafe00cdc4<>res://.godot/imported/TX FX Flame.png-ec13f078904ad5186e62f33326af9175.ctex::
 TX FX Torch Flame.png::CompressedTexture2D::8969250594620799323::1780590460::1780590460::1::::<><><>0<>0<>a7856cfd43b3d4fb1a0d7d386766777b<>res://.godot/imported/TX FX Torch Flame.png-bedb0158eb523ebe92aa328d0630637c.ctex::
 TX Village Props.png::CompressedTexture2D::1190385638457166446::1780590460::1780590461::1::::<><><>0<>0<>1c8c69ff8c987090b7b8dc291cf8adaa<>res://.godot/imported/TX Village Props.png-07aa6a72eaf9def9d1b326ea25eac66e.ctex::
+::res://Art/Packs/Pozac Itch/::1781036000
+castle.tres::TileSet::7025434503441559113::1781035169::0::1::::<><><>0<>0<><>::uid://btqfbbst7vn8h::::res://Art/Packs/Pozac Itch/Terrain (24x24) (4).png
+Terrain (24x24) (4).png::CompressedTexture2D::3753344208875116965::1781024699::1781024700::1::::<><><>0<>0<>e1a32660ee7878991b0f6175231c7e9e<>res://.godot/imported/Terrain (24x24) (4).png-65bcec5baee954fbae03660198c64cee.ctex::
+::res://Art/Packs/Pozac Itch/Backgroud/::1781036000
+1 (2).png::CompressedTexture2D::3626670019694375648::1781036000::1781036001::1::::<><><>0<>0<>c38d934b1dc70057fbc66e7c45aa9b40<>res://.godot/imported/1 (2).png-9886e9db878bb87e005cb7ec6042910b.ctex::
+1 (3).png::CompressedTexture2D::632744018682071778::1781036000::1781036001::1::::<><><>0<>0<>a356badfdb31d6d74b4a4b11d99f5e8e<>res://.godot/imported/1 (3).png-2892acdb09280214737220f443a05270.ctex::
+1 (4).png::CompressedTexture2D::2766622701878346363::1781036000::1781036001::1::::<><><>0<>0<>9bdd94d4e7fea489a5201f9b5f8d5a16<>res://.godot/imported/1 (4).png-c14f9d0434da371cb40f779d2a6666a4.ctex::
+1 (5).png::CompressedTexture2D::4825976898454496034::1781036000::1781036001::1::::<><><>0<>0<>2cdfa2f248f0e186de665dca646150c5<>res://.godot/imported/1 (5).png-6840c48bdb1e1a8a151a8752236bbed1.ctex::
+1 (6).png::CompressedTexture2D::923619662799704184::1781036000::1781036001::1::::<><><>0<>0<>ab6c8686c48c7ec6bb18b7e62e5e89df<>res://.godot/imported/1 (6).png-f71d84179f2092b222ea65155410c3e1.ctex::
+1 (7).png::CompressedTexture2D::429634069167828897::1781036000::1781036001::1::::<><><>0<>0<>e6a4b663543188d402c776d973cdeb87<>res://.godot/imported/1 (7).png-24e9c8e4a09b20c7472d44d1c9582086.ctex::
 ::res://Art/Textures/::1780950160
 player_light.tres::GradientTexture2D::5804198650595781894::1780950160::0::1::::<><><>0<>0<><>::
 ::res://Art/UI/::1780413393
@@ -88,12 +98,15 @@ menu_button.tres::Theme::7259889784270982592::1780413393::0::1::::<><><>0<>0<><>
 ::res://Art/Wallpapers/::1780413393
 EldenRingWallpaper.jpg::CompressedTexture2D::7535402678952310653::1780413393::1780413393::1::::<><><>0<>0<>4a4c53b1cd5c3299862ca67ebb46e196<>res://.godot/imported/EldenRingWallpaper.jpg-88f5855bdf8be5025535360f7233e0c1.ctex::
 JumpKing.jpg::CompressedTexture2D::5161201148663417176::1780413393::1780413393::1::::<><><>0<>0<>635a20a0a357d4b3d7a121cd1fe396e7<>res://.godot/imported/JumpKing.jpg-27350a04133f4afd1b75e304bb67c2b4.ctex::
-::res://Assets/::1780584963
+::res://Assets/::1780956388
 ::res://Assets/CompositionPieces/::1780937630
 damageable.tscn::PackedScene::10587729585412961::1780584963::0::1::::<><><>0<>0<><>::uid://ccuo5b536b02i::::res://Scripts/Compositions/Damageable.gd
 hurtbox.tscn::PackedScene::808562031752397083::1780937630::0::1::::<><><>0<>0<><>::uid://c265qd8cwc1f5::::res://Scripts/Compositions/Hurtbox.gd
 pushable.tscn::PackedScene::66081244469460032::1780593658::0::1::::<><><>0<>0<><>::uid://2gmd7aljtlv5::::res://Scripts/Compositions/Pushable.gd
-::res://Assets/Data/::0
+::res://Assets/Data/::1780956388
+::res://Assets/Data/Items/::1780584963
+::res://Assets/Data/Items/Weapons/::1780937630
+broken_sword.tres::Resource/Weapon::2064484956447785720::1780937630::0::1::::<><><>0<>0<><>::uid://dgatuf4sb8d2r::::res://Assets/ItemBehaviors/broken_sword_behavior.tscn<>uid://b6uh355xkm0vh::::res://Assets/Hurtboxes/basic_hurt_box.tscn<>uid://c73h08s1g8v3j::::res://Scripts/Items/Weapon.gd
 ::res://Assets/Environment/::1780937630
 dummy.tscn::PackedScene::3036936917180276038::1780668021::0::1::::<><><>0<>0<><>::uid://cs0qnx4wr6g7x::::res://Art/Packs/Pixel Art Platformer - Village Props (itch)/Dummy.png<>uid://bk77fs4gx87hn::::res://Scripts/Environment/Dummy.gd<>uid://fem4nbjc64l::::res://Assets/CompositionPieces/damageable.tscn
 dummy_crate.tscn::PackedScene::6440102753315366186::1780604822::0::1::::<><><>0<>0<><>::uid://bwj8y3a7pxen::::res://Scripts/Environment/DummyCrate.gd<>uid://b7pbh5n6femip::::res://Art/Packs/Pixel Art Platformer - Village Props (itch)/TX Crate.png<>uid://fem4nbjc64l::::res://Assets/CompositionPieces/damageable.tscn<>uid://7al32fl5mia::::res://Assets/CompositionPieces/pushable.tscn
@@ -107,8 +120,6 @@ dummy_hurt.tres::Resource/Environment_Object::3226855698145850608::1780937630::0
 basic_hurt_box.tscn::PackedScene::4604039035835518997::1780950383::0::1::::<><><>0<>0<><>::uid://c265qd8cwc1f5::::res://Scripts/Compositions/Hurtbox.gd<>uid://cw4rm0lab4kpx::::res://Art/Packs/kiddolink Itch/vfx_slash-Sheet.png
 ::res://Assets/ItemBehaviors/::1780584963
 broken_sword_behavior.tscn::PackedScene::7581584759884712395::1780584963::0::1::::<><><>0<>0<><>::uid://cok6av8rj2cn2::::res://Scripts/Items/ItemBehaviors/BrokenSwordBehavior.gd
-::res://Assets/Items/::1780584963
-::res://Assets/Items/Weapons/::1780937630
 ::res://Assets/Player/::1780951144
 player.tscn::PackedScene::2328760350482037832::1780951144::0::1::::<><><>0<>0<><>::uid://cb3bp5d2qt6fs::::res://Scripts/Player/PlayerController.gd<>uid://cjipreb2udmdu::::res://Scripts/Player/PlayerAnimations.gd<>uid://bq08jliht2cv0::::res://Art/Packs/Itch Sam/s4m_ur4i_huge-assetpack-character-animations.png<>uid://7affc6kaebr::::res://Scripts/Player/PlayerPhysics.gd<>uid://l8ha44y3vbhc::::res://Scripts/Player/PlayerItemUsage.gd<>uid://coxuklfoq1am5::::res://Art/Textures/player_light.tres<>uid://fem4nbjc64l::::res://Assets/CompositionPieces/damageable.tscn
 ::res://Audio/::1780413393
@@ -119,18 +130,18 @@ EldenRing_Main.mp3::AudioStreamMP3::37003498289757260::1780413393::1780413393::1
 bootstrap.tscn::PackedScene::6878151885231215883::1780937630::0::1::::<><><>0<>0<><>::uid://d3d5xm5jv0unf::::res://Scripts/CoreSystems/Bootstrap.gd<>uid://bycjcef4fh3m7::::res://Scripts/CoreSystems/UIManager.gd<>uid://bqtinaft0xjs3::::res://Scripts/CoreSystems/GameWorldManager.gd
 core.tscn::PackedScene::327438724987052002::1780937630::0::1::::<><><>0<>0<><>::uid://ku3da652toyf::::res://Scripts/CoreSystems/Core.gd<>uid://ecko6bg2ytim::::res://Resources/Data/starting_data.tres
 debug_terminal.tscn::PackedScene::2173882248340035885::1780937630::0::1::::<><><>0<>0<><>::uid://dmnobqt5bepeh::::res://Scripts/Utilities/DebugTerminal.gd
-::res://Nodes/GameWorlds/::1780950941
-sandbox.tscn::PackedScene::3057217302854419739::1780950941::0::1::::<><><>0<>0<><>::uid://ccidi0elom3x::::res://Scripts/GameWorlds/Sandbox.gd<>uid://cfseh1taul1ii::::res://Art/Wallpapers/JumpKing.jpg<>uid://ciuekcbannfk4::::res://Art/Packs/Itch Sam/TileSet.tres<>uid://b0l04d8gnvvar::::res://Scripts/Player/PlayerCamera.gd<>uid://cx0vs0pwg3ues::::res://Assets/Environment/dummy_crate.tscn<>uid://bjjd534pvenpe::::res://Assets/Environment/dummy.tscn<>uid://blwf0q31fnugx::::res://Assets/Environment/lantern.tscn<>uid://d2moxjpuhljv4::::res://Assets/Environment/dummy_hurt.tscn
+::res://Nodes/GameWorlds/::1781035979
+sandbox.tscn::PackedScene::3057217302854419739::1781035979::0::1::::<><><>0<>0<><>::uid://ccidi0elom3x::::res://Scripts/GameWorlds/Sandbox.gd<>uid://cfseh1taul1ii::::res://Art/Wallpapers/JumpKing.jpg<>uid://c7df46dlxg8af::::res://Art/Packs/Pozac Itch/castle.tres<>uid://b0l04d8gnvvar::::res://Scripts/Player/PlayerCamera.gd<>uid://cx0vs0pwg3ues::::res://Assets/Environment/dummy_crate.tscn<>uid://bjjd534pvenpe::::res://Assets/Environment/dummy.tscn<>uid://blwf0q31fnugx::::res://Assets/Environment/lantern.tscn
 ::res://Nodes/Menus/::1780413393
 main_menu.tscn::PackedScene::7416854564037602973::1780413393::0::1::::<><><>0<>0<><>::uid://5my12u71qs1x::::res://Scripts/Menus/MainMenu/MainMenu.gd<>uid://dfmg8misquwjt::::res://Art/Wallpapers/EldenRingWallpaper.jpg<>uid://br5nxxm86d6ox::::res://Scripts/Menus/MainMenu/HomePanel.gd<>uid://bm3lbnlpfarxf::::res://Scripts/Menus/MainMenu/NewPanel.gd
 ::res://Nodes/UI/::1780413393
 in_game_hud.tscn::PackedScene::194483176026670185::1780413393::0::1::::<><><>0<>0<><>::uid://dvjf0dq8vbngl::::res://Art/Misc/blanksquare.jpg<>uid://bxda8c1pasfr1::::res://Scripts/Menus/HUD/HUDManager.gd
 ::res://Resources/::1780584963
 audio_manager.tscn::PackedScene::1248077654511131440::1780584963::0::1::::<><><>0<>0<><>::uid://ci5yj8l8brcv4::::res://Scripts/CoreSystems/AudioManager.gd
-::res://Resources/Data/::1780937630
+::res://Resources/Data/::1780956388
 environment_object_library.tres::Resource/Environment_Object_Library::8372390347675227385::1780937630::0::1::::<><><>0<>0<><>::uid://cl5eexodexogs::::res://Scripts/Environment/EnvironmentObjects/EnvironmentObject.gd<>uid://b0e74i7i738kk::::res://Scripts/Environment/EnvironmentObjects/EnvironmentObjectLibrary.gd<>uid://drqdumc5s660b::::res://Assets/Environment/Environment_Objects_Data/dummy.tres<>uid://cup47d6ieuu2h::::res://Assets/Environment/Environment_Objects_Data/crate.tres<>uid://bl8d3vh84rieq::::res://Assets/Environment/Environment_Objects_Data/dummy_hurt.tres
-item_library.tres::Resource/ItemLibrary::8971509957847581450::1780937630::0::1::::<><><>0<>0<><>::uid://m8kt1otdmbwg::::res://Scripts/Items/Item.gd<>uid://4ob1bbpdasgu::::res://Assets/Items/Weapons/broken_sword.tres<>uid://ccw1d305kdvhs::::res://Scripts/Items/ItemLibrary.gd
-starting_data.tres::Resource/PlayerData::285517931180900312::1780604184::0::1::::<><><>0<>0<><>::uid://m8kt1otdmbwg::::res://Scripts/Items/Item.gd<>uid://do74wl5jse4a3::::res://Scripts/Player/PlayerData.gd<>uid://4ob1bbpdasgu::::res://Assets/Items/Weapons/broken_sword.tres<>uid://uqj38tt6wavw::::res://Scripts/Player/PlayerInventory.gd<>uid://b5n60t387nh82::::res://Scripts/Player/PlayerStats.gd
+item_library.tres::Resource/ItemLibrary::8971509957847581450::1780956388::0::1::::<><><>0<>0<><>::uid://m8kt1otdmbwg::::res://Scripts/Items/Item.gd<>uid://4ob1bbpdasgu::::res://Assets/Data/Items/Weapons/broken_sword.tres<>uid://ccw1d305kdvhs::::res://Scripts/Items/ItemLibrary.gd
+starting_data.tres::Resource/PlayerData::285517931180900312::1780956388::0::1::::<><><>0<>0<><>::uid://m8kt1otdmbwg::::res://Scripts/Items/Item.gd<>uid://do74wl5jse4a3::::res://Scripts/Player/PlayerData.gd<>uid://4ob1bbpdasgu::::res://Assets/Data/Items/Weapons/broken_sword.tres<>uid://uqj38tt6wavw::::res://Scripts/Player/PlayerInventory.gd<>uid://b5n60t387nh82::::res://Scripts/Player/PlayerStats.gd
 ::res://Scripts/::1780937630
 ::res://Scripts/Compositions/::1780937630
 Damageable.gd::GDScript::4955410321640509818::1780937630::0::1::::Damageable<>Area2D<><>0<>0<><>::

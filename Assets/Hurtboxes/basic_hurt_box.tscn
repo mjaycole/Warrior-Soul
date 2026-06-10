@@ -42,7 +42,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sldgk"]
-size = Vector2(24.169714, 28.497734)
+size = Vector2(33.33943, 47.496223)
 
 [node name="BasicHurtBox" type="Area2D" unique_id=1685783419 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_vwmkk")
@@ -54,14 +54,14 @@ libraries/ = SubResource("AnimationLibrary_7iswg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1751313255]
 z_index = 1
-position = Vector2(9.000001, -2.0861626e-07)
-scale = Vector2(0.18749994, 0.083333336)
+position = Vector2(12.500004, -3.5762787e-07)
+scale = Vector2(0.26041666, 0.125)
 texture = ExtResource("2_5n501")
 hframes = 9
 vframes = 12
 frame = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1246426005]
-position = Vector2(9, 0)
+position = Vector2(12.235674, 0)
 scale = Vector2(0.70573044, 0.21054305)
 shape = SubResource("RectangleShape2D_sldgk")

@@ -97,6 +97,7 @@ script = ExtResource("1_a1w6g")
 libraries/ = SubResource("AnimationLibrary_0h8wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=975917347]
+z_index = 1
 scale = Vector2(0.265, 0.265)
 texture = ExtResource("2_80ngq")
 

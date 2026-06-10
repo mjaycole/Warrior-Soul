@@ -117,6 +117,7 @@ script = ExtResource("1_k753n")
 libraries/ = SubResource("AnimationLibrary_6iq5h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=544523987]
+z_index = 1
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("1_h45gc")
 offset = Vector2(0, -33.515)
