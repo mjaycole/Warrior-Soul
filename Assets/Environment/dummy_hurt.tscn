@@ -114,7 +114,7 @@ size = Vector2(6, 17)
 size = Vector2(6, 17)
 
 [node name="DummyHurt" type="Node2D" unique_id=1586090591]
-z_index = 1
+z_index = 3
 script = ExtResource("1_bajci")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1075632590]
@@ -142,6 +142,7 @@ shape = SubResource("RectangleShape2D_i7pb3")
 
 [node name="Label" type="Label" parent="." unique_id=502613055]
 modulate = Color(0.77254903, 0, 0.011764706, 1)
+z_index = 3
 offset_left = -4.000004
 offset_top = -27.0
 offset_right = 35.999996

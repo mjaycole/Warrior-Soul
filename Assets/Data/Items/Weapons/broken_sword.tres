@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dgatuf4sb8d2r" path="res://Assets/ItemBehaviors/broken_sword_behavior.tscn" id="1_2kg3m"]
 [ext_resource type="PackedScene" uid="uid://b6uh355xkm0vh" path="res://Assets/Hurtboxes/basic_hurt_box.tscn" id="1_7sasf"]
 [ext_resource type="Script" uid="uid://c73h08s1g8v3j" path="res://Scripts/Items/Weapon.gd" id="1_8psb3"]
+[ext_resource type="Texture2D" uid="uid://fnhwfblejm5b" path="res://Art/Packs/7soulsrpggraphics/Items/weapon_sword_07.png" id="2_t71sy"]
 
 [resource]
 script = ExtResource("1_8psb3")
@@ -10,6 +11,7 @@ damage = 12.0
 damage_dealer_node = ExtResource("1_7sasf")
 id = "broken_sword"
 item_name = "Broken Sword"
+icon = ExtResource("2_t71sy")
 item_behavior = ExtResource("1_2kg3m")
 use_time = 0.25
 metadata/_custom_type_script = "uid://c73h08s1g8v3j"
