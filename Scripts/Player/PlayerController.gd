@@ -12,6 +12,7 @@ signal player_use_item(item_compass)
 @onready var player_physics = $Physics
 @onready var player_item_use = $"PlayerItemUsage"
 @onready var player_damageable: Damageable = $Damageable
+@onready var player_audio: PlayerAudio = $PlayerAudio 
 
 # Variables
 @export var hurt_time: float = 3
@@ -22,38 +23,17 @@ enum State {
 	DASHING, GRABBING_LEDGE, CLIMBING, USING_ITEM, HURT, DEAD }
 
 var current_state = State.IDLE
-
+var current_item_use: Item
 
 #region Godot Functions
 #Godot Functions
 func _ready():
-	#TODO - Move this over to game initialization logic	
-	Core.player_data.inventory.set_active_item("right_hand", Core.player_data.inventory.items[0])
-	Core.input_availability_changed.connect(handle_input_availability_changed)
-	
+	_setup_core_listeners()
+	_setup_physics()
+	_setup_item_use()
+	_setup_damageable()
+
 	player_state_changed.emit(current_state)
-
-	player_physics.started_walking.connect(handle_started_walking)
-	player_physics.stopped_walking.connect(handle_stopped_walking)
-	player_physics.left_ground.connect(handle_left_ground)
-	player_physics.landed.connect(handle_landed)
-	player_physics.hit_wall.connect(handle_hit_wall)
-	player_physics.left_wall.connect(handle_left_wall)
-	player_physics.ledge_detected.connect(handle_ledge_detected)
-	player_physics.jump_started.connect(handle_jump_started)
-	player_physics.jump_peaked.connect(handle_jump_peaked)
-	player_physics.jump_landed.connect(handle_jump_landed)
-	player_physics.dash_started.connect(handle_dash_started)
-	player_physics.dash_completed.connect(handle_dash_completed)
-	player_physics.climb_started.connect(handle_climb_started)
-	player_physics.climb_completed.connect(handle_climb_completed)
-	
-	player_item_use.command_refresh_items()
-	player_item_use.item_use.connect(handle_item_use)
-	player_item_use.item_use_completed.connect(handle_item_use_completed)
-
-	player_damageable.damage_taken.connect(_on_damage_taken)
-
 
 func _input(event: InputEvent):
 	if not Core.input_enabled:
@@ -72,10 +52,47 @@ func _input(event: InputEvent):
 	if event.is_action_pressed("RightHandItem"):
 		if can_go_to_state(State.USING_ITEM):
 			player_item_use.command_use("right_hand", self)
-	
+
+func _process(delta: float):
+	player_audio.handle_audio(delta)
+
 func _physics_process(delta: float):
 	player_animations.handle_animations(player_physics.last_direction)
 	player_physics.calculated_physics(delta)
+
+#endregion
+
+#region Setup
+func _setup_core_listeners():
+	#TODO - Move this over to game initialization logic	
+	Core.player_data.inventory.set_active_item("right_hand", Core.player_data.inventory.items[0])
+	Core.input_availability_changed.connect(handle_input_availability_changed)
+	Core.player_data.stats.player_stats_changed.connect(player_physics.command_pull_latest_stats)
+
+func _setup_physics():
+	player_physics.command_pull_latest_stats()
+	player_physics.started_walking.connect(handle_started_walking)
+	player_physics.stopped_walking.connect(handle_stopped_walking)
+	player_physics.left_ground.connect(handle_left_ground)
+	player_physics.landed.connect(handle_landed)
+	player_physics.hit_wall.connect(handle_hit_wall)
+	player_physics.left_wall.connect(handle_left_wall)
+	player_physics.ledge_detected.connect(handle_ledge_detected)
+	player_physics.jump_started.connect(handle_jump_started)
+	player_physics.jump_peaked.connect(handle_jump_peaked)
+	player_physics.jump_landed.connect(handle_jump_landed)
+	player_physics.dash_started.connect(handle_dash_started)
+	player_physics.dash_completed.connect(handle_dash_completed)
+	player_physics.climb_started.connect(handle_climb_started)
+	player_physics.climb_completed.connect(handle_climb_completed)
+
+func _setup_item_use():
+	player_item_use.command_refresh_items()
+	player_item_use.item_use.connect(handle_item_use)
+	player_item_use.item_use_completed.connect(handle_item_use_completed)
+
+func _setup_damageable():
+	player_damageable.damage_taken.connect(_on_damage_taken)
 
 #endregion
 
@@ -238,6 +255,7 @@ func handle_climb_completed():
 	reset_state()
 
 func handle_item_use_completed():
+	current_item_use = null
 	reset_state()
 
 func handle_attack_finished():
@@ -257,6 +275,7 @@ func handle_item_use(item_compass: String):
 	if item == null:
 		return
 
+	current_item_use = item
 	player_animations.handle_item_use()
 	player_use_item.emit(item.id)
 

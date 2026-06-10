@@ -39,7 +39,6 @@ func initialize(owner_global_position: Vector2, mouse_pos: Vector2):
 	rotation = direction.angle()
 
 	if animation_player:
-		print("Playing animation")
 		animation_player.play("init")
 
 	await get_tree().create_timer(live_duration).timeout

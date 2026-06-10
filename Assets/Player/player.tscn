@@ -5,8 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://bq08jliht2cv0" path="res://Art/Packs/Itch Sam/s4m_ur4i_huge-assetpack-character-animations.png" id="3_2147b"]
 [ext_resource type="Script" uid="uid://7affc6kaebr" path="res://Scripts/Player/PlayerPhysics.gd" id="4_csact"]
 [ext_resource type="Script" uid="uid://l8ha44y3vbhc" path="res://Scripts/Player/PlayerItemUsage.gd" id="5_e6xfg"]
+[ext_resource type="Script" uid="uid://c5tq7u46dnj2i" path="res://Scripts/Player/PlayerAudio.gd" id="6_kg0wl"]
 [ext_resource type="Texture2D" uid="uid://coxuklfoq1am5" path="res://Art/Textures/player_light.tres" id="7_cdil5"]
+[ext_resource type="AudioStream" uid="uid://f77xpdlw78eg" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_B.wav" id="7_m3gky"]
 [ext_resource type="PackedScene" uid="uid://fem4nbjc64l" path="res://Assets/CompositionPieces/damageable.tscn" id="7_rul8u"]
+[ext_resource type="AudioStream" uid="uid://cebnthq1xkdbq" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_C.wav" id="8_funjf"]
+[ext_resource type="AudioStream" uid="uid://ci6nf08kh7r15" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_D.wav" id="9_so11v"]
+[ext_resource type="AudioStream" uid="uid://docfd28m4d72s" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_F.wav" id="11_80x61"]
+[ext_resource type="AudioStream" uid="uid://8e0kq7hqnrlc" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_G.wav" id="12_sklkn"]
+[ext_resource type="AudioStream" uid="uid://ci2e7uoiybe4x" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_H.wav" id="13_1ssyw"]
+[ext_resource type="AudioStream" uid="uid://cna2ebd3u44xe" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_I.wav" id="14_7rk7e"]
+[ext_resource type="AudioStream" uid="uid://drdxhpxmppdgf" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_J.wav" id="15_d410y"]
+[ext_resource type="AudioStream" uid="uid://batc66f4qab5k" path="res://Audio/Effects/Movement/Slide stone.wav" id="15_m3gky"]
 
 [sub_resource type="Animation" id="Animation_q1ymb"]
 length = 0.001
@@ -346,6 +356,15 @@ position = Vector2(0, -7)
 script = ExtResource("5_e6xfg")
 
 [node name="ItemSpawn" type="Node2D" parent="PlayerItemUsage" unique_id=1943050694]
+
+[node name="PlayerAudio" type="Node2D" parent="." unique_id=1631426589]
+script = ExtResource("6_kg0wl")
+footsteps = Array[AudioStream]([ExtResource("7_m3gky"), ExtResource("8_funjf"), ExtResource("9_so11v"), ExtResource("11_80x61"), ExtResource("12_sklkn"), ExtResource("13_1ssyw"), ExtResource("14_7rk7e"), ExtResource("15_d410y")])
+time_between_steps = 0.275
+time_between_sprint_steps = 0.22
+footstep_volume = 0.02
+dash = ExtResource("15_m3gky")
+dash_volume = 0.05
 
 [node name="Resources" type="Node2D" parent="." unique_id=2108393905]
 

@@ -3,7 +3,7 @@ class_name Item
 
 enum ItemType { WEAPON }
 
-#Base item data
+# Base item data
 @export var id: String
 @export var item_name: String
 @export var item_type: ItemType = ItemType.WEAPON
@@ -12,7 +12,11 @@ enum ItemType { WEAPON }
 @export var weight: float
 @export var value: int
 
-#Item use data
+# Item use data
 @export var item_behavior: PackedScene
 @export var use_time: float
 @export var use_move_speed: float
+
+# Audio data
+@export var use_sound: AudioStream
+@export var use_volume: float = .5
