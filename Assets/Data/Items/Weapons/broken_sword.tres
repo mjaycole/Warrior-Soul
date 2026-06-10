@@ -16,5 +16,5 @@ icon = ExtResource("2_t71sy")
 item_behavior = ExtResource("1_2kg3m")
 use_time = 0.25
 use_sound = ExtResource("5_nqaxa")
-use_volume = 0.05
+use_volume = 0.15
 metadata/_custom_type_script = "uid://c73h08s1g8v3j"

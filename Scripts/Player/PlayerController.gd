@@ -53,12 +53,11 @@ func _input(event: InputEvent):
 		if can_go_to_state(State.USING_ITEM):
 			player_item_use.command_use("right_hand", self)
 
-func _process(delta: float):
-	player_audio.handle_audio(delta)
 
 func _physics_process(delta: float):
 	player_animations.handle_animations(player_physics.last_direction)
 	player_physics.calculated_physics(delta)
+	player_audio.handle_audio(delta)
 
 #endregion
 
@@ -226,6 +225,7 @@ func handle_landed():
 	reset_state()
 
 func handle_jump_started():
+	print("Jump started")
 	switch_state(State.JUMPING)
 
 func handle_jump_peaked():

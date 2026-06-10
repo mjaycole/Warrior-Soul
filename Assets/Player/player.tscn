@@ -15,8 +15,12 @@
 [ext_resource type="AudioStream" uid="uid://8e0kq7hqnrlc" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_G.wav" id="12_sklkn"]
 [ext_resource type="AudioStream" uid="uid://ci2e7uoiybe4x" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_H.wav" id="13_1ssyw"]
 [ext_resource type="AudioStream" uid="uid://cna2ebd3u44xe" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_I.wav" id="14_7rk7e"]
+[ext_resource type="AudioStream" uid="uid://ct4ctrm80ufxt" path="res://Audio/Effects/Movement/Retro FootStep 03.wav" id="15_80x61"]
 [ext_resource type="AudioStream" uid="uid://drdxhpxmppdgf" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_J.wav" id="15_d410y"]
 [ext_resource type="AudioStream" uid="uid://batc66f4qab5k" path="res://Audio/Effects/Movement/Slide stone.wav" id="15_m3gky"]
+[ext_resource type="AudioStream" uid="uid://drw58rk6k3o28" path="res://Audio/Effects/Movement/Retro FootStep Krushed Landing 01.wav" id="16_sklkn"]
+[ext_resource type="AudioStream" uid="uid://67w45b5ujsxc" path="res://Audio/Effects/Movement/Retro FootStep Grass 01.wav" id="18_1ssyw"]
+[ext_resource type="AudioStream" uid="uid://bw1l71gcam4bh" path="res://Audio/Effects/Movement/Retro FootStep Mud 01.wav" id="19_7rk7e"]
 
 [sub_resource type="Animation" id="Animation_q1ymb"]
 length = 0.001
@@ -362,9 +366,15 @@ script = ExtResource("6_kg0wl")
 footsteps = Array[AudioStream]([ExtResource("7_m3gky"), ExtResource("8_funjf"), ExtResource("9_so11v"), ExtResource("11_80x61"), ExtResource("12_sklkn"), ExtResource("13_1ssyw"), ExtResource("14_7rk7e"), ExtResource("15_d410y")])
 time_between_steps = 0.275
 time_between_sprint_steps = 0.22
-footstep_volume = 0.02
+footstep_volume = 0.1
+jump = ExtResource("15_80x61")
+jump_volume = 0.1
+landed = ExtResource("16_sklkn")
+landed_volume = 0.02
 dash = ExtResource("15_m3gky")
-dash_volume = 0.05
+dash_volume = 0.1
+ledge_grab = ExtResource("18_1ssyw")
+climb = ExtResource("19_7rk7e")
 
 [node name="Resources" type="Node2D" parent="." unique_id=2108393905]
 

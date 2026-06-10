@@ -6,6 +6,7 @@ class_name AudioManager
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var effects_parent: Node = $EffectsParent
 
+@export var master_volume: float = .5
 @export var music_volume: float = .5
 @export var effects_volume: float = .5
 
@@ -24,7 +25,7 @@ func stop_music():
 func play_effect(stream: AudioStream, volume: float = 1, pitch: float = 1):
 	for player in effects_players:
 		if not player.playing:
-			player.volume_db = linear_to_db(volume)
+			player.volume_db = linear_to_db(volume * master_volume * effects_volume) 
 			player.stream = stream
 			player.play()
 			return
@@ -35,6 +36,6 @@ func play_effect(stream: AudioStream, volume: float = 1, pitch: float = 1):
 	effects_parent.add_child(new_player)
 	effects_players.append(new_player)
 
-	new_player.volume_db = linear_to_db(volume)
+	new_player.volume_db = linear_to_db(volume* master_volume * effects_volume)
 	new_player.stream = stream
 	new_player.play()

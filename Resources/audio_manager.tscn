@@ -4,6 +4,8 @@
 
 [node name="AudioManager" type="Node" unique_id=473009073 node_paths=PackedStringArray("effects_players")]
 script = ExtResource("1_76h3l")
+master_volume = 1.0
+effects_volume = 1.0
 effects_players = [NodePath("EffectsParent/AudioStreamPlayer"), NodePath("EffectsParent/AudioStreamPlayer2"), NodePath("EffectsParent/AudioStreamPlayer3"), NodePath("EffectsParent/AudioStreamPlayer4"), NodePath("EffectsParent/AudioStreamPlayer5"), NodePath("EffectsParent/AudioStreamPlayer6"), NodePath("EffectsParent/AudioStreamPlayer7"), NodePath("EffectsParent/AudioStreamPlayer8"), NodePath("EffectsParent/AudioStreamPlayer9"), NodePath("EffectsParent/AudioStreamPlayer10"), NodePath("EffectsParent/AudioStreamPlayer11"), NodePath("EffectsParent/AudioStreamPlayer12"), NodePath("EffectsParent/AudioStreamPlayer13"), NodePath("EffectsParent/AudioStreamPlayer14"), NodePath("EffectsParent/AudioStreamPlayer15"), NodePath("EffectsParent/AudioStreamPlayer16"), NodePath("EffectsParent/AudioStreamPlayer17"), NodePath("EffectsParent/AudioStreamPlayer18"), NodePath("EffectsParent/AudioStreamPlayer19"), NodePath("EffectsParent/AudioStreamPlayer20")]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=668029799]

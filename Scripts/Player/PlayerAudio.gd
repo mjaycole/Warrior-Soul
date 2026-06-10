@@ -13,9 +13,21 @@ var character_controller
 @export var footstep_volume: float
 var playing_footstep: bool = false
 
+# Jumping and falling
+@export var jump: AudioStream
+@export var jump_volume: float = .2
+@export var landed: AudioStream
+@export var landed_volume: float = .2
+
 # Dashing
 @export var dash: AudioStream
 @export var dash_volume: float = .2
+
+# Ledge and Climbing
+@export var ledge_grab: AudioStream
+@export var ledge_grab_volume: float = .2
+@export var climb: AudioStream
+@export var climb_volume: float = .2
 
 func _ready():
 	character_controller = get_parent()
@@ -23,7 +35,6 @@ func _ready():
 
 func handle_state_change(new_state: player_controller.State):
 	player_state = new_state
-
 	handle_audio_state_switch()
 
 #Handles the audio for the current state
@@ -31,6 +42,9 @@ func handle_audio_state_switch():
 	match player_state:
 		player_controller.State.USING_ITEM: handle_item_use()
 		player_controller.State.DASHING: handle_dash()
+		player_controller.State.JUMPING: handle_jump()
+		player_controller.State.GRABBING_LEDGE: handle_ledge_grab()
+		player_controller.State.CLIMBING: handle_climb()
 
 func handle_audio(delta: float):	
 	match player_state:
@@ -56,8 +70,17 @@ func handle_footstep_time(time: float):
 func handle_dash():
 	AudioManagerNode.play_effect(dash, dash_volume)
 
+func handle_jump():
+	AudioManagerNode.play_effect(jump, jump_volume)
+
+func handle_ledge_grab():
+	AudioManagerNode.play_effect(ledge_grab, ledge_grab_volume)
+
+func handle_climb():
+	AudioManagerNode.play_effect(climb, climb_volume)
+
 func handle_landed():
-	return
+	AudioManagerNode.play_effect(landed, landed_volume)
 
 func handle_item_use():
 	if character_controller.current_item_use != null && character_controller.current_item_use.use_sound != null:
