@@ -13,25 +13,34 @@ enum State { IDLE, PATROLLING, CHASING, ATTACKING, DEAD}
 var current_state: State = State.IDLE
 
 # Required fields
-@export var existing_enemy_id: String = "" # leave empty except for enemies placed inside a scene
-@export var base_enemy_id: String = "" # Always set to the ID of the enemy
+@export var enemy_id: String = "" # leave empty except for enemies placed inside a scene
 @export var damageable: Damageable
 @export var animations: EnemyAnimations
+@export var audio_controller: EnemyAudio
 @export var navigatiion: NavigationAgent2D
 
 # Variables
 var enemy_data: EnemyData
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var initialized: bool = false
+var frozen: bool = false
 
+# Godot functions
 func _ready():
-	if existing_enemy_id != "":
-		var data = EnemyFetcher.get_enemy(existing_enemy_id)
-		if data:
-			initialize(data)
+	pass
 
+	# if existing_enemy_id != "":
+	# 	var data = EnemyFetcher.get_enemy(existing_enemy_id)
+	# 	if data:
+	# 		initialize(data)
+
+func _process(delta: float):
+	pass
 
 func _physics_process(delta: float):	
+	if frozen or current_state == State.DEAD:
+		return
+	
 	animations.handle_state_animations(delta)
 
 	if not is_on_floor():
@@ -39,20 +48,22 @@ func _physics_process(delta: float):
 	
 	move_and_slide()
 
-func initialize(data: EnemyData = null):
+# State machine
+func initialize():
 	if initialized:
 		return
 	
 	initialized = true
 
-	if data:
-		enemy_data = data
-	else:
-		enemy_data = EnemyFetcher.get_enemy(base_enemy_id)
+	enemy_data = EnemyFetcher.get_enemy(enemy_id)
 
 	damageable.damage_taken.connect(on_take_damage)
 	damageable.died.connect(on_die)
 	damageable.health = enemy_data.max_health
+
+	if not audio_controller:
+		audio_controller = $"EnemyAudio"
+	audio_controller.initialize(enemy_data)
 
 	switch_state(State.IDLE, true)
 
@@ -61,11 +72,10 @@ func switch_state(new_state: State, bypass_check: bool):
 		return
 	
 	current_state = new_state
-
 	enemy_state_changed.emit(current_state)
 	
 
-
+# Event listeners
 func on_take_damage(source: Node, amount: float):
 	enemy_damaged.emit(amount)
 

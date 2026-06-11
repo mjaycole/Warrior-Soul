@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cmkcsmcesne0h" path="res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Run.png" id="4_v76tf"]
 [ext_resource type="Texture2D" uid="uid://c2jclr3fl0igo" path="res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Attack.png" id="5_53aha"]
 [ext_resource type="Texture2D" uid="uid://de5ssl3jby2jw" path="res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Death.png" id="6_evwp5"]
+[ext_resource type="Script" uid="uid://bmkxwipmb2xv3" path="res://Scripts/Enemies/EnemyComposition/EnemyAudio.gd" id="8_rw1vu"]
 
 [sub_resource type="Animation" id="Animation_rw1vu"]
 length = 0.001
@@ -143,30 +144,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 1]
-}
 
 [sub_resource type="Animation" id="Animation_53aha"]
 resource_name = "walk"
@@ -183,30 +160,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgrrv"]
@@ -227,7 +180,10 @@ radius = 5.0
 [node name="GoblinOne" type="CharacterBody2D" unique_id=490518567 node_paths=PackedStringArray("damageable", "animations")]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_0oi4k")
-base_enemy_id = "goblin"
+max_idle = 10.0
+patrol_range = 350.0
+patrol_walk_speed = 90.0
+enemy_id = "goblin"
 damageable = NodePath("Damageable")
 animations = NodePath("EnemyAnimations")
 
@@ -236,7 +192,11 @@ libraries/ = SubResource("AnimationLibrary_dgrrv")
 autoplay = &"RESET"
 sprite = NodePath("../Sprite2D")
 idle_frames = ExtResource("3_53aha")
+idle_hframes = 4
+idle_vframes = 1
 walk_frames = ExtResource("4_v76tf")
+walk_hframes = 6
+walk_vframes = 1
 attack_frames = ExtResource("5_53aha")
 death_frames = ExtResource("6_evwp5")
 
@@ -255,3 +215,12 @@ shape = SubResource("CapsuleShape2D_v76tf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable" unique_id=904932807]
 position = Vector2(0, -16.666666)
 shape = SubResource("CapsuleShape2D_0oi4k")
+
+[node name="EnemyAudio" type="Node2D" parent="." unique_id=713062011]
+script = ExtResource("8_rw1vu")
+
+[node name="Resources" type="Node2D" parent="." unique_id=1303901130]
+
+[node name="PlayerDetect" type="RayCast2D" parent="Resources" unique_id=104005257]
+position = Vector2(0, -15)
+target_position = Vector2(-100, 0)

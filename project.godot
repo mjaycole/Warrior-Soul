@@ -24,10 +24,6 @@ EnemyLibraryFetcher="*uid://cqmkyx3giis84"
 AudioManagerNode="*uid://r1twlb6pjc3y"
 Core="*uid://ku3da652toyf"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/viewport_width=960

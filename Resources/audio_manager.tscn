@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ci5yj8l8brcv4" path="res://Scripts/CoreSystems/AudioManager.gd" id="1_76h3l"]
 
-[node name="AudioManager" type="Node" unique_id=473009073 node_paths=PackedStringArray("effects_players")]
+[node name="AudioManager" type="Node" unique_id=473009073 node_paths=PackedStringArray("effects_players", "effects_at_point_players")]
 script = ExtResource("1_76h3l")
 master_volume = 1.0
 effects_volume = 1.0
 effects_players = [NodePath("EffectsParent/AudioStreamPlayer"), NodePath("EffectsParent/AudioStreamPlayer2"), NodePath("EffectsParent/AudioStreamPlayer3"), NodePath("EffectsParent/AudioStreamPlayer4"), NodePath("EffectsParent/AudioStreamPlayer5"), NodePath("EffectsParent/AudioStreamPlayer6"), NodePath("EffectsParent/AudioStreamPlayer7"), NodePath("EffectsParent/AudioStreamPlayer8"), NodePath("EffectsParent/AudioStreamPlayer9"), NodePath("EffectsParent/AudioStreamPlayer10"), NodePath("EffectsParent/AudioStreamPlayer11"), NodePath("EffectsParent/AudioStreamPlayer12"), NodePath("EffectsParent/AudioStreamPlayer13"), NodePath("EffectsParent/AudioStreamPlayer14"), NodePath("EffectsParent/AudioStreamPlayer15"), NodePath("EffectsParent/AudioStreamPlayer16"), NodePath("EffectsParent/AudioStreamPlayer17"), NodePath("EffectsParent/AudioStreamPlayer18"), NodePath("EffectsParent/AudioStreamPlayer19"), NodePath("EffectsParent/AudioStreamPlayer20")]
+effects_at_point_players = [NodePath("EffectsAtPointParent/AudioStreamPlayer2D"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D2"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D3"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D4"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D5"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D6"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D7"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D8"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D9"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D10"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D11"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D12"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D13"), NodePath("EffectsAtPointParent/AudioStreamPlayer2D14")]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=668029799]
 volume_db = -80.0
@@ -52,3 +53,33 @@ volume_db = -80.0
 [node name="AudioStreamPlayer19" type="AudioStreamPlayer" parent="EffectsParent" unique_id=1453553107]
 
 [node name="AudioStreamPlayer20" type="AudioStreamPlayer" parent="EffectsParent" unique_id=442820626]
+
+[node name="EffectsAtPointParent" type="Node" parent="." unique_id=469312254]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=333572338]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=1007781298]
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=1449997912]
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=1405370438]
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=833140264]
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=168191218]
+
+[node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=585463713]
+
+[node name="AudioStreamPlayer2D8" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=775762513]
+
+[node name="AudioStreamPlayer2D9" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=2132537776]
+
+[node name="AudioStreamPlayer2D10" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=2128645003]
+
+[node name="AudioStreamPlayer2D11" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=353698335]
+
+[node name="AudioStreamPlayer2D12" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=33503750]
+
+[node name="AudioStreamPlayer2D13" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=1759622280]
+
+[node name="AudioStreamPlayer2D14" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=903396073]

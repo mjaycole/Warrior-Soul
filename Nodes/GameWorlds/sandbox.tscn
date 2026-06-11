@@ -156,9 +156,8 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_572qq"]
 
-[node name="Sandbox" type="Node2D" unique_id=236937934 node_paths=PackedStringArray("enemy_spawn")]
+[node name="Sandbox" type="Node2D" unique_id=236937934]
 script = ExtResource("1_4ka60")
-enemy_spawn = NodePath("EnemySpawn")
 
 [node name="Background" type="Node2D" parent="." unique_id=1575852274]
 
@@ -346,3 +345,5 @@ position = Vector2(-264, 56)
 
 [node name="GoblinOne" parent="EnemySpawn" unique_id=490518567 instance=ExtResource("41_ttlms")]
 position = Vector2(52, 2)
+patrol_range = 150.0
+patrol_walk_speed = 15.0

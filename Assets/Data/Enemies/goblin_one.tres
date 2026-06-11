@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cvro1unupgtub"]
 
+[ext_resource type="AudioStream" uid="uid://dlj7lkep54y0" path="res://Audio/Effects/Enemies/Goblin/Retro Roar LoFi 01.wav" id="1_2jyv4"]
 [ext_resource type="Script" uid="uid://dq1mioiuurs2n" path="res://Scripts/Enemies/EnemyData/EnemyData.gd" id="1_nav7y"]
 [ext_resource type="PackedScene" uid="uid://cbcwbx3wgureq" path="res://Assets/Enemies/gobline_one.tscn" id="1_wbwpy"]
 
@@ -7,5 +8,7 @@
 script = ExtResource("1_nav7y")
 id = "goblin"
 enemy_name = "Goblin One"
+max_health = 10.0
 prefab = ExtResource("1_wbwpy")
+death_sound = ExtResource("1_2jyv4")
 metadata/_custom_type_script = "uid://dq1mioiuurs2n"
