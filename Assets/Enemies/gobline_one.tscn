@@ -8,6 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://c2jclr3fl0igo" path="res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Attack.png" id="5_53aha"]
 [ext_resource type="Texture2D" uid="uid://de5ssl3jby2jw" path="res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Death.png" id="6_evwp5"]
 [ext_resource type="Script" uid="uid://bmkxwipmb2xv3" path="res://Scripts/Enemies/EnemyComposition/EnemyAudio.gd" id="8_rw1vu"]
+[ext_resource type="PackedScene" uid="uid://lrw5sx30psw6" path="res://Assets/CompositionPieces/hurtbox.tscn" id="9_ee321"]
+[ext_resource type="AudioStream" uid="uid://f77xpdlw78eg" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_B.wav" id="9_wdpax"]
+[ext_resource type="AudioStream" uid="uid://cebnthq1xkdbq" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_C.wav" id="10_pylxw"]
+[ext_resource type="AudioStream" uid="uid://ci6nf08kh7r15" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_D.wav" id="11_uixbu"]
+[ext_resource type="AudioStream" uid="uid://docfd28m4d72s" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_F.wav" id="12_4nm0g"]
+[ext_resource type="AudioStream" uid="uid://8e0kq7hqnrlc" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_G.wav" id="13_5tlht"]
+[ext_resource type="AudioStream" uid="uid://ci2e7uoiybe4x" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_H.wav" id="14_2g7c1"]
+[ext_resource type="AudioStream" uid="uid://cna2ebd3u44xe" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_I.wav" id="15_ohd7b"]
+[ext_resource type="AudioStream" uid="uid://drdxhpxmppdgf" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_J.wav" id="16_j1pwj"]
 
 [sub_resource type="Animation" id="Animation_rw1vu"]
 length = 0.001
@@ -63,29 +72,19 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 0]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Hurtbox")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.33333334),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
+"values": [{
+"args": [],
+"method": &"_force_damageCheck"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_dgrrv"]
@@ -177,12 +176,17 @@ radius = 5.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0oi4k"]
 radius = 5.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgrrv"]
+size = Vector2(21.666666, 20)
+
 [node name="GoblinOne" type="CharacterBody2D" unique_id=490518567 node_paths=PackedStringArray("damageable", "animations")]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_0oi4k")
 max_idle = 10.0
 patrol_range = 350.0
 patrol_walk_speed = 90.0
+chase_speed = 40.0
+attack_range = 15.0
 enemy_id = "goblin"
 damageable = NodePath("Damageable")
 animations = NodePath("EnemyAnimations")
@@ -198,12 +202,14 @@ walk_frames = ExtResource("4_v76tf")
 walk_hframes = 6
 walk_vframes = 1
 attack_frames = ExtResource("5_53aha")
+attack_hframes = 4
+attack_vframes = 1
 death_frames = ExtResource("6_evwp5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=270850954]
 z_index = 3
 position = Vector2(0, -32)
-texture = ExtResource("6_evwp5")
+texture = ExtResource("5_53aha")
 hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942313521]
@@ -218,9 +224,20 @@ shape = SubResource("CapsuleShape2D_0oi4k")
 
 [node name="EnemyAudio" type="Node2D" parent="." unique_id=713062011]
 script = ExtResource("8_rw1vu")
+footsteps = Array[AudioStream]([ExtResource("9_wdpax"), ExtResource("10_pylxw"), ExtResource("11_uixbu"), ExtResource("12_4nm0g"), ExtResource("13_5tlht"), ExtResource("14_2g7c1"), ExtResource("15_ohd7b"), ExtResource("16_j1pwj")])
+footstep_volume = 0.1
+time_between_steps = 0.35
+time_between_sprint_steps = 0.25
 
 [node name="Resources" type="Node2D" parent="." unique_id=1303901130]
 
 [node name="PlayerDetect" type="RayCast2D" parent="Resources" unique_id=104005257]
-position = Vector2(0, -15)
-target_position = Vector2(-100, 0)
+position = Vector2(0, -21.666666)
+target_position = Vector2(-173.33333, 0)
+collision_mask = 2147483648
+
+[node name="Hurtbox" parent="." unique_id=1685783419 instance=ExtResource("9_ee321")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=182465908]
+position = Vector2(-15.833333, -15)
+shape = SubResource("RectangleShape2D_dgrrv")

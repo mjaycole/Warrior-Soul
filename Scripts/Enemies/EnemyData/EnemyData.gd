@@ -11,5 +11,9 @@ class_name EnemyData
 # Movement variables
 @export var speed: float = 50
 
+# Attacking variables
+@export var damage: float = 5
+
 # Audio
+@export var attack_sound: AudioStream
 @export var death_sound: AudioStream

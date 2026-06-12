@@ -57,29 +57,43 @@ volume_db = -80.0
 [node name="EffectsAtPointParent" type="Node" parent="." unique_id=469312254]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=333572338]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=1007781298]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=1449997912]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=1405370438]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=833140264]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=168191218]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=585463713]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D8" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=775762513]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D9" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=2132537776]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D10" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=2128645003]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D11" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=353698335]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D12" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=33503750]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D13" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=1759622280]
+max_distance = 250.0
 
 [node name="AudioStreamPlayer2D14" type="AudioStreamPlayer2D" parent="EffectsAtPointParent" unique_id=903396073]
+max_distance = 250.0

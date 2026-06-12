@@ -12,6 +12,8 @@ class_name EnemyAnimations
 @export var walk_hframes: int
 @export var walk_vframes: int
 @export var attack_frames: Texture2D
+@export var attack_hframes: int
+@export var attack_vframes: int
 @export var death_frames: Texture2D
 
 var enemy_controller: Enemy
@@ -29,7 +31,8 @@ func handle_state_change(new_state: Enemy.State):
 func handle_state_switch_animations():
 	match current_state:
 		Enemy.State.IDLE: handle_idle()
-		Enemy.State.CHASING, Enemy.State.PATROLLING: handle_walk()
+		Enemy.State.PATROLLING: handle_walk()
+		Enemy.State.CHASING: handle_chase()
 		Enemy.State.ATTACKING: handle_attack()
 		Enemy.State.DEAD: handle_death()
 
@@ -66,11 +69,27 @@ func handle_walk():
 
 		play("walk")
 
+func handle_chase():
+	speed_scale = 1.5
+	if current_animation != "walk":
+		stop()
+
+		if walk_frames && sprite:
+			sprite.texture = walk_frames
+			sprite.hframes = walk_hframes
+			sprite.vframes = walk_vframes
+
+		play("walk")
+
 func handle_attack():
 	speed_scale = 1
 	if current_animation != "attack":
+		stop()
+
 		if attack_frames && sprite:
 			sprite.texture = attack_frames
+			sprite.hframes = attack_hframes
+			sprite.vframes = attack_vframes
 
 		play("attack")
 
