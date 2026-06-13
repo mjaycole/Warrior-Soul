@@ -13,26 +13,22 @@ enum State { IDLE, PATROLLING, CHASING, ATTACKING, DEAD}
 var current_state: State = State.IDLE
 
 # Required fields
+@export_group("Required Components")
 @export var enemy_id: String = "" # leave empty except for enemies placed inside a scene
 @export var damageable: Damageable
+@export var enemy_physics: EnemyPhysics
 @export var animations: EnemyAnimations
 @export var audio_controller: EnemyAudio
-@export var navigatiion: NavigationAgent2D
+
 
 # Variables
 var enemy_data: EnemyData
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var initialized: bool = false
 var frozen: bool = false
 
 # Godot functions
 func _ready():
 	pass
-
-	# if existing_enemy_id != "":
-	# 	var data = EnemyFetcher.get_enemy(existing_enemy_id)
-	# 	if data:
-	# 		initialize(data)
 
 func _process(delta: float):
 	pass
@@ -42,11 +38,8 @@ func _physics_process(delta: float):
 		return
 	
 	animations.handle_state_animations(delta)
+	enemy_physics.handle_physics(delta)
 
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	
-	move_and_slide()
 
 # State machine
 func initialize():
@@ -61,8 +54,6 @@ func initialize():
 	damageable.died.connect(on_die)
 	damageable.health = enemy_data.max_health
 
-	if not audio_controller:
-		audio_controller = $"EnemyAudio"
 	audio_controller.initialize(enemy_data)
 
 	switch_state(State.IDLE, true)

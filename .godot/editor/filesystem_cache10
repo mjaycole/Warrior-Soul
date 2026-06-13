@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1781223415
+::res://::1781322106
 icon.svg::CompressedTexture2D::8076833388494616384::1780200245::1780200250::1::::<><><>0<>0<>1cac51f039d8cf534622e5efd0c52603<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 read_me.txt::TextFile::-1::1780502468::0::1::::<><><>0<>0<><>::
 ::res://Art/::1780455004
@@ -112,7 +112,7 @@ Terrain (24x24) (4).png::CompressedTexture2D::3753344208875116965::1781057133::1
 1 (6).png::CompressedTexture2D::923619662799704184::1781057133::1781057142::1::::<><><>0<>0<>ab6c8686c48c7ec6bb18b7e62e5e89df<>res://.godot/imported/1 (6).png-f71d84179f2092b222ea65155410c3e1.ctex::
 1 (7).png::CompressedTexture2D::429634069167828897::1781057133::1781057142::1::::<><><>0<>0<>e6a4b663543188d402c776d973cdeb87<>res://.godot/imported/1 (7).png-24e9c8e4a09b20c7472d44d1c9582086.ctex::
 ::res://Art/Packs/Pozac Itch/Pack 2/::1781223568
-castle_2.tres::TileSet::1776810935490987708::1781223568::0::1::::<><><>0<>0<><>::uid://cu0kwggtbxaff::::res://Art/Packs/Pozac Itch/Pack 2/Tile (1).png
+castle_2.tres::TileSet::1776810935490987708::1781322179::0::1::::<><><>0<>0<><>::uid://cu0kwggtbxaff::::res://Art/Packs/Pozac Itch/Pack 2/Tile (1).png
 Tile (1).png::CompressedTexture2D::6228874466666357463::1781057279::1781057279::1::::<><><>0<>0<>9de28c5d39fd7bd938d3406d8af0cb0f<>res://.godot/imported/Tile (1).png-dc8ce415064cd77626b459b85c7d9d3e.ctex::
 Tile (2).png::CompressedTexture2D::6295964215419694032::1781058824::1781058825::1::::<><><>0<>0<>7d546f2677ff724742325c7817e7a46f<>res://.godot/imported/Tile (2).png-37428a1fdf74a7302aebecbccd31b585.ctex::
 Tile (3).png::CompressedTexture2D::275651035664181042::1781058824::1781058825::1::::<><><>0<>0<>6d8a2ddafe9784c86ad52a39e42693d7<>res://.godot/imported/Tile (3).png-ddef978278a1ff2f256fa94730d92942.ctex::
@@ -152,7 +152,7 @@ Prop (3)14.png::CompressedTexture2D::3329471604790998083::1781057355::1781058212
 Prop (3)15.png::CompressedTexture2D::3523067351791574533::1781057355::1781058212::1::::<><><>0<>0<>92603885054b6b12943451dd114fe79f<>res://.godot/imported/Prop (3)15.png-26653438477ecedd394f676a4af242de.ctex::
 Prop (3)16.png::CompressedTexture2D::1741341511664454103::1781057355::1781058212::1::::<><><>0<>0<>259c70e11e82a7cceb7c07d7b6ba58d9<>res://.godot/imported/Prop (3)16.png-662559deda188fec9c4dbf0aef408ad7.ctex::
 ::res://Art/Textures/::1781223568
-player_light.tres::GradientTexture2D::5804198650595781894::1781223568::0::1::::<><><>0<>0<><>::
+player_light.tres::GradientTexture2D::5804198650595781894::1781322179::0::1::::<><><>0<>0<><>::
 ::res://Art/UI/::1780371684
 ::res://Art/UI/Themes/::1780371743
 menu_button.tres::Theme::7259889784270982592::1780371743::0::1::::<><><>0<>0<><>::uid://bq6yko03u0vg::::res://Art/Fonts/medieval_sharp/MedievalSharp-Bold.ttf
@@ -167,13 +167,13 @@ pushable.tscn::PackedScene::66081244469460032::1780668128::0::1::::<><><>0<>0<><
 ::res://Assets/CompositionPieces/EnemySpecific/::1781221899
 enemy_animations.tscn::PackedScene::542361688034929780::1781221899::0::1::::<><><>0<>0<><>::uid://brj6twacjefst::::res://Scripts/Enemies/EnemyComposition/EnemyAnimations.gd
 ::res://Assets/Data/::1781221899
-::res://Assets/Data/Enemies/::1781221899
-goblin_one.tres::Resource/EnemyData::6282799045622628437::1781221899::0::1::::<><><>0<>0<><>::uid://dlj7lkep54y0::::res://Audio/Effects/Enemies/Goblin/Retro Roar LoFi 01.wav<>uid://dq1mioiuurs2n::::res://Scripts/Enemies/EnemyData/EnemyData.gd<>uid://cbcwbx3wgureq::::res://Assets/Enemies/gobline_one.tscn
+::res://Assets/Data/Enemies/::1781231361
+goblin_one.tres::Resource/EnemyData::6282799045622628437::1781231361::0::1::::<><><>0<>0<><>::uid://dlj7lkep54y0::::res://Audio/Effects/Enemies/Goblin/Retro Roar LoFi 01.wav<>uid://crp6jjheoh0lu::::res://Audio/Effects/Enemies/Goblin/Builder_Game_Weapon_Light_Swing_2.wav<>uid://dq1mioiuurs2n::::res://Scripts/Enemies/EnemyData/EnemyData.gd<>uid://cbcwbx3wgureq::::res://Assets/Enemies/gobline_one.tscn
 ::res://Assets/Data/Items/::1781057133
 ::res://Assets/Data/Items/Weapons/::1781221899
 broken_sword.tres::Resource/Weapon::2064484956447785720::1781221899::0::1::::<><><>0<>0<><>::uid://dgatuf4sb8d2r::::res://Assets/ItemBehaviors/broken_sword_behavior.tscn<>uid://b6uh355xkm0vh::::res://Assets/Hurtboxes/basic_hurt_box.tscn<>uid://c73h08s1g8v3j::::res://Scripts/Items/Weapon.gd<>uid://fnhwfblejm5b::::res://Art/Packs/7soulsrpggraphics/Items/weapon_sword_07.png<>uid://c1wmbw6fkkb5e::::res://Audio/Effects/Weapons/Fantasy_Game_Attack_Skill_Knife_Throw_A.wav
-::res://Assets/Enemies/::1781230344
-gobline_one.tscn::PackedScene::4848497778467101340::1781230344::0::1::::<><><>0<>0<><>::uid://cpadu88fxwipo::::res://Scripts/Enemies/GoblinOne.gd<>uid://hyyvaerp5w57::::res://Assets/CompositionPieces/EnemySpecific/enemy_animations.tscn<>uid://4hvgjirqojwb::::res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Idle.png<>uid://fem4nbjc64l::::res://Assets/CompositionPieces/damageable.tscn<>uid://cmkcsmcesne0h::::res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Run.png<>uid://c2jclr3fl0igo::::res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Attack.png<>uid://de5ssl3jby2jw::::res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Death.png<>uid://bmkxwipmb2xv3::::res://Scripts/Enemies/EnemyComposition/EnemyAudio.gd<>uid://lrw5sx30psw6::::res://Assets/CompositionPieces/hurtbox.tscn
+::res://Assets/Enemies/::1781231746
+gobline_one.tscn::PackedScene::4848497778467101340::1781322179::0::1::::<><><>0<>0<><>::uid://cpadu88fxwipo::::res://Scripts/Enemies/GoblinOne.gd<>uid://hyyvaerp5w57::::res://Assets/CompositionPieces/EnemySpecific/enemy_animations.tscn<>uid://4hvgjirqojwb::::res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Idle.png<>uid://fem4nbjc64l::::res://Assets/CompositionPieces/damageable.tscn<>uid://cmkcsmcesne0h::::res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Run.png<>uid://c2jclr3fl0igo::::res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Attack.png<>uid://de5ssl3jby2jw::::res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Death.png<>uid://bmkxwipmb2xv3::::res://Scripts/Enemies/EnemyComposition/EnemyAudio.gd<>uid://lrw5sx30psw6::::res://Assets/CompositionPieces/hurtbox.tscn<>uid://f77xpdlw78eg::::res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_B.wav<>uid://cebnthq1xkdbq::::res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_C.wav<>uid://ci6nf08kh7r15::::res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_D.wav<>uid://docfd28m4d72s::::res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_F.wav<>uid://8e0kq7hqnrlc::::res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_G.wav<>uid://ci2e7uoiybe4x::::res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_H.wav<>uid://cna2ebd3u44xe::::res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_I.wav<>uid://drdxhpxmppdgf::::res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_J.wav
 ::res://Assets/Environment/::1781101500
 dummy.tscn::PackedScene::3036936917180276038::1781101500::0::1::::<><><>0<>0<><>::uid://cs0qnx4wr6g7x::::res://Art/Packs/Pixel Art Platformer - Village Props (itch)/Dummy.png<>uid://bk77fs4gx87hn::::res://Scripts/Environment/Dummy.gd<>uid://fem4nbjc64l::::res://Assets/CompositionPieces/damageable.tscn
 dummy_crate.tscn::PackedScene::6440102753315366186::1781101451::0::1::::<><><>0<>0<><>::uid://bwj8y3a7pxen::::res://Scripts/Environment/DummyCrate.gd<>uid://b7pbh5n6femip::::res://Art/Packs/Pixel Art Platformer - Village Props (itch)/TX Crate.png<>uid://fem4nbjc64l::::res://Assets/CompositionPieces/damageable.tscn<>uid://7al32fl5mia::::res://Assets/CompositionPieces/pushable.tscn
@@ -229,8 +229,8 @@ sandbox.tscn::PackedScene::3057217302854419739::1781228361::0::1::::<><><>0<>0<>
 main_menu.tscn::PackedScene::7416854564037602973::1780372413::0::1::::<><><>0<>0<><>::uid://5my12u71qs1x::::res://Scripts/Menus/MainMenu/MainMenu.gd<>uid://dfmg8misquwjt::::res://Art/Wallpapers/EldenRingWallpaper.jpg<>uid://br5nxxm86d6ox::::res://Scripts/Menus/MainMenu/HomePanel.gd<>uid://bm3lbnlpfarxf::::res://Scripts/Menus/MainMenu/NewPanel.gd
 ::res://Nodes/UI/::1781101305
 in_game_hud.tscn::PackedScene::194483176026670185::1781101305::0::1::::<><><>0<>0<><>::uid://dvjf0dq8vbngl::::res://Art/Misc/blanksquare.jpg<>uid://bxda8c1pasfr1::::res://Scripts/Menus/HUD/HUDManager.gd
-::res://Resources/::1781221899
-audio_manager.tscn::PackedScene::1248077654511131440::1781221899::0::1::::<><><>0<>0<><>::uid://ci5yj8l8brcv4::::res://Scripts/CoreSystems/AudioManager.gd
+::res://Resources/::1781231940
+audio_manager.tscn::PackedScene::1248077654511131440::1781231940::0::1::::<><><>0<>0<><>::uid://ci5yj8l8brcv4::::res://Scripts/CoreSystems/AudioManager.gd
 ::res://Resources/Data/::1781221899
 enemy_library.tres::Resource/Enemy_Data_Library::328527260032034849::1781221899::0::1::::<><><>0<>0<><>::uid://dq1mioiuurs2n::::res://Scripts/Enemies/EnemyData/EnemyData.gd<>uid://3ed1kvc15acq::::res://Scripts/Enemies/EnemyData/EnemyLibrary.gd<>uid://cvro1unupgtub::::res://Assets/Data/Enemies/goblin_one.tres
 environment_object_library.tres::Resource/Environment_Object_Library::8372390347675227385::1780770931::0::1::::<><><>0<>0<><>::uid://cl5eexodexogs::::res://Scripts/Environment/EnvironmentObjects/EnvironmentObject.gd<>uid://b0e74i7i738kk::::res://Scripts/Environment/EnvironmentObjects/EnvironmentObjectLibrary.gd<>uid://drqdumc5s660b::::res://Assets/Environment/Environment_Objects_Data/dummy.tres<>uid://cup47d6ieuu2h::::res://Assets/Environment/Environment_Objects_Data/crate.tres<>uid://bl8d3vh84rieq::::res://Assets/Environment/Environment_Objects_Data/dummy_hurt.tres
@@ -249,12 +249,14 @@ GameWorldManager.gd::GDScript::3549174319113268876::1781221899::0::1::::GameWorl
 UIManager.gd::GDScript::4075631930178745360::1780772517::0::1::::UIManager<>Node<><>0<>0<><>::
 ::res://Scripts/CoreSystems/SubSystems/::1781221899
 GameWorld.gd::GDScript::1802841759994189016::1781221899::0::1::::GameWorld<>Node<><>0<>0<><>::
-::res://Scripts/Enemies/::1781221899
+::res://Scripts/Enemies/::1781322141
+::res://Scripts/Enemies/Enemies/::1781322152
+::res://Scripts/Enemies/Enemies/Goblin/::1781322152
 GoblinOne.gd::GDScript::5825893673320972972::1781230532::0::1::::<>Enemy<><>0<>0<><>::
-::res://Scripts/Enemies/EnemyComposition/::1781221899
+::res://Scripts/Enemies/EnemyComposition/::1781231672
 Enemy.gd::GDScript::2468135081483361012::1781221899::0::1::::Enemy<>CharacterBody2D<><>0<>0<><>::
 EnemyAnimations.gd::GDScript::3600127737802907643::1781228441::0::1::::EnemyAnimations<>AnimationPlayer<><>0<>0<><>::
-EnemyAudio.gd::GDScript::3250766807096141162::1781231275::0::1::::EnemyAudio<>Node2D<><>0<>0<><>::
+EnemyAudio.gd::GDScript::3250766807096141162::1781231933::0::1::::EnemyAudio<>Node2D<><>0<>0<><>::
 EnemyPhysics.gd::GDScript::1625551576590244509::1781221899::0::1::::EnemyPhysics<>Node2D<><>0<>0<><>::
 ::res://Scripts/Enemies/EnemyData/::1781221899
 EnemyData.gd::GDScript::8336701009779274675::1781231227::0::1::::EnemyData<>Resource<><>0<>0<><>::

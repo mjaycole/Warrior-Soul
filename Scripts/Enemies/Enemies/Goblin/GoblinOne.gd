@@ -4,17 +4,20 @@ extends Enemy
 
 
 # Patrolling and idle
+@export_group("Patrolling and Idle")
 @export var min_idle: float = 3
 @export var max_idle: float = 3
 @export var patrol_range: float
 @export var patrol_walk_speed: float
 
 # Player detection
+@export_group("Player Check")
 @onready var player_check_ray: RayCast2D = $Resources/PlayerDetect
 @onready var hurtbox: Hurtbox = $Hurtbox
 @export var omniscent: bool = false #Can see in front AND behind them
 
 # Attacking
+@export_group("Chase and Attack")
 @export var chase_speed: float
 @export var attack_range: float = 2
 @export var attack_time: float = 1.5
@@ -41,8 +44,6 @@ func _process(delta: float):
 
 func _physics_process(delta: float):
 	super._physics_process(delta)
-
-	handle_current_state_physics(delta)
 
 	animations.handle_direction(direction)
 
@@ -80,18 +81,10 @@ func handle_new_state():
 # Handles update process for current state
 func handle_current_state():
 	match current_state:
-		State.CHASING: return
+		State.PATROLLING: patrol()
+		State.CHASING: chase()
 		State.ATTACKING: return
 		State.DEAD: return
-
-# Handles physics process for current state
-func handle_current_state_physics(delta: float):
-	match current_state:
-		State.PATROLLING:
-			patrol(delta)
-		State.CHASING:
-			chase(delta)
-
 
 
 func player_check():
@@ -112,8 +105,11 @@ func player_check():
 			switch_state(State.IDLE, false)
 
 func idle_time():
-	velocity = Vector2.ZERO
+	enemy_physics.command_freeze()
+
 	await get_tree().create_timer(randf_range(min_idle, max_idle)).timeout
+
+	enemy_physics.command_unfreeze()
 
 	switch_state(State.PATROLLING, false)
 
@@ -124,23 +120,19 @@ func find_patrol_point():
 
 	has_destination = true
 
-func patrol(delta: float):
+func patrol():
 	if not has_destination:
 		find_patrol_point()
 		return
 	
-	velocity.x = direction * patrol_walk_speed
-
 	if abs(global_position.x - destination_position.x) < 5:
 		has_destination = false
 		switch_state(State.IDLE, false)
 
-func chase(delta: float):
+func chase():
 	if not has_player_position:
 		switch_state(State.IDLE, false)
 		return
-
-	velocity.x = direction * chase_speed
 
 	if abs(global_position.x - player_position.x) < attack_range:
 		attack()
@@ -149,7 +141,7 @@ func attack():
 	switch_state(State.ATTACKING, false)
 
 func enter_attack():
-	velocity = Vector2.ZERO
+	enemy_physics.command_freeze()
 
 	hurtbox.scale.x = -direction
 	await get_tree().create_timer(attack_time).timeout
@@ -158,6 +150,7 @@ func enter_attack():
 		if abs(global_position.x - player_position.x) < attack_range:
 			attack()
 		else:
+			enemy_physics.command_unfreeze()
 			switch_state(State.CHASING, false)
 	else:
 		switch_state(State.IDLE, false)

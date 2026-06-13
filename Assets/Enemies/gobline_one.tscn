@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cbcwbx3wgureq"]
 
-[ext_resource type="Script" uid="uid://cpadu88fxwipo" path="res://Scripts/Enemies/GoblinOne.gd" id="1_0oi4k"]
+[ext_resource type="Script" uid="uid://cpadu88fxwipo" path="res://Scripts/Enemies/Enemies/Goblin/GoblinOne.gd" id="1_0oi4k"]
 [ext_resource type="PackedScene" uid="uid://hyyvaerp5w57" path="res://Assets/CompositionPieces/EnemySpecific/enemy_animations.tscn" id="2_v76tf"]
 [ext_resource type="Texture2D" uid="uid://4hvgjirqojwb" path="res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Idle.png" id="3_53aha"]
+[ext_resource type="Script" uid="uid://ck13sgsela3pj" path="res://Scripts/Enemies/Enemies/Goblin/GoblinAnimations.gd" id="3_wdpax"]
 [ext_resource type="PackedScene" uid="uid://fem4nbjc64l" path="res://Assets/CompositionPieces/damageable.tscn" id="4_evwp5"]
 [ext_resource type="Texture2D" uid="uid://cmkcsmcesne0h" path="res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Run.png" id="4_v76tf"]
 [ext_resource type="Texture2D" uid="uid://c2jclr3fl0igo" path="res://Art/Packs/CloudVortexGames/Goblin_Grunt1_Attack.png" id="5_53aha"]
@@ -17,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://ci2e7uoiybe4x" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_H.wav" id="14_2g7c1"]
 [ext_resource type="AudioStream" uid="uid://cna2ebd3u44xe" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_I.wav" id="15_ohd7b"]
 [ext_resource type="AudioStream" uid="uid://drdxhpxmppdgf" path="res://Audio/Effects/UI/Fantasy_Game_Footstep_Stone_Light_J.wav" id="16_j1pwj"]
+[ext_resource type="Script" uid="uid://cscwbnj3iwg4k" path="res://Scripts/Enemies/Enemies/Goblin/GoblinPhysics.gd" id="17_uixbu"]
 
 [sub_resource type="Animation" id="Animation_rw1vu"]
 length = 0.001
@@ -179,7 +181,7 @@ radius = 5.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgrrv"]
 size = Vector2(21.666666, 20)
 
-[node name="GoblinOne" type="CharacterBody2D" unique_id=490518567 node_paths=PackedStringArray("damageable", "animations")]
+[node name="GoblinOne" type="CharacterBody2D" unique_id=490518567 node_paths=PackedStringArray("damageable", "enemy_physics", "animations", "audio_controller")]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_0oi4k")
 max_idle = 10.0
@@ -189,12 +191,14 @@ chase_speed = 40.0
 attack_range = 15.0
 enemy_id = "goblin"
 damageable = NodePath("Damageable")
+enemy_physics = NodePath("EnemyPhysics")
 animations = NodePath("EnemyAnimations")
+audio_controller = NodePath("EnemyAudio")
 
 [node name="EnemyAnimations" parent="." unique_id=1904414714 node_paths=PackedStringArray("sprite") instance=ExtResource("2_v76tf")]
 libraries/ = SubResource("AnimationLibrary_dgrrv")
 autoplay = &"RESET"
-sprite = NodePath("../Sprite2D")
+script = ExtResource("3_wdpax")
 idle_frames = ExtResource("3_53aha")
 idle_hframes = 4
 idle_vframes = 1
@@ -205,12 +209,25 @@ attack_frames = ExtResource("5_53aha")
 attack_hframes = 4
 attack_vframes = 1
 death_frames = ExtResource("6_evwp5")
+death_hframes = 6
+death_vframes = 1
+sprite = NodePath("../Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=270850954]
 z_index = 3
 position = Vector2(0, -32)
 texture = ExtResource("5_53aha")
 hframes = 6
+
+[node name="EnemyAudio" type="Node2D" parent="." unique_id=713062011]
+script = ExtResource("8_rw1vu")
+footsteps = Array[AudioStream]([ExtResource("9_wdpax"), ExtResource("10_pylxw"), ExtResource("11_uixbu"), ExtResource("12_4nm0g"), ExtResource("13_5tlht"), ExtResource("14_2g7c1"), ExtResource("15_ohd7b"), ExtResource("16_j1pwj")])
+footstep_volume = 0.1
+time_between_steps = 0.35
+time_between_sprint_steps = 0.25
+
+[node name="EnemyPhysics" type="Node2D" parent="." unique_id=811158876]
+script = ExtResource("17_uixbu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942313521]
 position = Vector2(0, -15)
@@ -221,13 +238,6 @@ shape = SubResource("CapsuleShape2D_v76tf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable" unique_id=904932807]
 position = Vector2(0, -16.666666)
 shape = SubResource("CapsuleShape2D_0oi4k")
-
-[node name="EnemyAudio" type="Node2D" parent="." unique_id=713062011]
-script = ExtResource("8_rw1vu")
-footsteps = Array[AudioStream]([ExtResource("9_wdpax"), ExtResource("10_pylxw"), ExtResource("11_uixbu"), ExtResource("12_4nm0g"), ExtResource("13_5tlht"), ExtResource("14_2g7c1"), ExtResource("15_ohd7b"), ExtResource("16_j1pwj")])
-footstep_volume = 0.1
-time_between_steps = 0.35
-time_between_sprint_steps = 0.25
 
 [node name="Resources" type="Node2D" parent="." unique_id=1303901130]
 
