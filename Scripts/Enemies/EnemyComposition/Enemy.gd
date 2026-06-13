@@ -19,6 +19,7 @@ var current_state: State = State.IDLE
 @export var enemy_physics: EnemyPhysics
 @export var animations: EnemyAnimations
 @export var audio_controller: EnemyAudio
+@onready var resources: Node2D = $Resources
 
 
 # Variables
@@ -73,6 +74,7 @@ func on_take_damage(source: Node, amount: float):
 func on_die():
 	switch_state(State.DEAD, true)
 
+	resources.queue_free()
 	damageable.queue_free()
 	$CollisionShape2D.set_deferred("disabled", true)
 

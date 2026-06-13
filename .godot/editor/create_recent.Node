@@ -1,7 +1,8 @@
+CollisionShape2D
+Area2D
+RayCast2D
 Node2D
 EnemyPhysics
-CollisionShape2D
-RayCast2D
 AudioStreamPlayer2D
 Node
 EnemyAudio
@@ -11,4 +12,3 @@ AnimationPlayer
 CharacterBody2D
 AudioStreamPlayer
 TileMap
-PointLight2D

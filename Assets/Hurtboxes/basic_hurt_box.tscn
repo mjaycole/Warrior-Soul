@@ -45,6 +45,8 @@ _data = {
 size = Vector2(33.33943, 47.496223)
 
 [node name="BasicHurtBox" type="Area2D" unique_id=1685783419 node_paths=PackedStringArray("animation_player")]
+collision_layer = 257
+collision_mask = 257
 script = ExtResource("1_vwmkk")
 animation_player = NodePath("AnimationPlayer")
 live_duration = 0.25

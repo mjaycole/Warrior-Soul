@@ -294,7 +294,7 @@ height = 12.0
 [node name="Player" type="CharacterBody2D" unique_id=498693783]
 physics_interpolation_mode = 1
 z_index = 10
-collision_layer = 2147483649
+collision_layer = 2147483648
 collision_mask = 2147483649
 script = ExtResource("1_rul8u")
 hurt_time = 0.35
@@ -329,11 +329,12 @@ shape = SubResource("CapsuleShape2D_e0yf7")
 [node name="GroundCheck" type="RayCast2D" parent="Raycasts" unique_id=1203295291]
 position = Vector2(0, -2)
 target_position = Vector2(0, 2)
+collision_mask = 255
 
 [node name="WallCheck" type="RayCast2D" parent="Raycasts" unique_id=680237711]
 position = Vector2(0, -4)
 target_position = Vector2(-4, 0)
-collision_mask = 3
+collision_mask = 255
 collide_with_areas = true
 
 [node name="PushableCheck" type="RayCast2D" parent="Raycasts" unique_id=1173244397]
@@ -345,14 +346,18 @@ collide_with_areas = true
 [node name="LedgeGrabCheck" type="RayCast2D" parent="Raycasts" unique_id=1360362640]
 position = Vector2(0, -10.6)
 target_position = Vector2(-4, 0)
+collision_mask = 255
 
 [node name="LedgeTopRay" type="RayCast2D" parent="Raycasts" unique_id=1780873634]
 position = Vector2(-4, -15)
 target_position = Vector2(0, 5)
+collision_mask = 255
 
 [node name="LedgeDetection" type="Area2D" parent="Raycasts" unique_id=1613880752]
 position = Vector2(-4, -10)
 scale = Vector2(0.34, 0.34)
+collision_layer = 0
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Raycasts/LedgeDetection" unique_id=831554184]
 shape = SubResource("CircleShape2D_q1ymb")
@@ -387,6 +392,8 @@ texture = ExtResource("7_cdil5")
 texture_scale = 2.08
 
 [node name="Damageable" parent="." unique_id=11218394 instance=ExtResource("7_rul8u")]
+collision_layer = 2147483648
+collision_mask = 2147483648
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable" unique_id=814203125]
 position = Vector2(0, -6)
