@@ -15,5 +15,6 @@ func initialize():
 		print("Has an active perk! ", perk.perk_name)
 		print(perk.perk_name, " is giving ", perk.get_current_effect(), " bonus to ", perk.effect_target)
 
-		if stats.movement_stats_affect_target_keys.has(perk.effect_target):
-			stats.inject_perk_movement_bonuses(perk.effect_target, perk.get_current_effect())
+
+func get_movement_stat(stat: String) -> float:
+	return stats.get_final_movement_stat(stat, perks)

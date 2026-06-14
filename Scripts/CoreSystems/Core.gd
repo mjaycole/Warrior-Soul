@@ -75,7 +75,7 @@ func start_game():
 	# initialize the starting player data if player_data is null (for a new game)
 	if not player_data:
 		print("Creating player data")
-		player_data = load("res://Resources/Data/starting_data.tres")
+		player_data = load("res://Resources/Data/starting_data.tres").duplicate(true)
 		player_data.initialize()
 	
 	change_game_state(GameState.PLAYING)

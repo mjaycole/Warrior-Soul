@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlayerPerks" format=3 uid="uid://dcxdcpove4oqr"]
+
+[ext_resource type="Script" uid="uid://8id20n03g81c" path="res://Scripts/Player/Perks/Perk.gd" id="1_n76l8"]
+[ext_resource type="Resource" uid="uid://cwirv0s1e0dih" path="res://Resources/Data/Perks/Agility/base_agility.tres" id="2_3vd28"]
+[ext_resource type="Script" uid="uid://b2lcdvkdfptdp" path="res://Scripts/Player/Perks/PlayerPerks.gd" id="2_fsei8"]
+[ext_resource type="Resource" uid="uid://cb3f1hej7bxb7" path="res://Resources/Data/Perks/Strength/brute_force.tres" id="4_a3q7l"]
+
+[resource]
+script = ExtResource("2_fsei8")
+strength_perks = Array[ExtResource("1_n76l8")]([ExtResource("4_a3q7l")])
+agility_perks = Array[ExtResource("1_n76l8")]([ExtResource("2_3vd28")])
+metadata/_custom_type_script = "uid://b2lcdvkdfptdp"

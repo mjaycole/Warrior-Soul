@@ -10,5 +10,5 @@ description = "Movement speed +3% per rank (+15% max)"
 required_stat_level = 0
 stat = "agility"
 effect_target = &"speed"
-effect_per_rank = 0.1
+effect_per_rank = 0.03
 metadata/_custom_type_script = "uid://8id20n03g81c"

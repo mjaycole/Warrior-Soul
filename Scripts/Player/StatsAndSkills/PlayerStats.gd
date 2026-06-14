@@ -31,15 +31,21 @@ signal player_stats_changed
 @export_group("Movement Stats")
 # This dictionary stores a reference table for all movement stats to easily be referenced
 @export var current_movement_stats: Dictionary
-@export var movement_stats_affect_target_keys: Array[String] = ["speed", "sprint" ]
 @export var base_walk_speed: float
 @export var base_sprint_multiplier: float
 @export var base_jump_height: float
 @export var base_dash_speed: float
 @export var base_push_speed: float
 
+var _initialized: bool = false
+
 
 func init_base_stats():
+    if _initialized:
+        return
+
+    _initialized = true
+    
     current_top_level_stats["strength"] = base_strength
     current_top_level_stats["agility"] = base_agility
 
@@ -54,8 +60,14 @@ func init_base_stats():
     current_movement_stats["push"] = base_push_speed
 
 
-func get_movement_stat(stat: String) -> float:
+func _get_movement_stat(stat: String) -> float:
     return current_movement_stats[stat]
 
-func inject_perk_movement_bonuses(target: String, amount: float):
-    current_movement_stats[target] += current_movement_stats[target] * amount
+func get_final_movement_stat(stat: String, perks: PlayerPerks) -> float:
+    var base: float = current_movement_stats[stat]
+    var effects: Array[float] = perks.get_perk_effects(stat)
+    var bonus: float = 0.0
+    for effect in effects:
+        bonus += effect
+
+    return base * (1.0 + bonus)
