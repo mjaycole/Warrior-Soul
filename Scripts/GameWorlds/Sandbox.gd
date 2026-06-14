@@ -4,7 +4,9 @@ extends GameWorld
 
 
 
-func command_load_world():
+func command_load_world(old_world: GameWorldData = null):
+	super.command_load_world(old_world)
+
 	spawn_player()
 	init_enemies()
 	connect_camera()
@@ -12,7 +14,7 @@ func command_load_world():
 	world_ready.emit()
 
 func spawn_player():
-	player = preload("res://Assets/Player/player.tscn").instantiate()
+	player = load("res://Assets/Player/player.tscn").instantiate()
 	player_spawn.add_child(player)
 
 	player_spawned.emit(player)

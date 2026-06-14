@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GameWorldLibrary" format=3 uid="uid://dp3dla18kyjj4"]
+
+[ext_resource type="Script" uid="uid://otrpm04uh8ew" path="res://Scripts/CoreSystems/SubSystems/GameWorld/GameWorldData.gd" id="1_ht5an"]
+[ext_resource type="Resource" uid="uid://enet11y7urgt" path="res://Assets/Data/GameWorlds/sandbox_world_data.tres" id="2_6qnh2"]
+[ext_resource type="Script" uid="uid://beqx5hf43s2yo" path="res://Scripts/CoreSystems/SubSystems/GameWorld/GameWorldDataLibrary.gd" id="2_euvbt"]
+[ext_resource type="Resource" uid="uid://6djeh63hw4pq" path="res://Assets/Data/GameWorlds/sandbox_2_world_data.tres" id="3_6qnh2"]
+
+[resource]
+script = ExtResource("2_euvbt")
+all_worlds = Array[ExtResource("1_ht5an")]([ExtResource("2_6qnh2"), ExtResource("3_6qnh2")])
+metadata/_custom_type_script = "uid://beqx5hf43s2yo"

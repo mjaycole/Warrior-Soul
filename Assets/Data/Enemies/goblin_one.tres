@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_nav7y")
 id = "goblin"
-enemy_name = "Goblin One"
+enemy_name = "Goblin"
 max_health = 10.0
 prefab = ExtResource("1_wbwpy")
 attack_sound = ExtResource("1_el6wi")

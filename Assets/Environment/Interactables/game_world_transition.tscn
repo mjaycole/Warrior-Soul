@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d250ue84ar7n"]
+
+[ext_resource type="PackedScene" uid="uid://ce5ag2xrrcsdm" path="res://Assets/CompositionPieces/interactable.tscn" id="1_3dvsa"]
+[ext_resource type="Script" uid="uid://4bmkrheu7g71" path="res://Scripts/CoreSystems/SubSystems/GameWorld/GameWorldTransition.gd" id="1_rj37n"]
+[ext_resource type="Texture2D" uid="uid://dvjf0dq8vbngl" path="res://Art/Misc/blanksquare.jpg" id="2_eaipa"]
+
+[node name="GameWorldTransition" type="Node2D" unique_id=260622510 node_paths=PackedStringArray("interactable")]
+script = ExtResource("1_rj37n")
+interactable = NodePath("Interactable")
+next_game_world_name = "sandbox"
+
+[node name="Interactable" parent="." unique_id=1195036185 instance=ExtResource("1_3dvsa")]
+collision_mask = 2147483648
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1486153245]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_eaipa")

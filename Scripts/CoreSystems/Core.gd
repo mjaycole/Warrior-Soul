@@ -29,7 +29,7 @@ signal terminal_response(response: String)
 #region Variables
 var current_player_object
 var input_enabled: bool = true
-
+var current_world: GameWorldData
 #endregion
 
 
@@ -79,6 +79,8 @@ func start_game():
 	
 	change_game_state(GameState.PLAYING)
 
+func go_to_new_world(new_world: GameWorldData):
+	current_world = new_world
 #endregion
 
 #region Debug terminal

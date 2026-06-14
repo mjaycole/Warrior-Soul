@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GameWorldData" format=3 uid="uid://enet11y7urgt"]
+
+[ext_resource type="PackedScene" uid="uid://bjs66mgubbxe6" path="res://Nodes/GameWorlds/sandbox.tscn" id="1_e78ui"]
+[ext_resource type="Script" uid="uid://otrpm04uh8ew" path="res://Scripts/CoreSystems/SubSystems/GameWorld/GameWorldData.gd" id="1_t5xbq"]
+
+[resource]
+script = ExtResource("1_t5xbq")
+world_name = "sandbox"
+game_world = ExtResource("1_e78ui")
+metadata/_custom_type_script = "uid://otrpm04uh8ew"
