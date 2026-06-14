@@ -4,24 +4,35 @@
 [ext_resource type="Script" uid="uid://do74wl5jse4a3" path="res://Scripts/Player/PlayerData.gd" id="1_wg6gk"]
 [ext_resource type="Resource" uid="uid://4ob1bbpdasgu" path="res://Assets/Data/Items/Weapons/broken_sword.tres" id="2_mws7y"]
 [ext_resource type="Script" uid="uid://uqj38tt6wavw" path="res://Scripts/Player/PlayerInventory.gd" id="3_77j0l"]
-[ext_resource type="Script" uid="uid://b5n60t387nh82" path="res://Scripts/Player/PlayerStats.gd" id="5_txloq"]
+[ext_resource type="Script" uid="uid://8id20n03g81c" path="res://Scripts/Player/Perks/Perk.gd" id="4_bv4ho"]
+[ext_resource type="Resource" uid="uid://cwirv0s1e0dih" path="res://Resources/Data/Perks/Agility/base_agility.tres" id="5_grmix"]
+[ext_resource type="Script" uid="uid://b5n60t387nh82" path="res://Scripts/Player/StatsAndSkills/PlayerStats.gd" id="5_txloq"]
+[ext_resource type="Script" uid="uid://b2lcdvkdfptdp" path="res://Scripts/Player/Perks/PlayerPerks.gd" id="5_ue2lb"]
+[ext_resource type="Resource" uid="uid://cb3f1hej7bxb7" path="res://Resources/Data/Perks/Strength/brute_force.tres" id="6_grmix"]
 
 [sub_resource type="Resource" id="Resource_7jxe6"]
 script = ExtResource("3_77j0l")
 items = Array[ExtResource("1_nrtc1")]([ExtResource("2_mws7y")])
 metadata/_custom_type_script = "uid://uqj38tt6wavw"
 
+[sub_resource type="Resource" id="Resource_ahd6y"]
+script = ExtResource("5_ue2lb")
+strength_perks = Array[ExtResource("4_bv4ho")]([ExtResource("6_grmix")])
+agility_perks = Array[ExtResource("4_bv4ho")]([ExtResource("5_grmix")])
+metadata/_custom_type_script = "uid://b2lcdvkdfptdp"
+
 [sub_resource type="Resource" id="Resource_pdu2b"]
 script = ExtResource("5_txloq")
-current_walk_speed = 90.0
-current_sprint_multiplier = 1.25
-current_jump_height = -180.0
-current_dash_speed = -150.0
-current_push_speed = 10.0
+base_walk_speed = 90.0
+base_sprint_multiplier = 1.2
+base_jump_height = -180.0
+base_dash_speed = -90.0
+base_push_speed = -20.0
 metadata/_custom_type_script = "uid://b5n60t387nh82"
 
 [resource]
 script = ExtResource("1_wg6gk")
 inventory = SubResource("Resource_7jxe6")
 stats = SubResource("Resource_pdu2b")
+perks = SubResource("Resource_ahd6y")
 metadata/_custom_type_script = "uid://do74wl5jse4a3"

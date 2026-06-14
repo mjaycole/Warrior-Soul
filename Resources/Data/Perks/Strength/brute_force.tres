@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Perk" format=3 uid="uid://cb3f1hej7bxb7"]
+
+[ext_resource type="Script" uid="uid://8id20n03g81c" path="res://Scripts/Player/Perks/Perk.gd" id="1_07w2a"]
+
+[resource]
+script = ExtResource("1_07w2a")
+id = "brute_force"
+perk_name = "Brute Force"
+description = "Melee attack speed +4% per rank (+20% max)"
+required_stat_level = 15
+stat = "strength"
+effect_target = &"melee_speed"
+effect_per_rank = 0.04
+metadata/_custom_type_script = "uid://8id20n03g81c"

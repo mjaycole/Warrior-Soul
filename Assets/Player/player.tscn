@@ -22,6 +22,8 @@
 [ext_resource type="AudioStream" uid="uid://67w45b5ujsxc" path="res://Audio/Effects/Movement/Retro FootStep Grass 01.wav" id="18_1ssyw"]
 [ext_resource type="AudioStream" uid="uid://bw1l71gcam4bh" path="res://Audio/Effects/Movement/Retro FootStep Mud 01.wav" id="19_7rk7e"]
 [ext_resource type="Script" uid="uid://voiont3fdl8q" path="res://Scripts/Player/PlayerInteract.gd" id="22_sklkn"]
+[ext_resource type="Script" uid="uid://b4ngr1ico6ppv" path="res://Scripts/Player/UI/PlayerInteractionUI.gd" id="23_7rk7e"]
+[ext_resource type="Texture2D" uid="uid://tbsyo104ma52" path="res://Art/UI/KenneyInput/keyboard_e.png" id="24_d410y"]
 
 [sub_resource type="Animation" id="Animation_q1ymb"]
 length = 0.001
@@ -411,3 +413,23 @@ metadata/_custom_type_script = "uid://voiont3fdl8q"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteract" unique_id=28625700]
 shape = SubResource("CircleShape2D_1ssyw")
+
+[node name="PlayerCanvas" type="CanvasLayer" parent="." unique_id=920388515]
+
+[node name="InteractionPrompt" type="Control" parent="PlayerCanvas" unique_id=280349142]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("23_7rk7e")
+offset = Vector2(-10, -85)
+
+[node name="InteractRect" type="TextureRect" parent="PlayerCanvas/InteractionPrompt" unique_id=93596515]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_d410y")

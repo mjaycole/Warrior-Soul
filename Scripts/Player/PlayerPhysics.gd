@@ -91,10 +91,10 @@ func calculated_physics(delta: float) -> void:
 	character_body.move_and_slide()
 
 func command_pull_latest_stats():
-	SPEED = Core.player_data.stats.current_walk_speed
-	JUMP_VELOCITY = Core.player_data.stats.current_jump_height
-	SPRINT_MODIFIER = Core.player_data.stats.current_sprint_multiplier
-	DASH_VELOCITY = Core.player_data.stats.current_dash_speed
+	SPEED = Core.player_data.stats.get_movement_stat("speed")
+	JUMP_VELOCITY = Core.player_data.stats.get_movement_stat("jump")
+	SPRINT_MODIFIER = Core.player_data.stats.get_movement_stat("sprint")
+	DASH_VELOCITY = Core.player_data.stats.get_movement_stat("dash")
 
 func command_jump() -> void:
 	if dashing or climbing:

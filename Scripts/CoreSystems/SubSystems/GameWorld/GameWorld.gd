@@ -22,7 +22,6 @@ var world_data: GameWorldData
 
 # Called by the GameWorldManager to initiate loading the world (such as spawning the player appropriately)
 func command_load_world(old_world: GameWorldData = null):
-    print("Commanded to load world")
     listen_for_transition()
 
 # Called by the GameWorldManager to clean up a world before it moves on to the next

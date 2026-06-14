@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Perk" format=3 uid="uid://cwirv0s1e0dih"]
+
+[ext_resource type="Script" uid="uid://8id20n03g81c" path="res://Scripts/Player/Perks/Perk.gd" id="1_vnfyp"]
+
+[resource]
+script = ExtResource("1_vnfyp")
+id = "base_agility"
+perk_name = "Base Agility Stat"
+description = "Movement speed +3% per rank (+15% max)"
+required_stat_level = 0
+stat = "agility"
+effect_target = &"speed"
+effect_per_rank = 0.1
+metadata/_custom_type_script = "uid://8id20n03g81c"

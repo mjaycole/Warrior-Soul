@@ -13,5 +13,6 @@ next_game_world_name = "sandbox"
 requires_player_input = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1486153245]
+modulate = Color(0.30980393, 0.69803923, 0.6784314, 0.45882353)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_eaipa")
