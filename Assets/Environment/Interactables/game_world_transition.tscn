@@ -10,7 +10,7 @@ interactable = NodePath("Interactable")
 next_game_world_name = "sandbox"
 
 [node name="Interactable" parent="." unique_id=1195036185 instance=ExtResource("1_3dvsa")]
-collision_mask = 2147483648
+requires_player_input = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1486153245]
 scale = Vector2(0.1, 0.1)

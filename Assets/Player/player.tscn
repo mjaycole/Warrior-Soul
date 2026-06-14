@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://drw58rk6k3o28" path="res://Audio/Effects/Movement/Retro FootStep Krushed Landing 01.wav" id="16_sklkn"]
 [ext_resource type="AudioStream" uid="uid://67w45b5ujsxc" path="res://Audio/Effects/Movement/Retro FootStep Grass 01.wav" id="18_1ssyw"]
 [ext_resource type="AudioStream" uid="uid://bw1l71gcam4bh" path="res://Audio/Effects/Movement/Retro FootStep Mud 01.wav" id="19_7rk7e"]
+[ext_resource type="Script" uid="uid://voiont3fdl8q" path="res://Scripts/Player/PlayerInteract.gd" id="22_sklkn"]
 
 [sub_resource type="Animation" id="Animation_q1ymb"]
 length = 0.001
@@ -291,11 +292,13 @@ height = 14.0
 radius = 3.0
 height = 12.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ssyw"]
+
 [node name="Player" type="CharacterBody2D" unique_id=498693783]
 physics_interpolation_mode = 1
 z_index = 10
 collision_layer = 2147483648
-collision_mask = 2147483649
+collision_mask = 2147549185
 script = ExtResource("1_rul8u")
 hurt_time = 0.35
 
@@ -398,3 +401,13 @@ collision_mask = 2147483648
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable" unique_id=814203125]
 position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_kg0wl")
+
+[node name="PlayerInteract" type="Area2D" parent="." unique_id=622181230]
+position = Vector2(0, -9)
+collision_layer = 65536
+collision_mask = 65536
+script = ExtResource("22_sklkn")
+metadata/_custom_type_script = "uid://voiont3fdl8q"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteract" unique_id=28625700]
+shape = SubResource("CircleShape2D_1ssyw")

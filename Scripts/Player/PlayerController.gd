@@ -13,6 +13,7 @@ signal player_use_item(item_compass)
 @onready var player_item_use = $"PlayerItemUsage"
 @onready var player_damageable: Damageable = $Damageable
 @onready var player_audio: PlayerAudio = $PlayerAudio 
+@onready var player_interact: PlayerInteract = $PlayerInteract
 
 # Variables
 @export var hurt_time: float = 3
@@ -52,6 +53,8 @@ func _input(event: InputEvent):
 	if event.is_action_pressed("RightHandItem"):
 		if can_go_to_state(State.USING_ITEM):
 			player_item_use.command_use("right_hand", self)
+	if event.is_action_pressed("Interact"):
+		player_interact.command_interact()
 
 
 func _physics_process(delta: float):

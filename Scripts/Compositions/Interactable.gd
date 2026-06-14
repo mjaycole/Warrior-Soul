@@ -13,8 +13,8 @@ func _ready():
     body_entered.connect(_handle_body_entered)
     body_exited.connect(_handle_body_exited)
 
-func command_interacted():
-    player_interacted.emit(player)
+func command_interacted(_player: player_controller):
+    player_interacted.emit(_player)
 
 func _handle_body_entered(body: Node):
     if body is player_controller:
@@ -22,7 +22,7 @@ func _handle_body_entered(body: Node):
         player = body
 
         if not requires_player_input:
-            command_interacted()
+            command_interacted(player)
 
 func _handle_body_exited(body: Node):
     if body is player_controller:
