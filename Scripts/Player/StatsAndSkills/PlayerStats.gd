@@ -39,13 +39,13 @@ signal player_stats_changed
 
 var _initialized: bool = false
 
-
+# Initialize the dictionaries with their base values
 func init_base_stats():
     if _initialized:
         return
 
     _initialized = true
-    
+
     current_top_level_stats["strength"] = base_strength
     current_top_level_stats["agility"] = base_agility
 
@@ -59,10 +59,11 @@ func init_base_stats():
     current_movement_stats["dash"] = base_dash_speed
     current_movement_stats["push"] = base_push_speed
 
-
+# This just returns the base value for a stat
 func _get_movement_stat(stat: String) -> float:
     return current_movement_stats[stat]
 
+# Return the final value for a movement stat based on the key, including any active perks that affect that stat key
 func get_final_movement_stat(stat: String, perks: PlayerPerks) -> float:
     var base: float = current_movement_stats[stat]
     var effects: Array[float] = perks.get_perk_effects(stat)

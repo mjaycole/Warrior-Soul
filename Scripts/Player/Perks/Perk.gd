@@ -14,7 +14,7 @@ class_name Perk
 @export var stat: String
 
 # The actual numerical effect - what it modifies and by how much per rank
-@export var effect_target: StringName  # e.g. &"melee_damage", &"dash_distance"
+@export var effect_target: StringName  # e.g. &"melee_damage", &"dash_distance", &"speed"
 @export var effect_per_rank: float
 
 

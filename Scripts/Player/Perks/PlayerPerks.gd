@@ -17,7 +17,7 @@ signal player_perks_changed
 @export var instinct_perks: Array[Perk]
 @export var luck_perks: Array[Perk]
 
-
+# Builds the dictionary for each of the top level stat keys
 func _build_perk_columns():
 	all_perk_columns = {
 		"strength": strength_perks,
@@ -29,9 +29,10 @@ func _build_perk_columns():
 		"luck": luck_perks
 	}
 
+# Handles checking all the perks to see which ones are currently active (meaning, the user has reached the top level stat level required to unlock that perk)
 func update_active_perks(stats: Dictionary):
 	_build_perk_columns()
-	
+
 	active_perks.clear()
 
 	# Check for active perks in the strength column
@@ -43,7 +44,7 @@ func update_active_perks(stats: Dictionary):
 			if stats[stat_key] >= perk.required_stat_level:
 				active_perks.append(perk)
 
-
+# Returns all perk effects for a given target key, i.e. "speed" for move speed
 func get_perk_effects(target: String) -> Array[float]:
 	var all_perk_effects: Array[float] = []
 
