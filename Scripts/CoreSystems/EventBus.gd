@@ -3,10 +3,11 @@
 extends Node
 
 # Player events
+signal player_spawned(player: player_controller)
 signal player_died
 signal player_health_changed(new_health: float)
-signal player_level_up(new_level: int)
-signal player_stat_increase(stat: String, new_level: int)
+signal player_level_up(amount: int)
+signal player_stat_increase(stat: String, amount: int)
 signal player_perk_increase(stat: String, perk: Perk)
 
 # Enemy events

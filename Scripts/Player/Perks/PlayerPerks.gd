@@ -53,3 +53,12 @@ func get_perk_effects(target: String) -> Array[float]:
 			all_perk_effects.append(perk.get_current_effect())
 
 	return all_perk_effects
+
+# Increase a perk rank by X amount
+func command_increase_perk_rank(stat: String, perk: Perk):
+	if not all_perk_columns.has(stat):
+		return
+	
+	for _perk in all_perk_columns[stat]:
+		if _perk.id == perk.id:
+			_perk.upgrade()

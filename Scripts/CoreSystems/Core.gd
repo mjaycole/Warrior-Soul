@@ -35,6 +35,7 @@ var current_world: GameWorldData
 
 
 func _ready():
+	EventBus.player_spawned.connect(_handle_player_spawned)
 	EventBus.player_died.connect(_handle_player_died)
 	EventBus.player_health_changed.connect(_handle_player_health_changed)
 	EventBus.player_level_up.connect(_handle_player_level_up)
@@ -92,20 +93,23 @@ func go_to_new_world(new_world: GameWorldData):
 #endregion
 
 #region Event Bus listeners
+func _handle_player_spawned(player: player_controller):
+	current_player_object = player
+
 func _handle_player_died():
 	pass
 
 func _handle_player_health_changed(new_health: float):
 	pass
 
-func _handle_player_level_up(new_level: int):
-	pass
+func _handle_player_level_up(amount: int):
+	player_data.stats.command_increase_player_level(amount)
 
-func _handle_player_stat_increase(stat: String, new_level: int):
-	pass
+func _handle_player_stat_increase(stat: String, amount: int):
+	player_data.stats.command_increase_top_level_stat(stat, amount)
 
 func _handle_player_perk_increase(stat: String, perk: Perk):
-	pass
+	player_data.perks.command_increase_perk_rank(stat, perk)
 #endregion
 
 #region Debug terminal

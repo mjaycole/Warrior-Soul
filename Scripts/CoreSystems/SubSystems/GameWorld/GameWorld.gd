@@ -26,11 +26,9 @@ func command_load_world(old_world: GameWorldData = null):
 
 # Called by the GameWorldManager to clean up a world before it moves on to the next
 func command_unload_world():
-    print("Commanded to unload")
     for object in spawned_objects:
         if is_instance_valid(object):
             object.queue_free()
-    print("Unload done")
     spawned_objects.clear()
     unload_completed.emit()
 

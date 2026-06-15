@@ -6,7 +6,7 @@ class_name  PlayerStat
 # Signals
 signal player_stats_changed
 
-
+@export var player_level: int = 1
 
 @export_group("Top Level Stats")
 # This dictionary stores a reference table for all seven top level stats to easily be referenced
@@ -72,3 +72,14 @@ func get_final_movement_stat(stat: String, perks: PlayerPerks) -> float:
         bonus += effect
 
     return base * (1.0 + bonus)
+
+# Increases the player level by X amount
+func command_increase_player_level(amount: int):
+    player_level += amount
+
+# Increases a top level stat by X amount
+func command_increase_top_level_stat(stat: String, amount: int):
+    if not current_top_level_stats[stat]:
+        return
+    
+    current_top_level_stats[stat] += amount
