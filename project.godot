@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+EventBus="*uid://clc6a83ssbkvq"
 GameWorldDataFetcher="*uid://uo1gxesci78v"
 ItemLibraryFetcher="*uid://cbcpabr5ut1yx"
 EnvironmentObjectFetcher="*uid://dk46telahnj5l"

@@ -34,6 +34,13 @@ var current_world: GameWorldData
 
 
 
+func _ready():
+	EventBus.player_died.connect(_handle_player_died)
+	EventBus.player_health_changed.connect(_handle_player_health_changed)
+	EventBus.player_level_up.connect(_handle_player_level_up)
+	EventBus.player_stat_increase.connect(_handle_player_stat_increase)
+	EventBus.player_perk_increase.connect(_handle_player_perk_increase)
+
 
 #region Register managers
 func register_ui_manager(manager: UIManager):
@@ -82,6 +89,23 @@ func start_game():
 
 func go_to_new_world(new_world: GameWorldData):
 	current_world = new_world
+#endregion
+
+#region Event Bus listeners
+func _handle_player_died():
+	pass
+
+func _handle_player_health_changed(new_health: float):
+	pass
+
+func _handle_player_level_up(new_level: int):
+	pass
+
+func _handle_player_stat_increase(stat: String, new_level: int):
+	pass
+
+func _handle_player_perk_increase(stat: String, perk: Perk):
+	pass
 #endregion
 
 #region Debug terminal
