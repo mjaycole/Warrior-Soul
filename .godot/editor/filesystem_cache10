@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1781494246
+::res://::1781561063
 icon.svg::CompressedTexture2D::8076833388494616384::1780200245::1781399771::1::::<><><>0<>0<>1cac51f039d8cf534622e5efd0c52603<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 read_me.txt::TextFile::-1::1780502468::0::1::::<><><>0<>0<><>::
 ::res://Art/::1780455004
@@ -398,7 +398,7 @@ mouse_scroll_vertical.png::CompressedTexture2D::8519735438576372084::1781456097:
 mouse_scroll_vertical_outline.png::CompressedTexture2D::6163240255051719273::1781456097::1781456099::1::::<><><>0<>0<>c80f229e3627f6b8d83f57a05f95f1bf<>res://.godot/imported/mouse_scroll_vertical_outline.png-464696d004a51cfeed757a5db730c9e2.ctex::
 mouse_small.png::CompressedTexture2D::811722591249898157::1781456097::1781456099::1::::<><><>0<>0<>d66e7bc50486c1bf1a87891e4062ffba<>res://.godot/imported/mouse_small.png-0805af0dfb6afb2a9e4f70e4cc615a49.ctex::
 mouse_vertical.png::CompressedTexture2D::4102735498133722973::1781456097::1781456099::1::::<><><>0<>0<>b466f23ea4c09fdb07c91fb0db874e38<>res://.godot/imported/mouse_vertical.png-5b3f2e6c660b146bb101b10853c498a0.ctex::
-::res://Art/UI/KenneyPixelAdventure/::1781536086
+::res://Art/UI/KenneyPixelAdventure/::1781536087
 Sample.png::CompressedTexture2D::1571654054110590592::1781536086::1781536087::1::::<><><>0<>0<>094452f765167dc890e883f96466d063<>res://.godot/imported/Sample.png-740930c9183099f844c49392455c2366.ctex::
 ::res://Art/UI/KenneyPixelAdventure/Border/::1781536083
 panel-border-000.png::CompressedTexture2D::6311655628705029097::1781536081::1781536083::1::::<><><>0<>0<>d64f14906e52e652e520f68166f143e1<>res://.godot/imported/panel-border-000.png-e4a1c952640893c3480b18f3a65743af.ctex::
@@ -627,8 +627,8 @@ sandbox.tscn::PackedScene::3057217302854419739::1781463542::0::1::::<><><>0<>0<>
 sandbox_2.tscn::PackedScene::2072693981653216179::1781400282::0::1::::<><><>0<>0<><>::uid://ccidi0elom3x::::res://Scripts/GameWorlds/Sandbox.gd<>uid://d6r6xyrbbkny::::res://Art/Packs/Pozac Itch/Pack 2/Tile (3).png<>uid://0kx205gwp2uq::::res://Art/Packs/Pozac Itch/Pack 2/castle_2.tres<>uid://21ly00vwn0vy::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)01.png<>uid://bg4dpclq2lke5::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)02.png<>uid://ireqmvt5dc2q::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)03.png<>uid://camofki3yx7uv::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)04.png<>uid://dskg0n8p0jeqy::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)05.png<>uid://dtre84j0slmru::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)06.png<>uid://cq40oe8ntmek::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)07.png<>uid://1v16qi56l6en::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)08.png<>uid://bht4kww7xxomv::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)09.png<>uid://bi8p8vresgkaf::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)10.png<>uid://d1hesn3ke3w0n::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)11.png<>uid://c7j7dlkkpu3n7::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)12.png<>uid://bnrwuoycfiwxo::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)13.png<>uid://bno2578t11gxn::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)14.png<>uid://bqgun0wywff8h::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)15.png<>uid://y2rv1fyqb4a2::::res://Art/Packs/Pozac Itch/Pack 2/Flag/Prop (3)16.png<>uid://d0cnw4hvsg7by::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)01.png<>uid://bl0r2qkyqqswr::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)02.png<>uid://b12e3v4ggttxs::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)03.png<>uid://yjsg8pbm2trh::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)04.png<>uid://6eecall83dms::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)05.png<>uid://c20wr8yn04xog::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)06.png<>uid://yj4m85k22nqu::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)07.png<>uid://bi4q8bqa17h8m::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)08.png<>uid://dgy3vpkxhyi18::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)09.png<>uid://bg0ry0y04dttv::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)10.png<>uid://cyen4264kgar8::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)11.png<>uid://bvktjoj0kli6r::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)12.png<>uid://dv07p0pixtt14::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)13.png<>uid://c0727ope3ktq4::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)14.png<>uid://uhh1bq1xh670::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)15.png<>uid://dhqxvbbbrebl2::::res://Art/Packs/Pozac Itch/Pack 2/Chains/Chain Silver/Prop (7)16.png<>uid://coxuklfoq1am5::::res://Art/Textures/player_light.tres<>uid://bftvoi62migyk::::res://Scripts/Utilities/LightFlicker.gd<>uid://my2ple0ru6rv::::res://Audio/Effects/Environment/Builder_Game_Torch_Loop.wav<>uid://b275qvwigftd::::res://Scripts/Environment/EnvironmentObjects/EnvironmentAudio.gd<>uid://b0l04d8gnvvar::::res://Scripts/Player/PlayerCamera.gd<>uid://cbcwbx3wgureq::::res://Assets/Enemies/gobline_one.tscn<>uid://d250ue84ar7n::::res://Assets/Environment/Interactables/game_world_transition.tscn
 ::res://Nodes/Menus/::1780372413
 main_menu.tscn::PackedScene::7416854564037602973::1780372413::0::1::::<><><>0<>0<><>::uid://5my12u71qs1x::::res://Scripts/Menus/MainMenu/MainMenu.gd<>uid://dfmg8misquwjt::::res://Art/Wallpapers/EldenRingWallpaper.jpg<>uid://br5nxxm86d6ox::::res://Scripts/Menus/MainMenu/HomePanel.gd<>uid://bm3lbnlpfarxf::::res://Scripts/Menus/MainMenu/NewPanel.gd
-::res://Nodes/UI/::1781101305
-in_game_hud.tscn::PackedScene::194483176026670185::1781101305::0::1::::<><><>0<>0<><>::uid://dvjf0dq8vbngl::::res://Art/Misc/blanksquare.jpg<>uid://bxda8c1pasfr1::::res://Scripts/Menus/HUD/HUDManager.gd
+::res://Nodes/UI/::1781537327
+in_game_hud.tscn::PackedScene::194483176026670185::1781537327::0::1::::<><><>0<>0<><>::uid://dvjf0dq8vbngl::::res://Art/Misc/blanksquare.jpg<>uid://bxda8c1pasfr1::::res://Scripts/Menus/HUD/HUDManager.gd<>uid://w4a1w5jytbbx::::res://Art/UI/KenneyPixelAdventure/Transparent center/panel-transparent-center-030.png<>uid://m85fi6346vyu::::res://Art/UI/KenneyPixelAdventure/Transparent center/panel-transparent-center-015.png
 ::res://Resources/::1781231940
 audio_manager.tscn::PackedScene::1248077654511131440::1781231940::0::1::::<><><>0<>0<><>::uid://ci5yj8l8brcv4::::res://Scripts/CoreSystems/AudioManager.gd
 ::res://Resources/Data/::1781494228
@@ -720,9 +720,9 @@ PlayerInteract.gd::GDScript::1503378455446158278::1781463891::0::1::::PlayerInte
 PlayerInventory.gd::GDScript::1437405135517242912::1780445553::0::1::::PlayerInventory<>Resource<><>0<>0<><>::
 PlayerItemUsage.gd::GDScript::840628333956870684::1780580876::0::1::::<>Node<><>0<>0<><>::
 PlayerPhysics.gd::GDScript::66069284227663043::1781471577::0::1::::<>Node2D<><>0<>0<><>::
-::res://Scripts/Player/Perks/::1781470756
+::res://Scripts/Player/Perks/::1781536279
 Perk.gd::GDScript::2332978563841067338::1781472809::0::1::::Perk<>Resource<><>0<>0<><>::
-PlayerPerks.gd::GDScript::4304355527163877353::1781534876::0::1::::PlayerPerks<>Resource<><>0<>0<><>::
+PlayerPerks.gd::GDScript::4304355527163877353::1781536279::0::1::::PlayerPerks<>Resource<><>0<>0<><>::
 ::res://Scripts/Player/StatsAndSkills/::1781465151
 PlayerStats.gd::GDScript::4520850818001060769::1781534891::0::1::::PlayerStat<>Resource<><>0<>0<><>::
 ::res://Scripts/Player/UI/::1781455666
