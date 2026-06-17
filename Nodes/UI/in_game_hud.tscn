@@ -44,12 +44,16 @@ expand_mode = 1
 
 [node name="RightHand" type="Control" parent="CanvasLayer/ActiveItems" unique_id=574200171]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -40.0
-offset_right = 60.0
-offset_bottom = 40.0
+offset_left = -70.0
+offset_top = -45.0
+offset_right = -5.0
+offset_bottom = 45.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Background" type="TextureRect" parent="CanvasLayer/ActiveItems/RightHand" unique_id=708865073]
@@ -64,6 +68,46 @@ expand_mode = 1
 
 [node name="ItemIcon" type="TextureRect" parent="CanvasLayer/ActiveItems/RightHand" unique_id=1394569336]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -29.0
+offset_right = 21.835
+offset_bottom = 30.214996
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+stretch_mode = 5
+
+[node name="QuickItem1" type="Control" parent="CanvasLayer/ActiveItems" unique_id=484932348]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -45.0
+offset_right = 44.99994
+offset_bottom = -4.999962
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/ActiveItems/QuickItem1" unique_id=1229495369]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6727g")
+expand_mode = 1
+
+[node name="ItemIcon" type="TextureRect" parent="CanvasLayer/ActiveItems/QuickItem1" unique_id=723288813]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -76,18 +120,21 @@ grow_vertical = 2
 expand_mode = 5
 stretch_mode = 5
 
-[node name="ItemNorth" type="Control" parent="CanvasLayer/ActiveItems" unique_id=484932348]
+[node name="QuickItem2" type="Control" parent="CanvasLayer/ActiveItems" unique_id=136648222]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -25.0
-offset_top = 10.0
-offset_right = 15.0
-offset_bottom = 50.0
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 44.99994
+offset_bottom = 44.99997
 grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="CanvasLayer/ActiveItems/ItemNorth" unique_id=1229495369]
+[node name="Background" type="TextureRect" parent="CanvasLayer/ActiveItems/QuickItem2" unique_id=565491036]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,45 +144,7 @@ grow_vertical = 2
 texture = ExtResource("2_6727g")
 expand_mode = 1
 
-[node name="ItemIcon" type="TextureRect" parent="CanvasLayer/ActiveItems/ItemNorth" unique_id=723288813]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 5.0000076
-offset_right = -5.7249985
-offset_bottom = -4.9999924
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 5
-stretch_mode = 5
-
-[node name="ItemSouth" type="Control" parent="CanvasLayer/ActiveItems" unique_id=50746944]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -70.0
-offset_right = 25.0
-offset_bottom = -10.000015
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Background" type="TextureRect" parent="CanvasLayer/ActiveItems/ItemSouth" unique_id=1534038373]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_6727g")
-expand_mode = 1
-
-[node name="ItemIcon" type="TextureRect" parent="CanvasLayer/ActiveItems/ItemSouth" unique_id=575184093]
+[node name="ItemIcon" type="TextureRect" parent="CanvasLayer/ActiveItems/QuickItem2" unique_id=1683190178]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
